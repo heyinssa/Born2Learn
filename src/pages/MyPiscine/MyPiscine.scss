@@ -1,0 +1,23 @@
+@import '../../theme';
+
+.mypiscine-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .body {
+    width: 100%;
+    height: 95%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    .dummy {
+      width: 80%;
+      height: 10%;
+      background-color: gray;
+      cursor: pointer;
+      margin: 10px;
+    }
+  }
+}

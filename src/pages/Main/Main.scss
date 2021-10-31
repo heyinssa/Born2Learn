@@ -1,0 +1,31 @@
+@import '../../theme';
+
+.main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .main-page {
+    width: 100%;
+    height: 95%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    h1 {
+      margin: 10px 0 10px 0;
+    }
+    .parti,
+    .not-parti {
+      display: flex;
+      background-color: white;
+      div {
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        margin: 15px;
+      }
+    }
+  }
+}

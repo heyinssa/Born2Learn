@@ -1,0 +1,24 @@
+$theme-color-primary: #15b2b3;
+$header-bg-color: #252831;
+$header-bg-colorL: #3b404f;
+$fontFamily: Arial, sans-serif;
+
+$mainColor: #15b2b3;
+$bgColor: #252831;
+$bgColorLight: #3b404f;
+$bgColorGray: #c4c4c4;
+
+@mixin text($size: 16px, $color: $mainColor) {
+  font-size: $size;
+  font-family: 'nanum-gothic';
+  color: $color;
+  src: url(https://fonts.google.com/specimen/Nanum+Gothic?query=nanum#about);
+}
+
+@mixin inner {
+  position: relative;
+  width: 1100px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
