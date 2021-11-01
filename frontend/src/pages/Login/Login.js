@@ -23,16 +23,17 @@ const Login = ({ location }) => {
     const message = `설정한 패턴은 ${path}입니다!`;
     alert(message);
     setPath([]);
-    axios
-      .get(checkValidatePasswordApi)
-      .then((response) => {
-        console.log('성공!');
-        setIsFinish(true);
-      })
-      .catch((error) => {
-        console.log('실패!');
-        setIsFinish(false);
-      });
+    setIsFinish(true);
+    // axios
+    //   .get(checkValidatePasswordApi)
+    //   .then((response) => {
+    //     console.log('성공!');
+    //     setIsFinish(true);
+    //   })
+    //   .catch((error) => {
+    //     console.log('실패!');
+    //     setIsFinish(false);
+    //   });
   };
 
   const tempSetToken = (token) => {
