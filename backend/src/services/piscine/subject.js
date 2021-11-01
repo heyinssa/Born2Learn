@@ -27,7 +27,7 @@ async function create(
 
 async function update(
   subject_id, //
-  piscine_id,
+  piscine_id, //
   readme_link,
   default_repository,
 ) {
