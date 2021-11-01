@@ -1,12 +1,9 @@
-import ElementModel from './feedback/element.js';
-import FeedbackModel from './feedback/feedback.js';
-import ImageModel from './media/image.js';
-import TeamModel from './team/team.js';
-import ProviderTeamModel from './user/provider_team.js';
-import ProviderModel from './user/provider.js';
-import TesterModel from './user/tester.js';
-import VersionImageModel from './version/version_image.js';
-import VersionModel from './version/version.js';
+import Evaluation from './evaluation/evaluation';
+import Piscine from './piscine/piscine';
+import Subject from './piscine/subject';
+import User_piscine from './user/user_piscine';
+import User_subject from './user/user_subject';
+import User from './user/user';
 
 /**
  * Model
@@ -33,13 +30,10 @@ import VersionModel from './version/version.js';
  */
 
 export {
-  ElementModel,
-  FeedbackModel,
-  ImageModel,
-  TeamModel,
-  ProviderTeamModel,
-  ProviderModel,
-  TesterModel,
-  VersionImageModel,
-  VersionModel,
+  Evaluation, //
+  Piscine,
+  Subject,
+  User_piscine,
+  User_subject,
+  User,
 };

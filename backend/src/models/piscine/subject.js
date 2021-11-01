@@ -12,7 +12,7 @@ const Subject = Sequelize.define(
     piscine_id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'piscine',
         key: 'piscine_id',
@@ -39,24 +39,34 @@ async function getBySubjectId(subject_id) {
   });
 }
 
+async function getByPiscineId(piscine_id) {
+  return Subject.find({
+    where: { piscine_id },
+  });
+}
+
 async function create(
-  id, //
-  password,
+  piscine_id, //
+  readme_link,
+  default_repository,
 ) {
   return Subject.create({
-    id,
-    password,
+    piscine_id, //
+    readme_link,
+    default_repository,
   }).then(data => this.getBySubjectId(data.dataValues.subject_id));
 }
 
 async function update(
   subject_id, //
-  id,
-  password,
+  piscine_id,
+  readme_link,
+  default_repository,
 ) {
   return Subject.findByPk(subject_id).then(subject => {
-    subject.id = id;
-    subject.password = password;
+    subject.piscine_id = piscine_id;
+    subject.readme_link = readme_link;
+    subject.default_repository = default_repository;
     return subject
       .save()
       .then(data => this.getBySubjectId(data.dataValues.subject_id));
@@ -69,6 +79,7 @@ async function remove(subject_id) {
 
 export default {
   getBySubjectId,
+  getByPiscineId,
   create,
   update,
   remove,
