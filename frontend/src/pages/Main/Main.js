@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Header from 'components/Header';
 import './Main.scss';
+import Footer from 'components/Footer';
 
 const Main = () => {
   const [myPiscine, setMyPiscine] = useState([]);
@@ -13,7 +14,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div className={('body', 'main-container')}>
+    <div className={'main-container'}>
       <Header />
       <div className="main-page">
         <div className="main-block">
@@ -43,6 +44,7 @@ const Main = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

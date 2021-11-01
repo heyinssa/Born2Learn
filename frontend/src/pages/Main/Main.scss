@@ -10,12 +10,13 @@
 .main-container {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 
   .main-page {
+    position: relative;
     width: 600px;
-    height: 90%;
+    height: auto;
     background-color: white;
     align-items: center;
     display: flex;
