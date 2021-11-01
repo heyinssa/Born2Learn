@@ -15,8 +15,8 @@ router.delete('/:user', UserController.remove);
 /* Piscine (Equal FK) */
 
 router.get('/:user/piscines', UserController.getPiscines);
-router.post('/:user/piscines/:piscine', UserController.joinPiscine);
-router.delete('/:user/piscines/:piscine', UserController.leavePiscine);
+router.post('/:user/piscines/:piscine', UserController.registerPiscine);
+router.delete('/:user/piscines/:piscine', UserController.unregisterPiscine);
 
 /* Evaluation (lower FK) */
 
@@ -32,7 +32,7 @@ router.get(
 /* Subject (Equal FK) */
 
 router.get('/:user/subjects', UserController.getPiscines);
-router.post('/:user/subjects/:subject', UserController.joinPiscine);
-router.delete('/:user/subjects/:subject', UserController.leavePiscine);
+router.post('/:user/subjects/:subject', UserController.registerSubject);
+router.delete('/:user/subjects/:subject', UserController.unregisterSubject);
 
 export default router;

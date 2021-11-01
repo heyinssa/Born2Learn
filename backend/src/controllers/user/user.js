@@ -12,15 +12,13 @@ async function get(req, res, next) {
 
 async function create(req, res, next) {
   const {
-    piscine_id, //
-    readme_link,
-    default_repository,
+    id, //
+    password,
   } = req.body;
 
   const user = await UserService.create(
-    piscine_id, //
-    readme_link,
-    default_repository,
+    id, //
+    password,
   );
 
   res.status(200).json(user);
@@ -29,16 +27,14 @@ async function create(req, res, next) {
 async function update(req, res, next) {
   const user_id = req.params.user;
   const {
-    piscine_id, //
-    readme_link,
-    default_repository,
+    id, //
+    password,
   } = req.body;
 
   const user = await UserService.update(
     user_id, //
-    piscine_id, //
-    readme_link,
-    default_repository,
+    id, //
+    password,
   );
 
   res.status(200).json(user);
@@ -77,7 +73,7 @@ async function getEvaluationsByEvaluatee(req, res, next) {
 async function getPiscines(req, res, next) {
   const user_id = req.params.user;
 
-  const users = await UserService.getUsers(user_id);
+  const users = await UserService.getPiscines(user_id);
 
   res.status(200).json(users);
 }
@@ -105,7 +101,7 @@ async function unregisterPiscine(req, res, next) {
 async function getSubjects(req, res, next) {
   const user_id = req.params.user;
 
-  const users = await UserService.getUsers(user_id);
+  const users = await UserService.getSubjects(user_id);
 
   res.status(200).json(users);
 }

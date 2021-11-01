@@ -40,7 +40,7 @@ async function getBySubjectId(subject_id) {
 }
 
 async function getByPiscineId(piscine_id) {
-  return Subject.find({
+  return Subject.findAll({
     where: { piscine_id },
   });
 }

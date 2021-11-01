@@ -55,7 +55,7 @@ async function update(
 }
 
 async function remove(piscine_id) {
-  return Piscine.findByPk(piscine_id).ten(piscine => piscine.destroy());
+  return Piscine.findByPk(piscine_id).then(piscine => piscine.destroy());
 }
 
 export default {

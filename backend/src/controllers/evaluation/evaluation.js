@@ -12,19 +12,13 @@ async function get(req, res, next) {
 
 async function create(req, res, next) {
   const {
-    evaluator_id, //
-    evaluatee_id,
+    evaluatee_id, //
     subject_id,
-    is_done,
-    score,
   } = req.body;
 
   const evaluation = await EvaluationService.create(
-    evaluator_id, //
-    evaluatee_id,
+    evaluatee_id, //
     subject_id,
-    is_done,
-    score,
   );
 
   res.status(200).json(evaluation);

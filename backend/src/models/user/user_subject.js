@@ -43,13 +43,13 @@ const UserSubject = Sequelize.define(
 );
 
 async function getByUserId(user_id) {
-  return UserSubject.find({
+  return UserSubject.findAll({
     where: { user_id },
   });
 }
 
 async function getBySubjectId(subject_id) {
-  return UserSubject.find({
+  return UserSubject.findAll({
     where: { subject_id },
   });
 }
@@ -86,13 +86,13 @@ async function remove(user_id, subject_id) {
 
 async function removeByUserId(user_id) {
   return UserSubject.destroy({
-    user_id,
+    where: { user_id },
   });
 }
 
 async function removeBySubjectId(subject_id) {
   return UserSubject.destroy({
-    subject_id,
+    where: { subject_id },
   });
 }
 export default {

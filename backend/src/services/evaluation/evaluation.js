@@ -86,13 +86,13 @@ async function removeByEvaluatorId(evaluator_id) {
 /* Evaluetee (upper FK) */
 
 async function getByEvaluateeId(evalutee_id) {
-  const evaluations = await EvaluationModel.getByEvalueteeId(evalutee_id);
+  const evaluations = await EvaluationModel.getByEvaluateeId(evalutee_id);
 
   return evaluations;
 }
 
 async function removeByEvaluateeId(evalutee_id) {
-  const evaluations = await EvaluationModel.getByEvalueteeId(evalutee_id);
+  const evaluations = await EvaluationModel.getByEvaluateeId(evalutee_id);
 
   if (evaluations)
     evaluations.forEach(evaluation =>

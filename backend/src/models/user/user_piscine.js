@@ -31,13 +31,13 @@ const UserPiscine = Sequelize.define(
 );
 
 async function getByUserId(user_id) {
-  return UserPiscine.find({
+  return UserPiscine.findAll({
     where: { user_id },
   });
 }
 
 async function getByPiscineId(piscine_id) {
-  return UserPiscine.find({
+  return UserPiscine.findAll({
     where: { piscine_id },
   });
 }
@@ -68,13 +68,13 @@ async function remove(user_id, piscine_id) {
 
 async function removeByUserId(user_id) {
   return UserPiscine.destroy({
-    user_id,
+    where: { user_id },
   });
 }
 
 async function removeByPiscineId(piscine_id) {
   return UserPiscine.destroy({
-    piscine_id,
+    where: { piscine_id },
   });
 }
 

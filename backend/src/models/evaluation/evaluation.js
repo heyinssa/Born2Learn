@@ -58,19 +58,19 @@ async function getByEvaluationId(evaluation_id) {
 }
 
 async function getByEvaluatorId(evaluator_id) {
-  return Evaluation.find({
+  return Evaluation.findAll({
     where: { evaluator_id },
   });
 }
 
 async function getByEvaluateeId(evaluatee_id) {
-  return Evaluation.find({
+  return Evaluation.findAll({
     where: { evaluatee_id },
   });
 }
 
 async function getBySubjectId(subject_id) {
-  return Evaluation.find({
+  return Evaluation.findAll({
     where: { subject_id },
   });
 }
