@@ -66,9 +66,23 @@ async function remove(user_id, piscine_id) {
   );
 }
 
+async function removeByUserId(user_id) {
+  return UserPiscine.destroy({
+    user_id,
+  });
+}
+
+async function removeByPiscineId(piscine_id) {
+  return UserPiscine.destroy({
+    piscine_id,
+  });
+}
+
 export default {
   getByUserId,
   getByPiscineId,
   create,
   remove,
+  removeByUserId,
+  removeByPiscineId,
 };

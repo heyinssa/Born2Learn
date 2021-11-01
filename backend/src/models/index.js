@@ -1,9 +1,9 @@
-import EvaluationModel from './evaluation/evaluation';
-import PiscineModel from './piscine/piscine';
-import SubjectModel from './piscine/subject';
-import User_piscineModel from './user/user_piscine';
-import User_subjectModel from './user/user_subject';
-import UserModel from './user/user';
+import EvaluationModel from './evaluation/evaluation.js';
+import PiscineModel from './piscine/piscine.js';
+import SubjectModel from './piscine/subject.js';
+import UserPiscineModel from './user/user_piscine.js';
+import UserSubjectModel from './user/user_subject.js';
+import UserModel from './user/user.js';
 
 /**
  * Model
@@ -33,7 +33,7 @@ export {
   EvaluationModel, //
   PiscineModel,
   SubjectModel,
-  User_piscineModel,
-  User_subjectModel,
+  UserPiscineModel,
+  UserSubjectModel,
   UserModel,
 };

@@ -42,7 +42,7 @@ async function create(
 
 async function update(
   piscine_id, //
-  github_link, //
+  github_link,
   readme_link,
 ) {
   return Piscine.findByPk(piscine_id).then(piscine => {

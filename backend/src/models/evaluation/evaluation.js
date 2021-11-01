@@ -57,9 +57,21 @@ async function getByEvaluationId(evaluation_id) {
   });
 }
 
-async function getByPiscineId(user_id) {
+async function getByEvaluatorId(evaluator_id) {
   return Evaluation.find({
-    where: { user_id },
+    where: { evaluator_id },
+  });
+}
+
+async function getByEvaluateeId(evaluatee_id) {
+  return Evaluation.find({
+    where: { evaluatee_id },
+  });
+}
+
+async function getBySubjectId(subject_id) {
+  return Evaluation.find({
+    where: { subject_id },
   });
 }
 
@@ -107,7 +119,9 @@ async function remove(evaluation_id) {
 
 export default {
   getByEvaluationId,
-  getByPiscineId,
+  getByEvaluatorId,
+  getByEvaluateeId,
+  getBySubjectId,
   create,
   update,
   remove,

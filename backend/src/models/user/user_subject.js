@@ -84,9 +84,22 @@ async function remove(user_id, subject_id) {
   );
 }
 
+async function removeByUserId(user_id) {
+  return UserSubject.destroy({
+    user_id,
+  });
+}
+
+async function removeBySubjectId(subject_id) {
+  return UserSubject.destroy({
+    subject_id,
+  });
+}
 export default {
   getByUserId,
   getBySubjectId,
   create,
   remove,
+  removeByUserId,
+  removeBySubjectId,
 };
