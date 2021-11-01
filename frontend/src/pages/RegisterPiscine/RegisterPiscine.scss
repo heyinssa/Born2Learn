@@ -1,17 +1,44 @@
 @import '../../theme';
 
 .register-container {
+  // position: absolute;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   .body {
+    position: relative;
     width: 100%;
-    height: 95%;
+    height: auto;
     background-color: white;
     align-items: center;
     display: flex;
     flex-direction: column;
     padding-top: 15px;
+  }
+
+  .register-button {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 60px;
+    width: 240px;
+    background-color: #733b36;
+    border: 0px solid #9bbdcc;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-family: 'EliceDigitalBaeum_Bold';
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 8px 6px -1px rgba(0, 0, 0, 0.5),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: 0.5s;
+    text-shadow: 0 0 2px black;
   }
 }
