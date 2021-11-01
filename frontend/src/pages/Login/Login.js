@@ -7,7 +7,8 @@ import getUserId from 'utils/getUserId';
 import './Login.scss';
 import axios from 'axios';
 
-const checkValidatePasswordApi = 'https://www.google.com';
+const checkValidatePasswordApi =
+  'http://ec2-3-34-2-242.ap-northeast-2.compute.amazonaws.com:9001/api/users/ycha';
 
 const Login = ({ location }) => {
   const id = location.state.userId;
@@ -19,21 +20,26 @@ const Login = ({ location }) => {
     setPath(pattern);
   };
 
-  const handleFinish = () => {
-    const message = `설정한 패턴은 ${path}입니다!`;
+  const handleFinish = async () => {
+    let pwString = path.join('');
+    const message = `설정한 패턴은 ${path}입니다! ->  ${pwString}`;
     alert(message);
     setPath([]);
-    setIsFinish(true);
-    // axios
-    //   .get(checkValidatePasswordApi)
-    //   .then((response) => {
-    //     console.log('성공!');
-    //     setIsFinish(true);
-    //   })
-    //   .catch((error) => {
-    //     console.log('실패!');
-    //     setIsFinish(false);
-    //   });
+    // setIsFinish(true);
+    await axios
+      .post(checkValidatePasswordApi, {
+        data: {
+          password: pwString,
+        },
+      })
+      .then((response) => {
+        console.log('성공!');
+        setIsFinish(true);
+      })
+      .catch((error) => {
+        console.log('실패!');
+        setIsFinish(false);
+      });
   };
 
   const tempSetToken = (token) => {

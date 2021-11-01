@@ -1,5 +1,4 @@
 import { React } from 'react';
-import Image from 'asset/sq.png';
 import './Header.scss';
 
 const Header = () => {

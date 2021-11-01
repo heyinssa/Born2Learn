@@ -18,7 +18,12 @@ const Entrance = () => {
   return (
     <div className="login-page">
       <h1 className="title">WMPB</h1>
-      <input onChange={handleChangeId} className="inputid" value={userId} maxLength="10" />
+      <input
+        onChange={handleChangeId}
+        className="inputid"
+        value={userId}
+        maxLength="10"
+      />
       <Link
         to={{
           pathname: '/login',
@@ -27,8 +32,28 @@ const Entrance = () => {
           },
         }}
       >
-        <button type="button" onClick={handleClickLogin} className="loginbutton">
+        <button
+          type="button"
+          onClick={handleClickLogin}
+          className="loginbutton"
+        >
           로그인
+        </button>
+      </Link>
+      <Link
+        to={{
+          pathname: '/login',
+          state: {
+            userId: userId,
+          },
+        }}
+      >
+        <button
+          type="button"
+          onClick={handleClickLogin}
+          className="loginbutton"
+        >
+          회원가입
         </button>
       </Link>
     </div>
