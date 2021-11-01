@@ -16,6 +16,7 @@ const Main = () => {
     <div className="main-container">
       <Header />
       <div className="main-page">
+        <div className="main-block">
         <h1>참여 중인 과정</h1>
 
         <div className="parti">
@@ -40,6 +41,7 @@ const Main = () => {
             );
           })}
         </div>
+      </div>
       </div>
     </div>
   );
