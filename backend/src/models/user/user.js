@@ -25,8 +25,13 @@ const User = Sequelize.define(
 );
 
 async function getByUserId(user_id) {
+  // return User.findOne({
+  //   where: { user_id },
+  // });
   return User.findOne({
-    where: { user_id },
+    where: {id: user_id}
+  }).then(user => {
+    console.log(user.id)
   });
 }
 
