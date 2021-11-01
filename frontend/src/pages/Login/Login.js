@@ -13,7 +13,7 @@ const Login = ({ location }) => {
   const [idResult, setIdResult] = useState('');
   const [isFinish, setIsFinish] = useState(false);
 
-  const handleChangePath = pattern => {
+  const handleChangePath = (pattern) => {
     setPath(pattern);
   };
 
@@ -33,7 +33,7 @@ const Login = ({ location }) => {
       console.log(token);
       const result = await getUserId(
         id,
-        'f163e4c48423a9e5dc56bd9a5539d9364958af1df6477b5d1c4e5ebe12ccd533',
+        'f163e4c48423a9e5dc56bd9a5539d9364958af1df6477b5d1c4e5ebe12ccd533'
       );
       console.log(result);
       setIdResult(result);
@@ -58,16 +58,19 @@ const Login = ({ location }) => {
                 pointSize={15}
                 size={3}
                 path={path}
-                onChange={pattern => {
+                onChange={(pattern) => {
                   handleChangePath(pattern);
                 }}
                 onFinish={handleFinish}
               />
             </>
           ) : (
-            <Link to="/">
-              <div>존재하지 않는 아이디! 클릭해서 돌아가세요!</div>
+            <Link to="/main">
+              <div className="modal">로그인 성공!</div>
             </Link>
+            // <Link to="/">
+            //   <div>존재하지 않는 아이디! 클릭해서 돌아가세요!</div>
+            // </Link>
           )}
         </>
       )}
