@@ -13,7 +13,6 @@ const MyPiscine = ({ match }) => {
       <div className="body">
         <h1>Git Branch Piscine</h1>
         <h2>sdfaksfljdsalkfjdas sdfjlaksdfjasldfj sdfjksda!</h2>
-        {index}번째 피신을 선택 현재 피신에 대한 정보를 API든 뭐든 요청.
         {dummy.map((e, i) => {
           const url = `/myPiscine/view/${index}-${i}`;
           return (
