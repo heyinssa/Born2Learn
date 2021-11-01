@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Line = () => {
-  return <div>"---------------------------------------------------------"</div>;
+  return (
+    <div className="comp-temp">
+      <hr />
+    </div>
+  );
 };
 
 export default Line;

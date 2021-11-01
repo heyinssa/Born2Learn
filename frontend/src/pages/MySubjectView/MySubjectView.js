@@ -16,14 +16,12 @@ const MySubjectView = ({ match }) => {
     <div className="mysubject-container">
       <Header />
       <div className="body">
-        {/* <div className="mypiscinebox"> */}
         <MySubjectTitle></MySubjectTitle>
         <Line></Line>
         <MySubjectGitRepository></MySubjectGitRepository>
         <UserProfile></UserProfile>
         <Line></Line>
         <MDViewer url={temp}> </MDViewer>
-        {/* </div> */}
       </div>
     </div>
   );

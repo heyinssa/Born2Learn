@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MySubjectGitRepository = () => {
-  return <div>"MySubjectGitRepository"</div>;
+  return <div className="comp-temp">"MySubjectGitRepository"</div>;
 };
 
 export default MySubjectGitRepository;

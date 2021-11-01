@@ -1,0 +1,22 @@
+.comp-temp {
+  width: 100%;
+
+  .user-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 40px;
+  }
+  .comp-box1 {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 20px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
