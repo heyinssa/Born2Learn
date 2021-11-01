@@ -1,15 +1,17 @@
 import { React } from 'react';
 import Header from 'components/Header';
 import './RegisterPiscine.scss';
+import MDViewer from '../../components/MDViewer';
+
+const temp =
+  'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.kr.md';
 
 const RegisterPiscine = ({ match }) => {
-  const index = match.params.index.substring(0);
   return (
     <div className="register-container">
       <Header />
       <div className="body">
-        <h1> 마크다운으로 불러올 것</h1>
-        {index} 번째 페이지 선택.
+        <MDViewer url={temp}></MDViewer>
       </div>
     </div>
   );

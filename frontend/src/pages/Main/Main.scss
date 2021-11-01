@@ -1,15 +1,15 @@
 @import '../../theme';
 @font-face {
-	font-family: 'ImcreSoojin';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'ImcreSoojin';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .main-container {
   height: 100%;
   width: 100%;
-  justify-content: center;
   display: flex;
   flex-direction: column;
   .main-page {
@@ -26,7 +26,7 @@
       font-weight: bolder;
       color: rgb(55, 55, 55);
     }
-    .parti ,
+    .parti,
     .not-parti {
       display: flex;
       background-color: white;
