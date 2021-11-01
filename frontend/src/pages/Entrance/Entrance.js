@@ -4,25 +4,26 @@ import { Link } from 'react-router-dom';
 import './Entrance.scss';
 
 const Entrance = () => {
-  const [id, setId] = useState('');
+  const [userId, setUserId] = useState('');
 
-  const handleChangeId = e => {
-    setId(e.currentTarget.value.replace(/[^A-Za-z]/gi, ''));
+  const handleChangeId = (e) => {
+    setUserId(e.currentTarget.value.replace(/[^A-Za-z]/gi, ''));
   };
 
   const handleClickLogin = () => {
-    console.log(id);
-    setId('');
+    console.log(userId);
+    setUserId('');
   };
+
   return (
     <div className="login-page">
       <h1 className="title">WMPB</h1>
-      <input onChange={handleChangeId} value={id} maxLength="10" />
+      <input onChange={handleChangeId} value={userId} maxLength="10" />
       <Link
         to={{
           pathname: '/login',
           state: {
-            userId: id,
+            userId: userId,
           },
         }}
       >

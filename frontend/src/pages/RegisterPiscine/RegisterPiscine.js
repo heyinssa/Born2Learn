@@ -4,7 +4,7 @@ import './RegisterPiscine.scss';
 import MDViewer from '../../components/Body/MDViewer';
 
 const temp =
-  'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.kr.md';
+  'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.md';
 
 const RegisterPiscine = ({ match }) => {
   return (

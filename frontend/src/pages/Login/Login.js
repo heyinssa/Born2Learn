@@ -5,6 +5,9 @@ import getToken from 'utils/getToken';
 import getUserId from 'utils/getUserId';
 
 import './Login.scss';
+import axios from 'axios';
+
+const checkValidatePasswordApi = 'https://www.google.com';
 
 const Login = ({ location }) => {
   const id = location.state.userId;
@@ -20,7 +23,16 @@ const Login = ({ location }) => {
     const message = `설정한 패턴은 ${path}입니다!`;
     alert(message);
     setPath([]);
-    setIsFinish(true);
+    axios
+      .get(checkValidatePasswordApi)
+      .then((response) => {
+        console.log('성공!');
+        setIsFinish(true);
+      })
+      .catch((error) => {
+        console.log('실패!');
+        setIsFinish(false);
+      });
   };
 
   const tempSetToken = (token) => {
