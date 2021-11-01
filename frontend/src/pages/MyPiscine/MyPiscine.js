@@ -12,17 +12,17 @@ const MyPiscine = ({ match }) => {
       <Header />
       <div className="body">
         <div className="mypiscinebox">
-        <h1>Git Branch Piscine</h1>
-        <h2>sdfaksfljdsalkfjdas sdfjlaksdfjasldfj sdfjksda!</h2>
-        {dummy.map((e, i) => {
-          const url = `/myPiscine/view/${index}-${i}`;
-          return (
-            <Link to={url}>
-              <div className="dummy">{e}</div>
-            </Link>
-          );
-        })}
-      </div>
+          <h1>Git Branch Piscine</h1>
+          <h2>sdfaksfljdsalkfjdas sdfjlaksdfjasldfj sdfjksda!</h2>
+          {dummy.map((e, i) => {
+            const url = `/myPiscine/view/${index}-${i}`;
+            return (
+              <Link to={url}>
+                <div className="dummy">{e}</div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

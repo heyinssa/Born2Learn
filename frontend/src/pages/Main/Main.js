@@ -13,35 +13,35 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="main-container">
+    <div className={('body', 'main-container')}>
       <Header />
       <div className="main-page">
         <div className="main-block">
-        <h1>참여 중인 과정</h1>
+          <h1>참여 중인 과정</h1>
 
-        <div className="parti">
-          {myPiscine.map((e, index) => {
-            const url = `/myPiscine/${index}`;
-            return (
-              <Link to={url}>
-                <div>{e}</div>
-              </Link>
-            );
-          })}
-        </div>
-        <h1>등록 가능한 과정</h1>
+          <div className="parti">
+            {myPiscine.map((e, index) => {
+              const url = `/myPiscine/${index}`;
+              return (
+                <Link to={url}>
+                  <div>{e}</div>
+                </Link>
+              );
+            })}
+          </div>
+          <h1>등록 가능한 과정</h1>
 
-        <div className="not-parti">
-          {piscineList.map((e, index) => {
-            const url = `/registerPiscine/${index}`;
-            return (
-              <Link to={url}>
-                <div>{e}</div>
-              </Link>
-            );
-          })}
+          <div className="not-parti">
+            {piscineList.map((e, index) => {
+              const url = `/registerPiscine/${index}`;
+              return (
+                <Link to={url}>
+                  <div>{e}</div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );
