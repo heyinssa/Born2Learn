@@ -1,9 +1,9 @@
-import Evaluation from './evaluation/evaluation';
-import Piscine from './piscine/piscine';
-import Subject from './piscine/subject';
-import User_piscine from './user/user_piscine';
-import User_subject from './user/user_subject';
-import User from './user/user';
+import EvaluationModel from './evaluation/evaluation';
+import PiscineModel from './piscine/piscine';
+import SubjectModel from './piscine/subject';
+import User_piscineModel from './user/user_piscine';
+import User_subjectModel from './user/user_subject';
+import UserModel from './user/user';
 
 /**
  * Model
@@ -30,10 +30,10 @@ import User from './user/user';
  */
 
 export {
-  Evaluation, //
-  Piscine,
-  Subject,
-  User_piscine,
-  User_subject,
-  User,
+  EvaluationModel, //
+  PiscineModel,
+  SubjectModel,
+  User_piscineModel,
+  User_subjectModel,
+  UserModel,
 };
