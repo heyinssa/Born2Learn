@@ -1,4 +1,31 @@
 @import '../../theme';
+@font-face {
+  font-family: 'Binggrae-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Binggrae-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BinggraeMelona';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BinggraeMelona.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KOTRALEAP';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EliceDigitalBaeum_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .mypiscine-container {
   height: 100%;
@@ -7,18 +34,33 @@
   flex-direction: column;
   .body {
     width: 100%;
-    height: 95%;
-    background-color: white;
-
+    height: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    .dummy {
-      width: 80%;
-      height: 10%;
-      background-color: rgb(235, 235, 235);
-      cursor: pointer;
-      margin: 10px;
-      border-radius: 10%;
+    .mypiscinebox{
+      h1 {
+        font-size: 30px;
+        padding-top: 30px;
+        font-weight: bolder;
+        font-family: 'EliceDigitalBaeum_Bold';
+      }
+      h2 {
+        padding-top: 10px;
+        padding-bottom: 30px;
+        font-weight: bolder;
+        font-family: 'EliceDigitalBaeum_Bold';
+      }
+      .dummy {
+        font-family: 'BinggraeMelona';
+        cursor: pointer;
+        margin: 10px;
+        font-size: 30px;
+        padding: 15px;
+        // width: 100%;
+        border-radius: 20px;
+        border: 1px solid rgb(145, 145, 145);
+      }
     }
   }
 }
