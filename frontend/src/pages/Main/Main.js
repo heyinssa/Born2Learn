@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 import Header from 'components/Header';
 import './Main.scss';
+import axios from 'axios';
 
 const Main = () => {
   const [myPiscine, setMyPiscine] = useState([]);
   const [piscineList, setPiscineList] = useState([]);
+
   useEffect(() => {
     setMyPiscine(['aaa', 'bb', 'cc']);
     setPiscineList(['qwe', 'zcxv', 'asdg', 'sa', 'saf', 'asffqw']);

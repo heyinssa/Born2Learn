@@ -6,6 +6,7 @@ import './MyPiscine.scss';
 
 const MyPiscine = ({ match }) => {
   const index = match.params.index.substring(0);
+
   const dummy = ['11', '22', '33'];
   return (
     <div className="mypiscine-container">

@@ -7,6 +7,7 @@ const Routes = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />
+
         <Route exact path="/main" component={Main} />
         <Route exact path="/myPiscine/:index" component={MyPiscine} />
         <Route exact path="/myPiscine/view/:index" component={MyPiscineView} />
