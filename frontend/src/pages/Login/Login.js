@@ -67,7 +67,7 @@ const Login = ({ location }) => {
           {idResult !== 'error' ? (
             <>
               <h1 className="title">WMPB</h1>
-              <h1>id : {id}</h1>
+              <h1>{id}</h1>
               <PatternLock
                 width={300}
                 pointSize={15}
