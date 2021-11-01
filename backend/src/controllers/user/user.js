@@ -1,4 +1,4 @@
-import { UserService } from '../../services/index.js';
+import { EvaluationService, UserService } from '../../services/index.js';
 
 /* User (PK) */
 
@@ -52,7 +52,27 @@ async function remove(req, res, next) {
   res.sendStatus(200);
 }
 
-/* User (Equal FK) */
+/* Evaluation/Evaluator (lower FK) */
+
+async function getEvaluationsByEvaluator(req, res, next) {
+  const user_id = req.params.user;
+
+  const evaluations = await EvaluationService.getByEvaluatorId(user_id);
+
+  res.status(200).json(evaluations);
+}
+
+/* Evaluation/Evaluatee (lower FK) */
+
+async function getEvaluationsByEvaluatee(req, res, next) {
+  const user_id = req.params.user;
+
+  const evaluations = await EvaluationService.getByEvaluateeId(user_id);
+
+  res.status(200).json(evaluations);
+}
+
+/* Piscine (Equal FK) */
 
 async function getPiscines(req, res, next) {
   const user_id = req.params.user;
@@ -79,6 +99,8 @@ async function unregisterPiscine(req, res, next) {
 
   res.sendStatus(200);
 }
+
+/* Subject (Equal FK) */
 
 async function getSubjects(req, res, next) {
   const user_id = req.params.user;
@@ -111,6 +133,8 @@ export default {
   create,
   update,
   remove,
+  getEvaluationsByEvaluator,
+  getEvaluationsByEvaluatee,
   getPiscines,
   registerPiscine,
   unregisterPiscine,

@@ -1,5 +1,6 @@
 import { SubjectModel, UserSubjectModel } from '../../models/index.js';
 import ApiError from '../../modules/error.js';
+import { EvaluationService } from '../index.js';
 
 /* Subject (PK) */
 
@@ -46,6 +47,7 @@ async function update(
 async function removeBySubjectId(subject_id) {
   await getBySubjectId(subject_id);
 
+  await EvaluationService.removeBySubjectId(subject_id);
   await UserSubjectModel.removeBySubjectId(subject_id);
   await SubjectModel.remove(subject_id);
 }

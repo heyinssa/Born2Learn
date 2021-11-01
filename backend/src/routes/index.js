@@ -1,11 +1,9 @@
 import { Router } from 'express';
 
-import ElementRouter from './feedback/element.js';
-import FeedbackRouter from './feedback/feedback.js';
-import TeamRouter from './team/team.js';
-import ProviderRouter from './user/provider.js';
-import TesterRouter from './user/tester.js';
-import VersionRouter from './version/version.js';
+import EvaluationRouter from './evaluation/evaluation.js';
+import PiscineRouter from './piscine/piscine.js';
+import SubjectRouter from './piscine/subject.js';
+import UserRouter from './user/user.js';
 
 /**
  * Route
@@ -39,12 +37,10 @@ import VersionRouter from './version/version.js';
 export default () => {
   const router = Router();
 
-  router.use('/elements', ElementRouter);
-  router.use('/feedbacks', FeedbackRouter);
-  router.use('/teams', TeamRouter);
-  router.use('/providers', ProviderRouter);
-  router.use('/testers', TesterRouter);
-  router.use('/versions', VersionRouter);
+  router.use('/evaluations', EvaluationRouter);
+  router.use('/piscines', PiscineRouter);
+  router.use('/subjects', SubjectRouter);
+  router.use('/users', UserRouter);
 
   return router;
 };

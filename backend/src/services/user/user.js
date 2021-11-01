@@ -3,7 +3,7 @@ import {
   UserPiscineModel,
   UserSubjectModel,
 } from '../../models/index.js';
-import { PiscineService, SubjectService } from '../index.js';
+import { EvaluationService, PiscineService, SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
 
 /* User (PK) */
@@ -47,6 +47,8 @@ async function update(
 async function removeByUserId(user_id) {
   await getByUserId(user_id);
 
+  await EvaluationService.removeByEvaluateeId(user_id);
+  await EvaluationService.removeByEvaluatorId(user_id);
   await UserPiscineModel.removeByUserId(user_id);
   await UserSubjectModel.removeByUserId(user_id);
   await UserModel.remove(user_id);
