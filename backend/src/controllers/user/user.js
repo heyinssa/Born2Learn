@@ -4,8 +4,10 @@ import { EvaluationService, UserService } from '../../services/index.js';
 
 async function get(req, res, next) {
   const user_id = req.params.user;
+  const user_pw = req.body.data.password;
 
-  const user = await UserService.getByUserId(user_id);
+  console.log('controller : ', user_id, user_pw);
+  const user = await UserService.getById(user_id, user_pw);
 
   res.status(200).json(user);
 }

@@ -25,13 +25,13 @@ const User = Sequelize.define(
 );
 
 async function getByUserId(user_id) {
-  // return User.findOne({
-  //   where: { user_id },
-  // });
   return User.findOne({
-    where: {id: user_id}
-  }).then(user => {
-    console.log(user.id)
+    where: { user_id },
+  });
+}
+async function getById(id, pw) {
+  return User.findOne({
+    where: { id: id, password: pw },
   });
 }
 
@@ -63,6 +63,7 @@ async function remove(user_id) {
 
 export default {
   getByUserId,
+  getById,
   create,
   update,
   remove,

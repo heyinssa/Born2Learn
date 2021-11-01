@@ -8,6 +8,7 @@ const router = express.Router();
 /* User (PK) */
 
 router.get('/:user', UserController.get);
+router.post('/:user', UserController.get);
 router.post('/', UserController.create);
 router.put('/:user', UserController.update);
 router.delete('/:user', UserController.remove);
