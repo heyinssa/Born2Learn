@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import { Header, Footer } from 'components';
 import './Main.scss';
 
 const Main = () => {
@@ -14,7 +13,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div className={'main-container'}>
+    <div className="main-container">
       <Header />
       <div className="main-page">
         <div className="main-block">

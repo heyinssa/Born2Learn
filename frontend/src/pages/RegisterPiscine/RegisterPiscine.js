@@ -1,9 +1,8 @@
 import { React } from 'react';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import './RegisterPiscine.scss';
-import MDViewer from '../../components/Body/MDViewer';
+import { Header, Footer } from 'components';
+import { MDViewer } from 'components/Body';
 import RegisterButton from './RegisterButton';
+import './RegisterPiscine.scss';
 
 const rmUrl =
   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.md';
@@ -14,12 +13,12 @@ const RegisterPiscine = ({ match }) => {
   return (
     <div className="register-container">
       <Header />
-      <div className="body">
-        <MDViewer url={rmUrl}></MDViewer>
+      <div className="register-page">
+        <MDViewer className="md" url={rmUrl}></MDViewer>
+        <object className="pdf" data={pdfUrl} type="application/pdf">
+          alt : <a href={pdfUrl}>test.pdf</a>
+        </object>
       </div>
-      <object className="body" data={pdfUrl} type="application/pdf">
-        alt : <a href={pdfUrl}>test.pdf</a>
-      </object>
       <Footer />
       <RegisterButton />
     </div>

@@ -1,5 +1,5 @@
 import { React } from 'react';
-import Header from 'components/Header';
+import { Header } from 'components';
 import { Link } from 'react-router-dom';
 
 import './MyPiscine.scss';
@@ -10,15 +10,16 @@ const MyPiscine = ({ match }) => {
   return (
     <div className="mypiscine-container">
       <Header />
-      <div className="body">
-        <div className="mypiscinebox">
-          <h1>Git Branch Piscine</h1>
-          <h2>sdfaksfljdsalkfjdas sdfjlaksdfjasldfj sdfjksda!</h2>
+      {/* <div className="mypiscine-page"> */}
+      <div className="mypiscinebox">
+        <h1>Git Branch Piscine</h1>
+        <h2>sdfaksfljdsalkfjdas sdfjlaksdfjasldfj sdfjksda!</h2>
+        <div className="dummy">
           {dummy.map((e, i) => {
             const url = `/myPiscine/view/${index}-${i}`;
             return (
               <Link to={url}>
-                <div className="dummy">{e}</div>
+                <div>{e}</div>
               </Link>
             );
           })}

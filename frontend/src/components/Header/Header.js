@@ -7,7 +7,7 @@ const Header = () => {
       <div>WMPB</div>
       <img
         class="fit-picture"
-        src="asset/sq.png"
+        src="sq.png"
         alt="Grapefruit slice atop a pile of other slices"
       />
     </div>

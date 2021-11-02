@@ -1,22 +1,24 @@
 @import '../../theme';
 
 .register-container {
-  // position: absolute;
   height: 100%;
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
-  .body {
+
+  .register-page {
     position: relative;
-    width: 100%;
+    width: 600px;
     height: auto;
     background-color: white;
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
+    margin: auto;
+    // .md {
+    //   width: 100%;
+    // }
+    // .pdf {
+    // }
   }
-
   .register-button {
     position: fixed;
     bottom: 50px;

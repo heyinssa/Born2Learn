@@ -10,20 +10,15 @@
 .main-container {
   height: 100%;
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
 
   .main-page {
     position: relative;
     width: 600px;
     height: auto;
-    // background-color: white;
     align-items: center;
     display: flex;
     margin: auto;
-    // .main-block{
-    //   max-width: 50%;
-    // }
+
     h1 {
       margin: 20px 0 10px 0;
       font-size: 30px;

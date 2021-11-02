@@ -1,12 +1,13 @@
 import { React } from 'react';
-import Header from 'components/Header';
+import { Header } from 'components';
+import {
+  MDViewer,
+  Line,
+  MySubjectTitle,
+  MySubjectGitRepository,
+  UserProfile,
+} from 'components/Body';
 import './MySubjectView.scss';
-
-import MDViewer from 'components/Body/MDViewer';
-import Line from 'components/Body/Line';
-import MySubjectTitle from 'components/Body/MySubjectTitle';
-import MySubjectGitRepository from 'components/Body/MySubjectGitRepository';
-import UserProfile from 'components/Body/UserProfile';
 
 const temp =
   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/piscine01/README.kr.md';
