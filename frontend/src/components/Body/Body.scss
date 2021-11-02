@@ -7,20 +7,24 @@
 .comp-temp {
   width: 100%;
   font-weight: bolder;
-
+  .gitrepo:hover {
+    background-color: rgb(255, 255, 255);
+    color: green;
+    cursor: pointer;
+  }
   .gitrepo {
     width: 100%;
     text-align: left;
-    font-size: .9em;
-    padding: .4em 0 .3em 1em;
-    margin-top: .2em;
+    font-size: 0.9em;
+    padding: 0.4em 0 0.3em 1em;
+    margin-top: 0.2em;
     border: 1px solid rgb(53, 53, 53);
     font-weight: lighter;
-    border-radius: .3em;
+    border-radius: 0.3em;
     margin-bottom: 2.3em;
   }
-  .repo_name{
-    font-size: .75em;
+  .repo_name {
+    font-size: 0.75em;
     color: #777;
   }
 
@@ -28,8 +32,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 3em;
-    span{
-      font-size: .75em;
+    span {
+      font-size: 0.75em;
       color: #555;
     }
     .user-image {
@@ -37,16 +41,16 @@
       flex-direction: row;
       justify-content: flex-start;
       height: max-content;
-      margin-top: .3em;
+      margin-top: 0.3em;
       .userbox {
         background-color: rgb(222, 222, 222);
         font-size: 1.1em;
         box-sizing: border-box;
         display: flex;
-        border-radius: .15em;
+        border-radius: 0.15em;
         border-bottom: 1px solid #333;
-        padding: .4em .8em .3em .8em;
-        margin-right: .3em;
+        padding: 0.4em 0.8em 0.3em 0.8em;
+        margin-right: 0.3em;
       }
     }
   }
@@ -58,7 +62,7 @@
     font-family: 'Nanum Gothic Coding', monospace;
     margin: 13px 0px 8px 0px;
     font-weight: bolder;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
     margin-bottom: 1.2em;
     border-bottom: 1px solid #ddd;
   }
@@ -98,8 +102,8 @@
     box-sizing: border-box;
     width: calc(100% - 120px);
     padding-left: 1em;
-    h3{
-      padding-top: .3em;
+    h3 {
+      padding-top: 0.3em;
       font-size: 1.1em;
       font-family: 'Nanum Gothic Coding', monospace;
     }
