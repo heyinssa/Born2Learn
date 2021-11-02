@@ -1,27 +1,37 @@
 POST http://betti.kr:9000/api/piscines
 {
-    "github_link": "asdf",
-    "readme_link": "asdf"
+    data: {
+        "github_link": "asdf",
+        "readme_link": "asdf"
+    }
 }
 {
-    "github_link": "qwer",
-    "readme_link": "qwer"
+    data: {
+        "github_link": "qwer",
+        "readme_link": "qwer"
+    }
 }
 {
-    "github_link": "zxcv",
-    "readme_link": "zxcv"
+    data: {
+        "github_link": "zxcv",
+        "readme_link": "zxcv"
+    }
 }
 {
-    "github_link": "rtyu",
-    "readme_link": "rtyu"
+    data: {
+        "github_link": "rtyu",
+        "readme_link": "rtyu"
+    }
 }
 
 GET http://betti.kr:9000/api/piscines/13685339-b5b1-4ac8-8e1f-19836419a9d3
 
 PUT http://betti.kr:9000/api/piscines/13685339-b5b1-4ac8-8e1f-19836419a9d3
 {
-    "github_link": "nbnm",
-    "readme_link": "bnmm"
+    data: {
+        "github_link": "nbnm",
+        "readme_link": "bnmm"
+    }
 }
 
 DELETE http://betti.kr:9000/api/piscines/13685339-b5b1-4ac8-8e1f-19836419a9d3

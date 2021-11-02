@@ -4,10 +4,19 @@ import { EvaluationService, UserService } from '../../services/index.js';
 
 async function get(req, res, next) {
   const user_id = req.params.user;
-  const user_pw = req.body.data.password;
 
-  console.log('controller : ', user_id, user_pw);
-  const user = await UserService.getById(user_id, user_pw);
+  const user = await UserService.getByUserId(user_id);
+
+  res.status(200).json(user);
+}
+
+async function login(req, res, next) {
+  const {
+    id, //
+    password,
+  } = req.body.data;
+
+  const user = await UserService.getByLogin(id, password);
 
   res.status(200).json(user);
 }
@@ -16,7 +25,7 @@ async function create(req, res, next) {
   const {
     id, //
     password,
-  } = req.body;
+  } = req.body.data;
 
   const user = await UserService.create(
     id, //
@@ -31,7 +40,7 @@ async function update(req, res, next) {
   const {
     id, //
     password,
-  } = req.body;
+  } = req.body.data;
 
   const user = await UserService.update(
     user_id, //
@@ -128,6 +137,7 @@ async function unregisterSubject(req, res, next) {
 
 export default {
   get,
+  login,
   create,
   update,
   remove,

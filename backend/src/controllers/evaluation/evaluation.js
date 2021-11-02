@@ -14,7 +14,7 @@ async function create(req, res, next) {
   const {
     evaluatee_id, //
     subject_id,
-  } = req.body;
+  } = req.body.data;
 
   const evaluation = await EvaluationService.create(
     evaluatee_id, //
@@ -32,7 +32,7 @@ async function update(req, res, next) {
     subject_id,
     is_done,
     score,
-  } = req.body;
+  } = req.body.data;
 
   const evaluation = await EvaluationService.update(
     evaluation_id, //

@@ -16,10 +16,10 @@ async function getByUserId(user_id) {
   return user;
 }
 
-async function getById(id, pw) {
-  const user = await UserModel.getById(id, pw);
+async function getByLogin(id, password) {
+  const user = await UserModel.getByLogin(id, password);
 
-  if (!user) throw new ApiError(404, `User not found: ${(id, pw)}`);
+  if (!user) throw new ApiError(404, `User not found: ${(id, password)}`);
 
   return user;
 }
@@ -126,7 +126,7 @@ async function unregisterSubject(user_id, subject_id) {
 
 export default {
   getByUserId,
-  getById,
+  getByLogin,
   create,
   update,
   removeByUserId,

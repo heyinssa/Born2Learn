@@ -15,7 +15,7 @@ async function create(req, res, next) {
     piscine_id, //
     readme_link,
     default_repository,
-  } = req.body;
+  } = req.body.data;
 
   const subject = await SubjectService.create(
     piscine_id, //
@@ -32,7 +32,7 @@ async function update(req, res, next) {
     piscine_id, //
     readme_link,
     default_repository,
-  } = req.body;
+  } = req.body.data;
 
   const subject = await SubjectService.update(
     subject_id, //

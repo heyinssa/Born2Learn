@@ -1,11 +1,15 @@
 POST http://betti.kr:9000/api/subjects
 {
-	"piscine_id": "383d9b31-cc6b-4f2a-aff0-7934096008b6",
-	"readme_link": "asdf",
-	"default_repository": "qwer",
+	data: {
+		"piscine_id": "383d9b31-cc6b-4f2a-aff0-7934096008b6",
+		"readme_link": "asdf",
+		"default_repository": "qwer",
+	}
 }
 {
-	"piscine_id": "383d9b31-cc6b-4f2a-aff0-7934096008b6",
-	"readme_link": "asdf",
-	"default_repository": "qwer",
+	data: {
+		"piscine_id": "383d9b31-cc6b-4f2a-aff0-7934096008b6",
+		"readme_link": "asdf",
+		"default_repository": "qwer",
+	}
 }
