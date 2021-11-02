@@ -8,7 +8,7 @@ import './Login.scss';
 import axios from 'axios';
 
 const checkValidatePasswordApi =
-  'http://ec2-3-34-2-242.ap-northeast-2.compute.amazonaws.com:9001/api/users/ycha';
+  'http://ec2-3-34-2-242.ap-northeast-2.compute.amazonaws.com:9001/api/users';
 
 const Login = ({ location }) => {
   const id = location.state.userId;
@@ -29,6 +29,7 @@ const Login = ({ location }) => {
     await axios
       .post(checkValidatePasswordApi, {
         data: {
+          id: 'ycha',
           password: pwString,
         },
       })
