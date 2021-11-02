@@ -1,10 +1,8 @@
 @import '../../theme';
-@font-face {
-  font-family: 'ImcreSoojin';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
 }
 
 .main-container {
@@ -22,7 +20,7 @@
     h1 {
       margin: 20px 0 10px 0;
       font-size: 30px;
-      font-family: 'ImcreSoojin';
+      font-family: 'Nanum Gothic Coding', monospace;
       font-weight: bolder;
       color: rgb(55, 55, 55);
     }
@@ -40,7 +38,7 @@
         border-radius: 5%;
         text-align: center;
         padding-top: 10px;
-        font-family: 'ImcreSoojin';
+        font-family: 'Nanum Gothic Coding', monospace;
       }
     }
   }

@@ -1,9 +1,7 @@
-@font-face {
-  font-family: 'ImcreSoojin';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
 }
 
 .footer {
@@ -15,7 +13,7 @@
   font-size: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
-  font-family: 'ImcreSoojin';
+  font-family: 'Nanum Gothic Coding', monospace;
   color: rgb(254, 253, 253);
   font-weight: bolder;
   text-shadow: 0 0 2px black;
