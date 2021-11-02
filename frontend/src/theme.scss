@@ -8,6 +8,12 @@ $bgColor: #252831;
 $bgColorLight: #3b404f;
 $bgColorGray: #c4c4c4;
 
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
+}
+
 @mixin text($size: 16px, $color: $mainColor) {
   font-size: $size;
   font-family: 'nanum-gothic';

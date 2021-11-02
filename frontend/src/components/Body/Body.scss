@@ -1,81 +1,68 @@
-@font-face {
-  font-family: 'Hahmlet-Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Bold.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 
-@font-face {
-  font-family: 'EliceDigitalBaeum_Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: '양진체';
-  src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
 }
 
 .comp-temp {
   width: 100%;
-
+  font-weight: bolder;
   .gitrepo {
     width: 100%;
     text-align: center;
     font-size: 20px;
     padding: 10px;
-    border: 1px rgb(0, 0, 0);
-    background-color: rgb(238, 238, 238);
+    margin-top: 10px;
+    border: 1px solid rgb(53, 53, 53);
+    font-weight: lighter;
     border-radius: 10px;
-  }
-  .userbox {
-    margin-top: 30px;
+    margin-bottom: 30px;
   }
   .user-image {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    // font-family: 'Hahmlet-Bold';
-  //  font-family: '양진체';
-    // margin-bottom: 30px;
     font-size: 30px;
   }
   .userbox {
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(245, 245, 245);
     margin: 5px;
     padding: 8px;
-    border-radius: 50%;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: lighter;
   }
   .comp-box1 {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    // font-family: 'Hahmlet-Bold';
-   font-family: '양진체';
+   font-family: 'Nanum Gothic Coding', monospace;
     margin: 20px;
+    font-weight: bolder;
   }
   h1 {
     font-size: 3em;
-   font-family: '양진체';
+  font-family: 'Nanum Gothic Coding', monospace;
   }
   h3 {
     padding-top: 15px;
-    font-size: 1.5em;
-    font-family: '양진체';
+    font-size: 1em;
+   font-family: 'Nanum Gothic Coding', monospace;
   }
   .state {
     background-color: rgb(203, 253, 198);
     margin: auto;
-    padding: 10px;
+    padding: 22px 10px 22px 10px;
     border-radius: 50%;
   }
   .percent {
-    background-color: rgb(220, 212, 255);
+    color: rgb(48, 184, 59);
     margin: auto;
     padding: 10px;
     border-radius: 50%;
+  }
+  hr {
+    margin-top: 5px;
+    margin-bottom: 20px;
   }
 }
