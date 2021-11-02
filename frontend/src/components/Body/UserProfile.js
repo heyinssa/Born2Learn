@@ -8,11 +8,11 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div className="comp-temp">
+    <div className="comp-temp userbox">
       <span>USERS</span>
       <div className="user-image">
         {userImage.map((e, index) => {
-          return <div>{e}</div>;
+          return <div className="userbox">{e}</div>;
         })}
       </div>
     </div>

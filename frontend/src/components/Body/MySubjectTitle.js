@@ -5,12 +5,12 @@ const MySubjectTitle = () => {
     <div className="comp-temp">
       <h3>Piscine Name</h3>
       <div className="comp-box1">
-        <div>state</div>
+        <div className="state">state</div>
         <div>
           <h1>subject name</h1>
           <h3>subject info</h3>
         </div>
-        <div>percent</div>
+        <div className="percent">percent</div>
       </div>
     </div>
   );

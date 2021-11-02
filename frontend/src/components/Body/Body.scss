@@ -1,22 +1,81 @@
+@font-face {
+  font-family: 'Hahmlet-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EliceDigitalBaeum_Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '양진체';
+  src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .comp-temp {
   width: 100%;
 
+  .gitrepo {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+  }
+  .userbox {
+    margin-top: 30px;
+  }
   .user-image {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    font-size: 40px;
+    // font-family: 'Hahmlet-Bold';
+  //  font-family: '양진체';
+    // margin-bottom: 30px;
+    font-size: 30px;
+  }
+  .userbox {
+    background-color: rgb(223, 223, 223);
+    margin: 5px;
+    padding: 8px;
+    border-radius: 50%;
   }
   .comp-box1 {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
+    // font-family: 'Hahmlet-Bold';
+   font-family: '양진체';
     margin: 20px;
   }
   h1 {
     font-size: 3em;
+   font-family: '양진체';
   }
   h3 {
+    padding-top: 15px;
     font-size: 1.5em;
+    font-family: '양진체';
+  }
+  .state {
+    background-color: rgb(203, 253, 198);
+    margin: auto;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .percent {
+    background-color: rgb(220, 212, 255);
+    margin: auto;
+    padding: 10px;
+    border-radius: 50%;
   }
 }
