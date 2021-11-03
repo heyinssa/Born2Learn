@@ -2,11 +2,11 @@
 @import '../../theme';
 @font-face {
   font-family: 'EliceDigitalBaeum_Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff') format('woff');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
-
 
 .login-page {
   display: flex;
@@ -26,8 +26,9 @@
     height: 50px;
     width: 240px;
     border-radius: 10px;
-    border: 1px solid #9bbdcc;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 0px solid #9bbdcc;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     text-align: center;
     font-family: 'EliceDigitalBaeum_Bold';
     font-size: 30px;
@@ -37,16 +38,16 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    height: 60px;
+    height: 55px;
     width: 240px;
-    background-color: rgb(167, 223, 255);
-    border: 1px solid #9bbdcc;
-    margin-top: 50px;
+    background-color: rgb(108, 198, 250);
+    border: 0px solid #9bbdcc;
     border-radius: 10px;
     font-family: 'EliceDigitalBaeum_Bold';
     font-size: 30px;
     color: rgb(255, 255, 255);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: 0.5s;
     text-shadow: 0 0 2px black;

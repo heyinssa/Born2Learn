@@ -7,35 +7,43 @@
 
   .mypiscinebox {
     position: relative;
-    width: 600px;
     height: auto;
     align-items: center;
     display: flex;
     flex-direction: column;
     margin: auto;
     font-family: 'Nanum Gothic Coding', monospace;
-    h1 {
-      align-items: baseline;
-      font-size: 30px;
+    .title {
+      text-align: center;
+      width: 100%;
+      font-size: 3em;
       padding-top: 30px;
       font-weight: bolder;
     }
-    h2 {
+    .subtitle {
+      text-align: center;
+      width: 100%;
+      font-size: 1.5em;
       padding-top: 10px;
       padding-bottom: 30px;
       font-weight: bolder;
     }
+
     .dummy {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 80%;
+      cursor: default;
       div {
-        cursor: pointer;
+        height: 10vh;
         margin: 10px;
         font-size: 30px;
         padding: 15px;
         border-radius: 10px;
-        border: 1px solid rgb(145, 145, 145);
+        border: 1px solid rgb(235, 235, 235);
+      }
+      div:hover {
+        background-color: rgb(235, 235, 235);
       }
     }
   }

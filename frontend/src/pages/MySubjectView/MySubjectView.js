@@ -16,7 +16,7 @@ const MySubjectView = ({ match }) => {
   return (
     <div className="mysubject-container">
       <Header />
-      <div className="subjectview-page">
+      <div className="subjectview-page ttemp">
         <MySubjectTitle></MySubjectTitle>
         <MySubjectGitRepository></MySubjectGitRepository>
         <UserProfile></UserProfile>

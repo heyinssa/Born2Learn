@@ -11,9 +11,9 @@ const MyPiscine = ({ match }) => {
     <div className="mypiscine-container">
       <Header />
       {/* <div className="mypiscine-page"> */}
-      <div className="mypiscinebox">
-        <h1>Git Branch Piscine</h1>
-        <h2>sdfaksfljdsalkfjdas sdfjlaksdfjasldfj sdfjksda!</h2>
+      <div className="mypiscinebox ttemp">
+        <span className="title">Git Branch Piscine</span>
+        <span className="subtitle">Git Branch에 대해 배워봅시다!</span>
         <div className="dummy">
           {dummy.map((e, i) => {
             const url = `/myPiscine/view/${index}-${i}`;

@@ -13,7 +13,7 @@ const RegisterPiscine = ({ match }) => {
   return (
     <div className="register-container">
       <Header />
-      <div className="register-page">
+      <div className="register-page ttemp">
         <MDViewer className="md" url={mdUrl}></MDViewer>
         <object className="pdf" data={pdfUrl} type="application/pdf">
           alt : <a href={pdfUrl}>test.pdf</a>

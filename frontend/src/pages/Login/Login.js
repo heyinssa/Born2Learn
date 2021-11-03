@@ -7,11 +7,11 @@ import getUserId from 'utils/getUserId';
 import './Login.scss';
 import axios from 'axios';
 
-const checkValidatePasswordApi =
-  'http://ec2-3-34-2-242.ap-northeast-2.compute.amazonaws.com:9001/api/users';
+const checkValidatePasswordApi = 'http://betti.kr:9000/api/users';
 
 const Login = ({ location }) => {
   const id = location.state.userId;
+  const [userInfo, setUserInfo] = useState([]);
   const [path, setPath] = useState([]);
   const [idResult, setIdResult] = useState('');
   const [isFinish, setIsFinish] = useState(false);
@@ -22,23 +22,21 @@ const Login = ({ location }) => {
 
   const handleFinish = async () => {
     let pwString = path.join('');
-    const message = `설정한 패턴은 ${path}입니다! ->  ${pwString}`;
-    alert(message);
     setPath([]);
     // setIsFinish(true);
     await axios
-      .post(checkValidatePasswordApi + '/' + id, {
+      .post(checkValidatePasswordApi + '/login', {
         data: {
           id: id,
           password: pwString,
         },
       })
       .then((response) => {
-        console.log('성공!');
+        setUserInfo(response.data);
         setIsFinish(true);
       })
       .catch((error) => {
-        console.log('실패!');
+        alert('로그인에 실패했습니다!');
         setIsFinish(false);
       });
   };
@@ -53,10 +51,7 @@ const Login = ({ location }) => {
       const response = await getToken();
       const token = await tempSetToken(response.access_token);
 
-      console.log('token');
-      console.log(token);
-
-      const result = await getUserId(id, token);
+      const result = id ? await getUserId(id, token) : 'error';
       console.log(result);
       setIdResult(result);
     };
@@ -67,6 +62,7 @@ const Login = ({ location }) => {
   useEffect(() => {
     console.log(path);
   }, [path]);
+
   return (
     <div className="login-page">
       {idResult && (
@@ -74,7 +70,7 @@ const Login = ({ location }) => {
           {idResult !== 'error' ? (
             <>
               <h1 className="title">WMPB</h1>
-              <h1>{id}</h1>
+              <h2>{id}</h2>
               <PatternLock
                 width={300}
                 pointSize={15}
@@ -94,7 +90,12 @@ const Login = ({ location }) => {
         </>
       )}
       {isFinish && (
-        <Link to="/main">
+        <Link
+          to={{
+            pathname: '/main',
+            state: { userInfo: userInfo },
+          }}
+        >
           <div className="modal">로그인 성공!</div>
         </Link>
       )}

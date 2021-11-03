@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   Entrance,
@@ -6,26 +7,32 @@ import {
   Main,
   MyPiscine,
   RegisterPiscine,
-  MyPiscineView,
+  MySubjectView,
 } from 'pages';
 
 const Routes = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Entrance} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/main" component={Main} />
-        <Route exact path="/myPiscine/:index" component={MyPiscine} />
-        <Route exact path="/myPiscine/view/:index" component={MyPiscineView} />
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Entrance} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/main" component={Main} />
+          <Route exact path="/myPiscine/:index" component={MyPiscine} />
+          <Route
+            exact
+            path="/myPiscine/view/:index"
+            component={MySubjectView}
+          />
 
-        <Route
-          exact
-          path="/registerPiscine/:index"
-          component={RegisterPiscine}
-        />
-      </Switch>
-    </Router>
+          <Route
+            exact
+            path="/registerPiscine/:index"
+            component={RegisterPiscine}
+          />
+        </Switch>
+      </Router>
+    </>
   );
 };
 

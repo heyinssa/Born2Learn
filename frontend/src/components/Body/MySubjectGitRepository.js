@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import axios from 'axios';
 
-const url = 'https://github.com/euminnn/Learn-Git-Branch';
+const url = 'https://github.com/euiminnn/Learn-Git-Branch';
 
 function sleep(t) {
   return new Promise((resolve) => setTimeout(resolve, t));
 }
 
 const MySubjectGitRepository = () => {
-  const [reposiporyUrl, setReposiporyUrl] = useState([]);
+  const [reposiporyInfo, setReposiporyInfoUrl] = useState([]);
   const [state, setState] = useState({
     value: url,
     copied: false,
