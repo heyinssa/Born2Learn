@@ -84,9 +84,9 @@ async function getEvaluationsByEvaluatee(req, res, next) {
 async function getPiscines(req, res, next) {
   const user_id = req.params.user;
 
-  const users = await UserService.getPiscines(user_id);
+  const piscines = await UserService.getPiscines(user_id);
 
-  res.status(200).json(users);
+  res.status(200).json(piscines);
 }
 
 async function registerPiscine(req, res, next) {
@@ -112,9 +112,9 @@ async function unregisterPiscine(req, res, next) {
 async function getSubjects(req, res, next) {
   const user_id = req.params.user;
 
-  const users = await UserService.getSubjects(user_id);
+  const subjects = await UserService.getSubjects(user_id);
 
-  res.status(200).json(users);
+  res.status(200).json(subjects);
 }
 
 async function registerSubject(req, res, next) {

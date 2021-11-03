@@ -17,6 +17,7 @@ import UserService from './user/user.js';
  *
  * @interface
  * PK 에 대한 아래의 인터페이스 제공
+ *   - getAll (option)
  *   - getByPK -> 없으면 throw
  *   - create
  *   - update

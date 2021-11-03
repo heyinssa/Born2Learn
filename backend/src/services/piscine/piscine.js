@@ -1,8 +1,14 @@
 import { PiscineModel, UserPiscineModel } from '../../models/index.js';
-import { SubjectService } from '../index.js';
+import { SubjectService, UserService } from '../index.js';
 import ApiError from '../../modules/error.js';
 
 /* Piscine (PK) */
+
+async function getAll() {
+  const piscines = await PiscineModel.getAll();
+
+  return piscines;
+}
 
 async function getByPiscineId(piscine_id) {
   const piscine = await PiscineModel.getByPiscineId(piscine_id);
@@ -57,12 +63,19 @@ async function removeByPiscineId(piscine_id) {
 async function getUsers(piscine_id) {
   await getByPiscineId(piscine_id);
 
-  const users = await UserPiscineModel.getByPiscineId(piscine_id);
+  const user_piscines = await UserPiscineModel.getByPiscineId(piscine_id);
+
+  const users = await Promise.all(
+    user_piscines.map(user_piscine => {
+      return UserService.getByUserId(user_piscine.user_id);
+    }),
+  );
 
   return users;
 }
 
 export default {
+  getAll,
   getByPiscineId,
   create,
   update,

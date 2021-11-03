@@ -61,9 +61,12 @@ async function create(
 }
 
 async function remove(user_id, piscine_id) {
-  return getByUserPiscineId(user_id, piscine_id).then(user_piscine =>
-    user_piscine.destroy(),
-  );
+  return UserPiscine.destroy({
+    where: {
+      user_id,
+      piscine_id,
+    },
+  });
 }
 
 async function removeByUserId(user_id) {

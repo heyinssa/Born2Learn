@@ -2,6 +2,12 @@ import { PiscineService, SubjectService } from '../../services/index.js';
 
 /* Piscine (PK) */
 
+async function getAll(req, res, next) {
+  const piscines = await PiscineService.getAll();
+
+  res.status(200).json(piscines);
+}
+
 async function get(req, res, next) {
   const piscine_id = req.params.piscine;
 
@@ -73,6 +79,7 @@ async function getUsers(req, res, next) {
 }
 
 export default {
+  getAll,
   get,
   create,
   update,

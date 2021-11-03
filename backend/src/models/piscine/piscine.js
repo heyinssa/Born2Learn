@@ -28,6 +28,10 @@ const Piscine = Sequelize.define(
   },
 );
 
+async function getAll() {
+  return Piscine.findAll();
+}
+
 async function getByPiscineId(piscine_id) {
   return Piscine.findOne({
     where: { piscine_id },
@@ -67,6 +71,7 @@ async function remove(piscine_id) {
 }
 
 export default {
+  getAll,
   getByPiscineId,
   create,
   update,

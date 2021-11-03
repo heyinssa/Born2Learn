@@ -79,9 +79,12 @@ async function create(
 }
 
 async function remove(user_id, subject_id) {
-  return getByUserSubjectId(user_id, subject_id).then(user_subject =>
-    user_subject.destroy(),
-  );
+  return UserSubject.destroy({
+    where: {
+      user_id,
+      subject_id,
+    },
+  });
 }
 
 async function removeByUserId(user_id) {

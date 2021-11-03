@@ -71,10 +71,10 @@ async function update(
   default_repository,
 ) {
   return Subject.findByPk(subject_id).then(subject => {
-    subject.piscine_id = piscine_id;
-    subject.name = name;
-    subject.readme_link = readme_link;
-    subject.default_repository = default_repository;
+    if (piscine_id) subject.piscine_id = piscine_id;
+    if (name) subject.name = name;
+    if (readme_link) subject.readme_link = readme_link;
+    if (default_repository) subject.default_repository = default_repository;
     return subject
       .save()
       .then(data => this.getBySubjectId(data.dataValues.subject_id));
@@ -82,7 +82,7 @@ async function update(
 }
 
 async function remove(subject_id) {
-  return Subject.findByPk(subject_id).ten(subject => subject.destroy());
+  return Subject.findByPk(subject_id).then(subject => subject.destroy());
 }
 
 export default {

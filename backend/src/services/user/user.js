@@ -19,7 +19,7 @@ async function getByUserId(user_id) {
 async function getByLogin(id, password) {
   const user = await UserModel.getByLogin(id, password);
 
-  if (!user) throw new ApiError(404, `User not found: ${(id, password)}`);
+  if (!user) throw new ApiError(404, `User not found: ${id}`);
 
   return user;
 }
@@ -67,7 +67,13 @@ async function removeByUserId(user_id) {
 async function getPiscines(user_id) {
   await getByUserId(user_id);
 
-  const piscines = await UserPiscineModel.getByUserId(user_id);
+  const user_piscines = await UserPiscineModel.getByUserId(user_id);
+
+  const piscines = await Promise.all(
+    user_piscines.map(user_piscine => {
+      return PiscineService.getByPiscineId(user_piscine.piscine_id);
+    }),
+  );
 
   return piscines;
 }
@@ -93,7 +99,13 @@ async function unregisterPiscine(user_id, piscine_id) {
 async function getSubjects(user_id) {
   await getByUserId(user_id);
 
-  const subjects = await UserSubjectModel.getByUserId(user_id);
+  const user_subjects = await UserSubjectModel.getByUserId(user_id);
+
+  const subjects = await Promise.all(
+    user_subjects.map(user_subject => {
+      return SubjectService.getBySubjectId(user_subject.subject_id);
+    }),
+  );
 
   return subjects;
 }

@@ -1,6 +1,6 @@
 import { SubjectModel, UserSubjectModel } from '../../models/index.js';
 import ApiError from '../../modules/error.js';
-import { EvaluationService } from '../index.js';
+import { EvaluationService, UserService } from '../index.js';
 
 /* Subject (PK) */
 
@@ -76,7 +76,13 @@ async function removeByPiscineId(piscine_id) {
 async function getUsers(subject_id) {
   await getBySubjectId(subject_id);
 
-  const users = await UserSubjectModel.getBySubjectId(subject_id);
+  const user_subjects = await UserSubjectModel.getBySubjectId(subject_id);
+
+  const users = await Promise.all(
+    user_subjects.map(user_subject => {
+      return UserService.getByUserId(user_subject.user_id);
+    }),
+  );
 
   return users;
 }
