@@ -1,13 +1,17 @@
 import { React } from 'react';
+import { Link } from 'react-router-dom';
+import sq from 'asset/sq.png';
 import './Header.scss';
 
 const Header = () => {
   return (
     <div className="header">
-      <div>WMPB</div>
+      <Link to="/main">
+        <div>WMPB</div>
+      </Link>
       <img
         class="fit-picture"
-        src="sq.png"
+        src={sq}
         alt="Grapefruit slice atop a pile of other slices"
       />
     </div>

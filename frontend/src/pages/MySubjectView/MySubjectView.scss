@@ -3,17 +3,13 @@
 .mysubject-container {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .body {
+  .subjectview-page {
+    position: relative;
     width: 600px;
-    height: 95%;
-    background-color: white;
+    height: auto;
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
     margin: auto;
   }
 }

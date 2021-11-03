@@ -27,9 +27,9 @@ const Login = ({ location }) => {
     setPath([]);
     // setIsFinish(true);
     await axios
-      .post(checkValidatePasswordApi, {
+      .post(checkValidatePasswordApi + '/' + id, {
         data: {
-          id: 'ycha',
+          id: id,
           password: pwString,
         },
       })

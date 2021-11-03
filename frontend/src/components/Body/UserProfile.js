@@ -10,7 +10,7 @@ const UserProfile = () => {
   return (
     <div className="comp-temp">
       <div className="user_profile">
-        <span>USERS</span>
+        <h2>USERS</h2>
         <div className="user-image">
           {userImage.map((e, index) => {
             return <div className="userbox">{e}</div>;

@@ -5,12 +5,22 @@ import axios from 'axios';
 
 const url = 'https://github.com/euminnn/Learn-Git-Branch';
 
+function sleep(t) {
+  return new Promise((resolve) => setTimeout(resolve, t));
+}
+
 const MySubjectGitRepository = () => {
   const [reposiporyUrl, setReposiporyUrl] = useState([]);
   const [state, setState] = useState({
     value: url,
     copied: false,
   });
+
+  const copyAndReset = async () => {
+    setState({ value: 'copied', copied: true });
+    await sleep(1000);
+    setState({ value: url, copied: false });
+  };
 
   useEffect(() => {
     // const asyncProcess = async () => {
@@ -30,15 +40,14 @@ const MySubjectGitRepository = () => {
 
   return (
     <div className="comp-temp">
-      <h2>MySubjectGitRepository</h2>
+      <h2>REPOSITORY URL</h2>
       <CopyToClipboard
         className="gitrepo"
         text={state.value}
-        onCopy={() => setState({ value: 'copied', copied: true })}
+        onCopy={() => copyAndReset()}
       >
         <button>{state.value}</button>
       </CopyToClipboard>
-      {/* <div className="gitrepo">Git Repository</div> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { Header } from 'components';
+import { Header, Footer } from 'components';
 import {
   MDViewer,
   Line,
@@ -16,14 +16,14 @@ const MySubjectView = ({ match }) => {
   return (
     <div className="mysubject-container">
       <Header />
-      <div className="body">
+      <div className="subjectview-page">
         <MySubjectTitle></MySubjectTitle>
-        <Line></Line>
         <MySubjectGitRepository></MySubjectGitRepository>
         <UserProfile></UserProfile>
         <Line></Line>
         <MDViewer url={temp}> </MDViewer>
       </div>
+      <Footer />
     </div>
   );
 };

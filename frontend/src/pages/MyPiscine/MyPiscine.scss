@@ -13,30 +13,28 @@
     display: flex;
     flex-direction: column;
     margin: auto;
+    font-family: 'Nanum Gothic Coding', monospace;
     h1 {
       align-items: baseline;
       font-size: 30px;
       padding-top: 30px;
       font-weight: bolder;
-      font-family: 'Nanum Gothic Coding', monospace;;
     }
     h2 {
       padding-top: 10px;
       padding-bottom: 30px;
       font-weight: bolder;
-      font-family: 'Nanum Gothic Coding', monospace;;
     }
     .dummy {
       display: flex;
       flex-direction: column;
       width: 100%;
       div {
-        font-family: 'Nanum Gothic Coding', monospace;;
         cursor: pointer;
         margin: 10px;
         font-size: 30px;
         padding: 15px;
-        border-radius: 20px;
+        border-radius: 10px;
         border: 1px solid rgb(145, 145, 145);
       }
     }

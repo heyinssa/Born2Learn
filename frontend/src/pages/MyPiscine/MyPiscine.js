@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { Header } from 'components';
+import { Header, Footer } from 'components';
 import { Link } from 'react-router-dom';
 
 import './MyPiscine.scss';
@@ -25,6 +25,7 @@ const MyPiscine = ({ match }) => {
           })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

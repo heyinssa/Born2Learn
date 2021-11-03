@@ -7,18 +7,21 @@
 .comp-temp {
   width: 100%;
   font-weight: bolder;
+  font-family: 'Nanum Gothic Coding', monospace;
+
   .gitrepo:hover {
-    background-color: rgb(255, 255, 255);
-    color: green;
+    background-color: rgb(245, 242, 242);
     cursor: pointer;
   }
+
   .gitrepo {
     width: 100%;
     text-align: left;
     font-size: 0.9em;
     padding: 0.4em 0 0.3em 1em;
     margin-top: 0.2em;
-    border: 1px solid rgb(53, 53, 53);
+    border: 1px solid rgb(237, 237, 237);
+    background-color: rgb(255, 255, 255);
     font-weight: lighter;
     border-radius: 0.3em;
     margin-bottom: 2.3em;
@@ -43,12 +46,13 @@
       height: max-content;
       margin-top: 0.3em;
       .userbox {
-        background-color: rgb(222, 222, 222);
+        background-color: rgb(255, 255, 255);
         font-size: 1.1em;
         box-sizing: border-box;
         display: flex;
+        border: 1px solid rgb(237, 226, 226);
         border-radius: 0.15em;
-        border-bottom: 1px solid #333;
+        // border-bottom: 1px solid #333;
         padding: 0.4em 0.8em 0.3em 0.8em;
         margin-right: 0.3em;
       }
@@ -59,27 +63,26 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    font-family: 'Nanum Gothic Coding', monospace;
     margin: 13px 0px 8px 0px;
     font-weight: bolder;
     padding-bottom: 0.5em;
     margin-bottom: 1.2em;
     border-bottom: 1px solid #ddd;
   }
-
   h1 {
     font-size: 2.2em;
-    font-family: 'Nanum Gothic Coding', monospace;
+  }
+  h2 {
+    margin: 5px 5px;
   }
 
   h3 {
     padding-top: 3em;
     font-size: 1.1em;
-    font-family: 'Nanum Gothic Coding', monospace;
   }
 
   .state {
-    background-color: rgb(203, 253, 198);
+    color: rgb(79, 167, 86);
     margin-top: 3px;
     width: 60px;
     height: 60px;
@@ -90,7 +93,7 @@
   }
 
   .percent {
-    color: rgb(48, 184, 59);
+    color: rgb(79, 167, 86);
     width: 60px;
     height: 60px;
     display: flex;
@@ -105,12 +108,11 @@
     h3 {
       padding-top: 0.3em;
       font-size: 1.1em;
-      font-family: 'Nanum Gothic Coding', monospace;
     }
   }
 
   hr {
-    margin-top: 5px;
-    margin-bottom: 20px;
+    height: 1px;
+    border: 1px solid rgb(237, 237, 237);
   }
 }
