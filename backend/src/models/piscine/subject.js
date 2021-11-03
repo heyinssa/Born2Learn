@@ -18,6 +18,10 @@ const Subject = Sequelize.define(
         key: 'piscine_id',
       },
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     readme_link: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -47,11 +51,13 @@ async function getByPiscineId(piscine_id) {
 
 async function create(
   piscine_id, //
+  name,
   readme_link,
   default_repository,
 ) {
   return Subject.create({
     piscine_id, //
+    name,
     readme_link,
     default_repository,
   }).then(data => this.getBySubjectId(data.dataValues.subject_id));
@@ -60,11 +66,13 @@ async function create(
 async function update(
   subject_id, //
   piscine_id,
+  name,
   readme_link,
   default_repository,
 ) {
   return Subject.findByPk(subject_id).then(subject => {
     subject.piscine_id = piscine_id;
+    subject.name = name;
     subject.readme_link = readme_link;
     subject.default_repository = default_repository;
     return subject

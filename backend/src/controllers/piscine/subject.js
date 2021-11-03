@@ -13,12 +13,14 @@ async function get(req, res, next) {
 async function create(req, res, next) {
   const {
     piscine_id, //
+    name,
     readme_link,
     default_repository,
   } = req.body.data;
 
   const subject = await SubjectService.create(
     piscine_id, //
+    name,
     readme_link,
     default_repository,
   );
@@ -30,13 +32,15 @@ async function update(req, res, next) {
   const subject_id = req.params.subject;
   const {
     piscine_id, //
+    name,
     readme_link,
     default_repository,
   } = req.body.data;
 
   const subject = await SubjectService.update(
     subject_id, //
-    piscine_id, //
+    piscine_id,
+    name,
     readme_link,
     default_repository,
   );

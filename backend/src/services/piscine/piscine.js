@@ -13,11 +13,13 @@ async function getByPiscineId(piscine_id) {
 }
 
 async function create(
-  github_link, //
+  name, //
+  github_link,
   readme_link,
 ) {
   const piscine = await PiscineModel.create(
-    github_link, //
+    name, //
+    github_link,
     readme_link,
   );
 
@@ -26,6 +28,7 @@ async function create(
 
 async function update(
   piscine_id, //
+  name,
   github_link,
   readme_link,
 ) {
@@ -33,6 +36,7 @@ async function update(
 
   const updated = await PiscineModel.update(
     piscine_id, //
+    name,
     github_link,
     readme_link,
   );

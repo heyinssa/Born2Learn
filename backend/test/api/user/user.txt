@@ -1,19 +1,27 @@
 POST http://betti.kr:9000/api/users
 {
-    data: {
+    "data": {
         "id": "ycha",
         "password": "1234"
     }
 }
 {
-    data: {
+    "data": {
         "id": "suhshin",
         "password": "1234"
     }
 }
 {
-    data: {
+    "data": {
         "id": "echung",
+        "password": "1234"
+    }
+}
+
+POST http://betti.kr:9000/api/users/login
+{
+    "data": {
+        "id": "ycha",
         "password": "1234"
     }
 }
@@ -23,7 +31,7 @@ GET http://betti.kr:9000/api/users/97317caf-162f-49a0-9903-414b1cd59ad8
 
 put http://betti.kr:9000/api/users/97317caf-162f-49a0-9903-414b1cd59ad8
 {
-    data: {
+    "data": {
         "password": "12345"
     }
 }

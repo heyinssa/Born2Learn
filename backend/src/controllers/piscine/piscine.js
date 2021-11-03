@@ -12,12 +12,14 @@ async function get(req, res, next) {
 
 async function create(req, res, next) {
   const {
-    github_link, //
+    name, //
+    github_link,
     readme_link,
   } = req.body.data;
 
   const piscine = await PiscineService.create(
-    github_link, //
+    name, //
+    github_link,
     readme_link,
   );
 
@@ -27,12 +29,14 @@ async function create(req, res, next) {
 async function update(req, res, next) {
   const piscine_id = req.params.piscine;
   const {
-    github_link, //
+    name, //
+    github_link,
     readme_link,
   } = req.body.data;
 
   const piscine = await PiscineService.update(
     piscine_id, //
+    name,
     github_link,
     readme_link,
   );

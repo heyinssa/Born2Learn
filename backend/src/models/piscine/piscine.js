@@ -9,6 +9,10 @@ const Piscine = Sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     github_link: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,21 +35,25 @@ async function getByPiscineId(piscine_id) {
 }
 
 async function create(
-  github_link, //
+  name, //
+  github_link,
   readme_link,
 ) {
   return Piscine.create({
-    github_link, //
+    name, //
+    github_link,
     readme_link,
   }).then(data => this.getByPiscineId(data.dataValues.piscine_id));
 }
 
 async function update(
   piscine_id, //
+  name,
   github_link,
   readme_link,
 ) {
   return Piscine.findByPk(piscine_id).then(piscine => {
+    piscine.name = name;
     piscine.github_link = github_link;
     piscine.readme_link = readme_link;
     return piscine
