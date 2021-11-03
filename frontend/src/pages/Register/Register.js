@@ -4,15 +4,16 @@ import PatternLock from "react-pattern-lock";
 import getToken from "utils/getToken";
 import getUserId from "utils/getUserId";
 
-import "./Login.scss";
-import axios from "axios";
+import "./Register.scss";
+//import axios from "axios";
 
-const checkValidatePasswordApi = "http://betti.kr:9000/api/users";
+//const checkValidatePasswordApi = "http://betti.kr:9000/api/users";
 
 const Login = ({ location }) => {
   const id = location.state.userId;
-  const [userInfo, setUserInfo] = useState([]);
+  // const [userInfo, setUserInfo] = useState([]);
   const [path, setPath] = useState([]);
+  const [comparePath, setComparePath] = useState("");
   const [idResult, setIdResult] = useState("");
   const [isFinish, setIsFinish] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
@@ -21,28 +22,26 @@ const Login = ({ location }) => {
     setPath(pattern);
   };
 
-  const closeModal = () => {
-    setIsWrong(false);
+  const handleFinish = async () => {
+    const pwString = path.join("");
+    setPath([]);
+    if (comparePath) {
+      console.log("비교해야 합니다.");
+      if (pwString === comparePath) {
+        setIsFinish(true);
+      } else {
+        setIsWrong(true);
+      }
+    } else {
+      console.log(pwString);
+      console.log("한번더 입력.");
+      setComparePath(pwString);
+    }
   };
 
-  const handleFinish = async () => {
-    let pwString = path.join("");
-    setPath([]);
-    await axios
-      .post(checkValidatePasswordApi + "/login", {
-        data: {
-          id: id,
-          password: pwString,
-        },
-      })
-      .then((response) => {
-        setUserInfo(response.data);
-        setIsFinish(true);
-      })
-      .catch((error) => {
-        setIsFinish(false);
-        setIsWrong(true);
-      });
+  const closeModal = () => {
+    setIsWrong(false);
+    setComparePath("");
   };
 
   const tempSetToken = (token) => {
@@ -67,7 +66,11 @@ const Login = ({ location }) => {
           {idResult !== "error" ? (
             <>
               <h1 className="title">WMPB</h1>
-              <h2>반가워요, {id}!</h2>
+              {comparePath ? (
+                <h2>한 번 더 입력해주세요.</h2>
+              ) : (
+                <h2>어서와요, {id}!</h2>
+              )}
               <PatternLock
                 width={300}
                 pointSize={15}
@@ -90,10 +93,10 @@ const Login = ({ location }) => {
         <Link
           to={{
             pathname: "/main",
-            state: { userInfo: userInfo },
+            state: { userInfo: "userInfo" },
           }}
         >
-          <div className="modal">로그인 성공!</div>
+          <div className="modal">회원가입 성공!</div>
         </Link>
       )}
       {isWrong && (

@@ -1,18 +1,17 @@
-import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { React, useState } from "react";
+import { Link } from "react-router-dom";
 
-import './Entrance.scss';
+import "./Entrance.scss";
 
 const Entrance = () => {
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState("");
 
   const handleChangeId = (e) => {
-    setUserId(e.currentTarget.value.replace(/[^A-Za-z]/gi, ''));
+    setUserId(e.currentTarget.value.replace(/[^A-Za-z]/gi, ""));
   };
 
   const handleClickLogin = () => {
-    console.log(userId);
-    setUserId('');
+    setUserId("");
   };
 
   return (
@@ -26,7 +25,7 @@ const Entrance = () => {
       />
       <Link
         to={{
-          pathname: '/login',
+          pathname: "/login",
           state: {
             userId: userId,
           },
@@ -42,7 +41,7 @@ const Entrance = () => {
       </Link>
       <Link
         to={{
-          pathname: '/login',
+          pathname: "/register",
           state: {
             userId: userId,
           },

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   Entrance,
   Login,
@@ -8,7 +8,8 @@ import {
   MyPiscine,
   RegisterPiscine,
   MySubjectView,
-} from 'pages';
+  Register,
+} from "pages";
 
 const Routes = () => {
   return (
@@ -17,6 +18,8 @@ const Routes = () => {
         <Switch>
           <Route exact path="/" component={Entrance} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+
           <Route exact path="/main" component={Main} />
           <Route exact path="/myPiscine/:index" component={MyPiscine} />
           <Route
@@ -24,7 +27,6 @@ const Routes = () => {
             path="/myPiscine/view/:index"
             component={MySubjectView}
           />
-
           <Route
             exact
             path="/registerPiscine/:index"
