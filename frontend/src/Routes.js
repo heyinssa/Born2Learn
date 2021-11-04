@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   Entrance,
   Login,
   Main,
   MyPiscine,
+  MyEvaluation,
   RegisterPiscine,
   MySubjectView,
   Register,
-} from "pages";
+} from 'pages';
 
 const Routes = () => {
   return (
@@ -22,6 +23,7 @@ const Routes = () => {
 
           <Route exact path="/main" component={Main} />
           <Route exact path="/myPiscine/:index" component={MyPiscine} />
+          <Route exact path="/myEvaluation/:index" component={MyEvaluation} />
           <Route
             exact
             path="/myPiscine/view/:index"

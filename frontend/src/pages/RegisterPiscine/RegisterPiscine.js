@@ -9,7 +9,8 @@ const mdUrl =
 
 const pdfUrl = 'http://www.africau.edu/images/default/sample.pdf?raw:true';
 
-const RegisterPiscine = ({ match }) => {
+const RegisterPiscine = ({ match, location }) => {
+  const id = location.state.id;
   return (
     <div className="register-container">
       <Header />

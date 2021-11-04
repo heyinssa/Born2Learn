@@ -1,28 +1,28 @@
-import { React, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import PatternLock from "react-pattern-lock";
-import getToken from "utils/getToken";
-import getUserId from "utils/getUserId";
+import { React, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import PatternLock from 'react-pattern-lock';
+import getToken from 'utils/getToken';
+import getUserId from 'utils/getUserId';
 
-import "./Register.scss";
-import axios from "axios";
+import './Register.scss';
+import axios from 'axios';
 
-const checkValidatePasswordApi = "http://betti.kr:9000/api";
+const checkValidatePasswordApi = 'http://betti.kr:9000/api';
 
-const Login = ({ location }) => {
+const Register = ({ location }) => {
   const id = location.state.userId;
   // const [userInfo, setUserInfo] = useState([]);
   let userInfo;
   let isVaild = false;
   const [path, setPath] = useState([]);
-  const [comparePath, setComparePath] = useState("");
-  const [idResult, setIdResult] = useState("");
+  const [comparePath, setComparePath] = useState('');
+  const [idResult, setIdResult] = useState('');
   const [isFinish, setIsFinish] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
 
   const postRegiser = async (id, pwString) => {
     try {
-      const result = await axios.post(checkValidatePasswordApi + "/register", {
+      const result = await axios.post(checkValidatePasswordApi + '/register', {
         data: {
           id: id,
           password: pwString,
@@ -41,10 +41,10 @@ const Login = ({ location }) => {
   };
 
   const handleFinish = async () => {
-    const pwString = path.join("");
+    const pwString = path.join('');
     setPath([]);
     if (comparePath) {
-      console.log("비교해야 합니다.");
+      console.log('비교해야 합니다.');
       if (pwString === comparePath) {
         const result = await postRegiser(id, pwString);
         if (result.status === 200) {
@@ -59,14 +59,14 @@ const Login = ({ location }) => {
       }
     } else {
       console.log(pwString);
-      console.log("한번더 입력.");
+      console.log('한번더 입력.');
       setComparePath(pwString);
     }
   };
 
   const closeModal = () => {
     setIsWrong(false);
-    setComparePath("");
+    setComparePath('');
   };
 
   const tempSetToken = (token) => {
@@ -78,7 +78,7 @@ const Login = ({ location }) => {
       const response = await getToken();
       const token = await tempSetToken(response.access_token);
 
-      const result = id ? await getUserId(id, token) : "error";
+      const result = id ? await getUserId(id, token) : 'error';
       setIdResult(result);
     };
     fetchId();
@@ -87,7 +87,7 @@ const Login = ({ location }) => {
   useEffect(() => {
     const checkValidate = async () => {
       const result = await axios.get(
-        checkValidatePasswordApi + "/register/valid/" + id
+        checkValidatePasswordApi + '/register/valid/' + id
       );
       isVaild = result.status === 200 ? true : false;
     };
@@ -98,7 +98,7 @@ const Login = ({ location }) => {
     <div className="login-page">
       {idResult && (
         <>
-          {idResult !== "error" ? (
+          {idResult !== 'error' ? (
             <>
               <h1 className="title">WMPB</h1>
               {comparePath ? (
@@ -127,7 +127,7 @@ const Login = ({ location }) => {
       {isFinish && (
         <Link
           to={{
-            pathname: "/main",
+            pathname: '/main',
             state: { userInfo: userInfo },
           }}
         >
@@ -140,7 +140,7 @@ const Login = ({ location }) => {
         </div>
       )}
       {isVaild && (
-        <Link to={"/"}>
+        <Link to={'/'}>
           <div className="modal">
             이미 존재하는 아이디입니다! 비밀번호를 잊으셨다면 유감입니다 :)
           </div>
@@ -150,4 +150,4 @@ const Login = ({ location }) => {
   );
 };
 
-export default Login;
+export default Register;

@@ -1,19 +1,19 @@
-import { React, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import PatternLock from "react-pattern-lock";
-import getToken from "utils/getToken";
-import getUserId from "utils/getUserId";
+import { React, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import PatternLock from 'react-pattern-lock';
+import getToken from 'utils/getToken';
+import getUserId from 'utils/getUserId';
 
-import "./Login.scss";
-import axios from "axios";
+import './Login.scss';
+import axios from 'axios';
 
-const checkValidatePasswordApi = "http://betti.kr:9000/api/users";
+const checkValidatePasswordApi = 'http://betti.kr:9000/api/users';
 
 const Login = ({ location }) => {
   const id = location.state.userId;
   const [userInfo, setUserInfo] = useState([]);
   const [path, setPath] = useState([]);
-  const [idResult, setIdResult] = useState("");
+  const [idResult, setIdResult] = useState('');
   const [isFinish, setIsFinish] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
 
@@ -26,10 +26,10 @@ const Login = ({ location }) => {
   };
 
   const handleFinish = async () => {
-    let pwString = path.join("");
+    let pwString = path.join('');
     setPath([]);
     await axios
-      .post(checkValidatePasswordApi + "/login", {
+      .post(checkValidatePasswordApi + '/login', {
         data: {
           id: id,
           password: pwString,
@@ -54,7 +54,7 @@ const Login = ({ location }) => {
       const response = await getToken();
       const token = await tempSetToken(response.access_token);
 
-      const result = id ? await getUserId(id, token) : "error";
+      const result = id ? await getUserId(id, token) : 'error';
       setIdResult(result);
     };
     fetchId();
@@ -64,7 +64,7 @@ const Login = ({ location }) => {
     <div className="login-page">
       {idResult && (
         <>
-          {idResult !== "error" ? (
+          {idResult !== 'error' ? (
             <>
               <h1 className="title">WMPB</h1>
               <h2>반가워요, {id}!</h2>
@@ -89,7 +89,7 @@ const Login = ({ location }) => {
       {isFinish && (
         <Link
           to={{
-            pathname: "/main",
+            pathname: '/main',
             state: { userInfo: userInfo },
           }}
         >

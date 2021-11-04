@@ -18,7 +18,7 @@ const Header = ({ path }) => {
             <div>WMPB</div>
           </Link>
           <img
-            class="fit-picture"
+            className="fit-picture"
             src={sq}
             alt="Grapefruit slice atop a pile of other slices"
           />

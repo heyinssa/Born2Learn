@@ -2,7 +2,6 @@ import { React } from 'react';
 import { Header, Footer } from 'components';
 import {
   MDViewer,
-  Line,
   MySubjectTitle,
   MySubjectGitRepository,
   UserProfile,
@@ -20,7 +19,6 @@ const MySubjectView = ({ match }) => {
         <MySubjectTitle></MySubjectTitle>
         <MySubjectGitRepository></MySubjectGitRepository>
         <UserProfile></UserProfile>
-        <Line></Line>
         <MDViewer url={temp}> </MDViewer>
       </div>
       <Footer />
