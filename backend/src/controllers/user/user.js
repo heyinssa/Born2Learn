@@ -21,6 +21,16 @@ async function login(req, res, next) {
   res.status(200).json(user);
 }
 
+async function getValidId(req, res, next) {
+  const id = req.params.id;
+
+  await UserService.getById(id).catch(() => {
+    return res.sendStatus(200);
+  });
+
+  return res.sendStatus(404);
+}
+
 async function create(req, res, next) {
   const {
     id, //
@@ -138,6 +148,7 @@ async function unregisterSubject(req, res, next) {
 export default {
   get,
   login,
+  getValidId,
   create,
   update,
   remove,

@@ -9,7 +9,8 @@ const router = express.Router();
 
 router.get('/:user', UserController.get);
 router.post('/login', UserController.login);
-router.post('/', UserController.create);
+router.get('/register/valid/:id', UserController.getValidId);
+router.post('/register', UserController.create);
 router.put('/:user', UserController.update);
 router.delete('/:user', UserController.remove);
 

@@ -29,6 +29,12 @@ async function getByUserId(user_id) {
     where: { user_id },
   });
 }
+async function getById(id) {
+  return User.findOne({
+    where: { id },
+  });
+}
+
 async function getByLogin(id, password) {
   return User.findOne({
     where: { id, password },
@@ -63,6 +69,7 @@ async function remove(user_id) {
 
 export default {
   getByUserId,
+  getById,
   getByLogin,
   create,
   update,

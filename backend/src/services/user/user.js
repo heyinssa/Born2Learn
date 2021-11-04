@@ -16,6 +16,14 @@ async function getByUserId(user_id) {
   return user;
 }
 
+async function getById(id) {
+  const user = await UserModel.getById(id);
+
+  if (!user) throw new ApiError(404, `User not found: ${id}`);
+
+  return user;
+}
+
 async function getByLogin(id, password) {
   const user = await UserModel.getByLogin(id, password);
 
@@ -138,6 +146,7 @@ async function unregisterSubject(user_id, subject_id) {
 
 export default {
   getByUserId,
+  getById,
   getByLogin,
   create,
   update,
