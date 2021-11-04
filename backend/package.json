@@ -5,6 +5,7 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
+    "dummy": "node ./test/api/dummy.js",
     "lint": "eslint src/**",
     "format": "prettier --check src",
     "start": "nodemon -e '.js, .mjs, .coffee, .litcoffee, .json, .yaml'"
@@ -34,6 +35,7 @@
     "mysql2": "^2.3.0",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
+    "request": "^2.88.2",
     "sequelize": "^6.6.5",
     "yamljs": "^0.3.0"
   }

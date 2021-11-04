@@ -1,6 +1,6 @@
 import { EvaluationModel } from '../../models/index.js';
 import ApiError from '../../modules/error.js';
-import { PiscineService } from '../index.js';
+import { PiscineService, SubjectService } from '../index.js';
 
 /* Evaluation (PK) */
 
@@ -20,12 +20,14 @@ async function create(
   const is_done = 0;
   const score = 0;
 
-  const users = await PiscineService.getUsers(evaluatee_id);
+  const subject = await SubjectService.getBySubjectId(subject_id);
+  const users = await PiscineService.getUsers(subject.piscine_id);
 
-  if (!users) throw new ApiError(404, `Evaluatiee not found`);
+  if (!users || users.length < 2)
+    throw new ApiError(404, `Evaluator not found`);
 
   const evaluator = users[Math.floor(Math.random() * users.length)];
-  const evaluator_id = evaluator.evaluator_id;
+  const evaluator_id = evaluator.user_id;
 
   const evaluation = await EvaluationModel.create(
     evaluator_id, //

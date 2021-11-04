@@ -44,6 +44,14 @@
   }
   ```
 
+/_ Evaluation (lower FK) _/
+
+- GET http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9/evaluation/as/evaluator
+
+- GET http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9/evaluation/as/evaluatee
+
+/_ Piscine (Equal FK) _/
+
 - DELETE http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9
 
 - GET http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9/piscines
@@ -51,6 +59,8 @@
 - POST http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9/piscines/39c11564-c06a-4a8a-958e-b2455993633c
 
 - DELETE http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9/piscines/39c11564-c06a-4a8a-958e-b2455993633c
+
+/_ Subject (Equal FK) _/
 
 - GET http://betti.kr:9000/api/users/026bcd81-2899-40c4-be3d-c661b4cffbd9/subjects
 

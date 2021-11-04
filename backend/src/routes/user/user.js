@@ -17,11 +17,11 @@ router.delete('/:user', UserController.remove);
 /* Evaluation (lower FK) */
 
 router.get(
-  '/:user/evaluation/by/evaluator',
+  '/:user/evaluation/as/evaluator',
   UserController.getEvaluationsByEvaluator,
 );
 router.get(
-  '/:user/evaluation/by/evaluatee',
+  '/:user/evaluation/as/evaluatee',
   UserController.getEvaluationsByEvaluatee,
 );
 
