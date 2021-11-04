@@ -1,13 +1,13 @@
-import { React, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import './Main.scss';
-import { Header, Footer } from 'components';
+import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "./Main.scss";
+import { Header, Footer } from "components";
 
-const getUserPiscinesAPI = 'http://betti.kr:9000' + '/api/users';
-const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines';
+const getUserPiscinesAPI = "http://betti.kr:9000" + "/api/users";
+const getPiscinesAPI = "http://betti.kr:9000" + "/api/piscines";
 
-const usertempid = '026bcd81-2899-40c4-be3d-c661b4cffbd9';
+const usertempid = "026bcd81-2899-40c4-be3d-c661b4cffbd9";
 const Main = ({ location }) => {
   const [userPiscine, setUserPiscine] = useState([]);
   const [piscineList, setPiscineList] = useState([]);
@@ -15,11 +15,8 @@ const Main = ({ location }) => {
   useEffect(() => {
     console.log(location.state.userInfo.user_id);
     const id = location.state.userInfo.user_id;
-
-    // setUserPiscine(['aaa', 'bb', 'cc']);
-    // setPiscineList(['qwe', 'zcxv', 'asdg', 'sa', 'saf', 'asffqw']);
     axios
-      .get(getUserPiscinesAPI + '/' + usertempid + '/piscines')
+      .get(getUserPiscinesAPI + "/" + usertempid + "/piscines")
       .then((response) => {
         console.log(response);
         setUserPiscine(response.data);

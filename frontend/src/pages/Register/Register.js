@@ -5,18 +5,36 @@ import getToken from "utils/getToken";
 import getUserId from "utils/getUserId";
 
 import "./Register.scss";
-//import axios from "axios";
+import axios from "axios";
 
-//const checkValidatePasswordApi = "http://betti.kr:9000/api/users";
+const checkValidatePasswordApi = "http://betti.kr:9000/api";
 
 const Login = ({ location }) => {
   const id = location.state.userId;
   // const [userInfo, setUserInfo] = useState([]);
+  let userInfo;
+  let isVaild = false;
   const [path, setPath] = useState([]);
   const [comparePath, setComparePath] = useState("");
   const [idResult, setIdResult] = useState("");
   const [isFinish, setIsFinish] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
+
+  const postRegiser = async (id, pwString) => {
+    try {
+      const result = await axios.post(checkValidatePasswordApi + "/register", {
+        data: {
+          id: id,
+          password: pwString,
+        },
+      });
+      console.log(result);
+
+      return result;
+    } catch (e) {
+      return e;
+    }
+  };
 
   const handleChangePath = (pattern) => {
     setPath(pattern);
@@ -28,7 +46,14 @@ const Login = ({ location }) => {
     if (comparePath) {
       console.log("비교해야 합니다.");
       if (pwString === comparePath) {
-        setIsFinish(true);
+        const result = await postRegiser(id, pwString);
+        if (result.status === 200) {
+          userInfo = result.data;
+          console.log(userInfo);
+          setIsFinish(true);
+        } else {
+          alert(result);
+        }
       } else {
         setIsWrong(true);
       }
@@ -57,6 +82,16 @@ const Login = ({ location }) => {
       setIdResult(result);
     };
     fetchId();
+  }, []);
+
+  useEffect(() => {
+    const checkValidate = async () => {
+      const result = await axios.get(
+        checkValidatePasswordApi + "/register/valid/" + id
+      );
+      isVaild = result.status === 200 ? true : false;
+    };
+    checkValidate();
   }, []);
 
   return (
@@ -93,7 +128,7 @@ const Login = ({ location }) => {
         <Link
           to={{
             pathname: "/main",
-            state: { userInfo: "userInfo" },
+            state: { userInfo: userInfo },
           }}
         >
           <div className="modal">회원가입 성공!</div>
@@ -103,6 +138,13 @@ const Login = ({ location }) => {
         <div className="modal" role="presentation" onClick={closeModal}>
           일치하지 않습니다!
         </div>
+      )}
+      {isVaild && (
+        <Link to={"/"}>
+          <div className="modal">
+            이미 존재하는 아이디입니다! 비밀번호를 잊으셨다면 유감입니다 :)
+          </div>
+        </Link>
       )}
     </div>
   );
