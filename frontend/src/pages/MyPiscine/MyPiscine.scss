@@ -1,49 +1,51 @@
 @import '../../theme';
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 
 .mypiscine-container {
   height: 100%;
   width: 100%;
 
-  .mypiscinebox {
+  .mypiscine-page {
     position: relative;
     height: auto;
     align-items: center;
     display: flex;
     flex-direction: column;
     margin: auto;
-    font-family: 'Nanum Gothic Coding', monospace;
-    .title {
-      text-align: center;
-      width: 100%;
-      font-size: 3em;
-      padding-top: 30px;
-      font-weight: bolder;
-    }
-    .subtitle {
-      text-align: center;
-      width: 100%;
-      font-size: 1.5em;
-      padding-top: 10px;
-      padding-bottom: 30px;
-      font-weight: bolder;
-    }
 
-    .dummy {
-      display: flex;
-      flex-direction: column;
+    .mypiscine-box {
       width: 100%;
-      cursor: default;
-      div {
-        height: 10vh;
-        margin: 10px;
-        font-size: 30px;
-        padding: 15px;
-        border-radius: 10px;
-        border: 1px solid rgb(235, 235, 235);
+      height: auto;
+      margin-bottom: 0.5%;
+      padding: 4% 4%;
+
+      .title {
+        font-size: 4vh;
+        text-align: center;
+        width: 100%;
+        font-weight: bolder;
       }
-      div:hover {
-        background-color: rgb(235, 235, 235);
+      .subtitle {
+        font-size: 1.5vh;
+        text-align: center;
+        width: 100%;
+        font-weight: bolder;
+      }
+
+      .dummy {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        cursor: default;
+        div {
+          height: 10vh;
+          margin: 2% 0;
+          font-size: 30px;
+          border-radius: 10px;
+          border: 1px solid rgb(235, 235, 235);
+        }
+        div:hover {
+          background-color: rgb(235, 235, 235);
+        }
       }
     }
   }

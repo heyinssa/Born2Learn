@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 html,
@@ -148,6 +151,6 @@ body,
 }
 
 .ttemp {
-  max-width: 1024px;
-  padding: 15px;
+  max-width: 900px;
+  padding-top: 6vh;
 }

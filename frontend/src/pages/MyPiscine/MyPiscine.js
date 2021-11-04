@@ -32,24 +32,28 @@ const MyPiscine = ({ match, location }) => {
   return (
     <div className="mypiscine-container">
       <Header />
-      <div className="mypiscinebox ttemp">
-        <span className="title">Git Branch Piscine</span>
-        <span className="subtitle">Git Branch에 대해 배워봅시다!</span>
-        <div className="dummy">
-          {userPiscineSubjectList.map((e, idx) => {
-            console.log(e);
-            const url = `/myPiscine/view/${index}-${idx}`;
-            return (
-              <Link
-                to={{
-                  pathname: url,
-                  state: { id: id },
-                }}
-              >
-                <div>{e.name}</div>
-              </Link>
-            );
-          })}
+      <div className="mypiscine-page ttemp">
+        <div className="mypiscine-box">
+          <h1 className="title">Git Branch Piscine</h1>
+          <h2 className="subtitle">Git Branch에 대해 배워봅시다!</h2>
+        </div>
+        <div className="mypiscine-box">
+          <div className="dummy">
+            {userPiscineSubjectList.map((e, idx) => {
+              console.log(e);
+              const url = `/myPiscine/view/${index}-${idx}`;
+              return (
+                <Link
+                  to={{
+                    pathname: url,
+                    state: { id: id },
+                  }}
+                >
+                  <div>{e.name}</div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
       <Footer />

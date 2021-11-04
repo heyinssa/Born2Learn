@@ -1,12 +1,5 @@
 @import '../../theme';
 @import '../../theme';
-@font-face {
-  font-family: 'EliceDigitalBaeum_Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .login-page {
   display: flex;
@@ -30,7 +23,7 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
     text-align: center;
-    font-family: 'EliceDigitalBaeum_Bold';
+
     font-size: 30px;
   }
 
@@ -43,7 +36,7 @@
     background-color: rgb(108, 198, 250);
     border: 0px solid #9bbdcc;
     border-radius: 10px;
-    font-family: 'EliceDigitalBaeum_Bold';
+
     font-size: 30px;
     color: rgb(255, 255, 255);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),

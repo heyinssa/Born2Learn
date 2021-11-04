@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Main.scss';
 import { Header, Footer } from 'components';
+import MainModal from './MainModal';
 
 const getUserPiscinesAPI = 'http://betti.kr:9000' + '/api/users';
 const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users/';
@@ -73,74 +74,76 @@ const Main = ({ location }) => {
       <Header />
       <div className="main-page ttemp">
         <div className="main-block">
-          <h1>참여 중인 과정</h1>
-          <div className="parti">
-            {userPiscine.map((e, index) => {
-              const url = `/myPiscine/${index}`;
-              return (
-                <Link
-                  to={{
-                    pathname: url,
-                    state: { id: id, piscine: e },
-                  }}
-                >
-                  <div>{e.name}</div>
-                </Link>
-              );
-            })}
+          <div className="main-box">
+            <h1>참여 중인 과정</h1>
+            <div className="parti">
+              {userPiscine.map((e, index) => {
+                const url = `/myPiscine/${index}`;
+                return (
+                  <Link
+                    to={{
+                      pathname: url,
+                      state: { id: id, piscine: e },
+                    }}
+                  >
+                    <div>{e.name}</div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
           {/* 컴포넌트 경계 */}
-          <h1>진행중인 평가</h1>
-          <div className="evaluation">
-            {evaluationList.map((e, index) => {
-              const url = `/myEvaluation/${index}`;
-              return (
-                <Link
-                  to={{
-                    pathname: url,
-                    state: { id: id },
-                  }}
-                >
-                  <div>
-                    <b>ABCD Piscine must be evaluated</b>
-                    <span>with ycha</span>
-                  </div>
-                </Link>
-              );
-            })}
+          <div className="main-box">
+            <h1>진행중인 평가</h1>
+            <div className="evaluation">
+              {evaluationList.map((e, index) => {
+                const url = `/myEvaluation/${index}`;
+                return (
+                  <Link
+                    to={{
+                      pathname: url,
+                      state: { id: id },
+                    }}
+                  >
+                    <div>
+                      <b>ABCD Piscine must be evaluated</b>
+                      <span>with ycha</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
           {/* 컴포넌트 경계 */}
-          <div className="not-parti-title">
-            <h1>등록 가능한 과정</h1>
-            <button onClick={openModal}>+</button>
-          </div>
-          <div className="not-parti">
-            {piscineList.map((e, index) => {
-              const url = `/registerPiscine/${index}`;
-              return (
-                <Link
-                  to={{
-                    pathname: url,
-                    state: { id: id },
-                  }}
-                >
-                  <div>{e.name}</div>
-                </Link>
-              );
-            })}
+          <div className="main-box">
+            <div className="not-parti-title">
+              <h1>등록 가능한 과정</h1>
+              <button onClick={openModal}>+</button>
+            </div>
+            <div className="not-parti">
+              {piscineList.map((e, index) => {
+                const url = `/registerPiscine/${index}`;
+                return (
+                  <Link
+                    to={{
+                      pathname: url,
+                      state: { id: id },
+                    }}
+                  >
+                    <div>{e.name}</div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
       {/* 컴포넌트 경계 */}
       <Footer />
-      {isAddButtonClicked && (
-        <div className="modal" role="presentation" onClick={() => closeModal}>
-          <div className="modal-box">
-            <div>hi</div>
-            <input></input>
-          </div>
-        </div>
-      )}
+      <MainModal
+        isAddButtonClicked={isAddButtonClicked}
+        closeModal={closeModal}
+      />
     </div>
   );
 };

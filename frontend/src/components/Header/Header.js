@@ -9,19 +9,21 @@ const Header = ({ path }) => {
     <>
       {path !== '/' && (
         <div className="header">
-          <Link
-            to={{
-              pathname: '/main',
-              state: { userId: process.env.USER_ID },
-            }}
-          >
-            <div>WMPB</div>
-          </Link>
-          <img
-            className="fit-picture"
-            src={sq}
-            alt="Grapefruit slice atop a pile of other slices"
-          />
+          <div className="header-box">
+            <Link
+              to={{
+                pathname: '/main',
+                state: { userId: process.env.USER_ID },
+              }}
+            >
+              <div>WMPB</div>
+            </Link>
+            <img
+              className="fit-picture"
+              src={sq}
+              alt="Grapefruit slice atop a pile of other slices"
+            />
+          </div>
         </div>
       )}
     </>

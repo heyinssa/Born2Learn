@@ -8,7 +8,8 @@
 .main-container {
   height: 100%;
   width: 100%;
-  font-family: 'Nanum Gothic Coding', monospace;
+  // font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 1em;
 
   .main-page {
     position: relative;
@@ -18,81 +19,112 @@
     flex-direction: column;
     margin: auto;
 
-    h1 {
-      margin: 20px 15px;
-      font-size: 30px;
-      font-weight: bolder;
-      color: rgb(55, 55, 55);
-    }
-    .evaluation {
+    .main-box {
       width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 4em;
-      div {
-        width: 39vw;
-        max-width: 450px;
-        cursor: pointer;
-        height: 3vw;
-        border-bottom: 1px solid rgb(230, 230, 230);
-        margin: 10px;
-        padding: 10px;
+      height: auto;
+      margin-bottom: 0.5%;
+      padding: 4% 4%;
 
+      h1 {
+        font-size: 2vh;
+        margin-bottom: 3%;
+        font-weight: bolder;
+        color: rgb(55, 55, 55);
+      }
+
+      .evaluation {
+        width: 100%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        span {
-          color: blue;
+        div {
+          width: 39vw;
+          min-width: 330px;
+          max-width: 450px;
+          cursor: pointer;
+          height: auto;
+          border-bottom: 1px solid rgb(230, 230, 230);
+          margin: 2% 0;
+
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          b {
+            font-size: 0.8em;
+          }
+          span {
+            font-size: 0.8em;
+            color: rgb(137, 174, 254);
+          }
+        }
+      }
+      .not-parti-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          // font-size: 0.5em;
+          width: 2em;
+          height: 2em;
+          background-color: white;
+          border: 0.2em solid rgb(201, 201, 201);
+          border-radius: 15%;
+        }
+      }
+      .parti,
+      .not-parti {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        background-color: white;
+
+        div {
+          cursor: pointer;
+
+          width: 26vw;
+          max-width: 270px;
+          height: 26vw;
+          max-height: 270px;
+          margin-bottom: 4%;
+          // border: 1px solid rgb(237, 236, 236);
+          border-radius: 5%;
+          background-color: rgb(251, 248, 252);
+          // text-align: center;
         }
       }
     }
-    .not-parti-title {
+  }
+
+  .modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    .modal-box {
+      padding: 4% 2%;
+      position: relative;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      margin: auto;
-      padding-right: 10px;
-      button {
-        width: 3.5em;
-        height: 3.5em;
-        background-color: white;
-        border: 3px solid rgb(230, 230, 230);
-        border-radius: 10%;
-      }
-    }
-    .parti,
-    .not-parti {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 60vw;
+      height: 20vh;
       background-color: white;
-      margin-bottom: 4em;
-      div {
-        cursor: pointer;
-        width: 26vw;
-        max-width: 300px;
-        height: 26vw;
-        max-height: 300px;
-        background-color: rgb(227, 227, 227);
-        margin: 8px;
-        border-radius: 5%;
-        text-align: center;
-        padding-top: 10px;
+      border: 1px solid rgb(193, 193, 193);
+      border-radius: 10px;
+      input,
+      button {
+        height: 20%;
+        border-radius: 20px;
+        border: 1px solid rgb(193, 193, 193);
+        padding: 0 4%;
       }
-    }
-    .modal {
-      display: flex;
-      align-items: center;
-      position: fixed;
-      justify-content: center;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 99;
-      background-color: rgba(0, 0, 0, 0.6);
     }
   }
 }
