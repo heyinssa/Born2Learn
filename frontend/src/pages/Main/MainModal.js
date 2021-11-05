@@ -37,14 +37,15 @@ const PostRepository = ({ closeModal }) => {
 const MainModal = ({ isAddButtonClicked, closeModal }) => {
   return (
     <>
-      {isAddButtonClicked && (
-        <div className="modal" role="presentation">
-          <div className="modal-box">
-            <h1>과정 등록하기</h1>
-            <PostRepository closeModal={closeModal} />
-          </div>
+      <div
+        className={['modal', !isAddButtonClicked && 'modal-open'].join(' ')}
+        role="presentation"
+      >
+        <div className="modal-box">
+          <h1>과정 등록하기</h1>
+          <PostRepository closeModal={closeModal} />
         </div>
-      )}
+      </div>
     </>
   );
 };

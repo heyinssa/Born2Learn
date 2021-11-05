@@ -61,6 +61,8 @@ const Main = ({ location }) => {
   };
   const openModal = () => {
     setIsAddButtonClicked(true);
+
+    console.log(isAddButtonClicked);
   };
 
   useEffect(() => {
