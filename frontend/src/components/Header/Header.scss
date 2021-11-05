@@ -1,3 +1,4 @@
+@import '../../theme';
 @font-face {
   font-family: 'ImcreSoojin';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff')
@@ -12,12 +13,12 @@
   padding: 1%;
   width: 100%;
   height: 6vh;
-  font-size: 2em;
+  font-size: 1.8em;
   background: linear-gradient(#ffffff, #ffffffff, #f5fbffcc);
   border-bottom: 1px solid rgb(242, 242, 242);
   text-align: center;
   font-family: 'ImcreSoojin';
-  color: rgb(32, 114, 255);
+  color: $mainColor;
   // font-weight: bolder;
 
   .header-box {

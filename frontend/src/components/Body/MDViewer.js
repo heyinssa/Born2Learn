@@ -23,7 +23,7 @@ const MDViewer = ({ url }) => {
   });
 
   return (
-    <div>
+    <div className="mysubjectview-box">
       <MDEditor.Markdown source={contents} />
     </div>
   );

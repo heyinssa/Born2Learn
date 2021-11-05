@@ -22,7 +22,7 @@
       .main-box {
         width: 100%;
         height: auto;
-        padding: 4% 7%;
+        padding: 7% 7%;
         margin-bottom: 2px;
         background-color: white;
         border-radius: 4px;
@@ -34,12 +34,12 @@
         }
 
         .evaluation {
+          margin-top: 3vh;
           width: 100%;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
           gap: 1.5vh;
-
           a {
             width: 100%;
             div {
@@ -132,13 +132,16 @@
 
       h1 {
         flex: 1;
-        font-size: 1em;
+        font-size: 1.1em;
         text-align: center;
-        background: rgb(32, 114, 255);
+        background: $mainColor;
         height: 5vh;
         line-height: 5vh;
         color: white;
         font-weight: bold;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        // borderradius
       }
       .form-box {
         flex: 3;
@@ -154,12 +157,13 @@
         button {
           text-align: center;
           height: 4.5vh;
-          border: 1px solid rgb(194, 194, 194);
+          border: 1px solid $boxborderColor;
           border-radius: 5px;
         }
         button {
-          background: rgb(32, 114, 255);
+          background: $mainColor;
           color: white;
+          border: 0px;
         }
       }
     }

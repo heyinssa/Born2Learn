@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react';
-import './Body.scss';
 
 const UserProfile = () => {
   const [userImage, setUserImage] = useState([]);

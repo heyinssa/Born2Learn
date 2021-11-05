@@ -1,25 +1,25 @@
 import { React } from 'react';
 import { Header, Footer } from 'components';
-import {
-  MDViewer,
-  MySubjectTitle,
-  MySubjectGitRepository,
-  UserProfile,
-} from 'components/Body';
+import { MDViewer } from 'components/Body';
+import MySubjectTitle from './MySubjectTitle';
+import MySubjectGitRepository from './MySubjectGitRepository';
+import UserProfile from './UserProfile';
 import './MySubjectView.scss';
 
 const temp =
   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/piscine01/README.kr.md';
 
-const MySubjectView = ({ match }) => {
+const MySubjectView = ({ match, location }) => {
+  const subject = location.state.subject;
+
   return (
     <div className="mysubject-container">
       <Header />
       <div className="subjectview-page ttemp">
-        <MySubjectTitle></MySubjectTitle>
-        <MySubjectGitRepository></MySubjectGitRepository>
-        <UserProfile></UserProfile>
-        <MDViewer url={temp}> </MDViewer>
+        <div className="main-block">
+          <MySubjectTitle></MySubjectTitle>
+          <MDViewer url={temp}> </MDViewer>
+        </div>
       </div>
       <Footer />
     </div>

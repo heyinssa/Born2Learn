@@ -14,19 +14,6 @@
     cursor: pointer;
   }
 
-  .gitrepo {
-    width: 100%;
-    text-align: left;
-    font-size: 0.9em;
-    padding: 0.4em 0 0.3em 1em;
-    margin-top: 0.2em;
-    border: 1px solid rgb(237, 237, 237);
-    background-color: rgb(255, 255, 255);
-    font-weight: lighter;
-    border-radius: 0.3em;
-    margin-bottom: 2.3em;
-    height: 35px;
-  }
   .repo_name {
     font-size: 0.75em;
     color: #777;
@@ -62,16 +49,6 @@
     }
   }
 
-  .comp-box1 {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: 13px 0px 8px 0px;
-    font-weight: bolder;
-    padding-bottom: 0.5em;
-    margin-bottom: 1.2em;
-    border-bottom: 1px solid #ddd;
-  }
   h1 {
     font-size: 2.2em;
   }

@@ -40,7 +40,7 @@ const MainModal = ({ isAddButtonClicked, closeModal }) => {
       {isAddButtonClicked && (
         <div className="modal" role="presentation">
           <div className="modal-box">
-            <h1>Input Your Git Repository</h1>
+            <h1>과정 등록하기</h1>
             <PostRepository closeModal={closeModal} />
           </div>
         </div>

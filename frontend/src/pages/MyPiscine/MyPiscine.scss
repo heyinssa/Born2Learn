@@ -7,53 +7,55 @@
   .mypiscine-page {
     position: relative;
     height: auto;
-    align-items: center;
     display: flex;
     flex-direction: column;
     margin: auto;
-
-    .mypiscine-box {
-      width: 100%;
-      height: auto;
-      margin-bottom: 0.5%;
-      padding: 4% 4%;
-
-      .title {
-        font-size: 4vh;
-        text-align: center;
+    .mypiscine-block {
+      background-color: rgb(240, 243, 247);
+      .mypiscine-box {
         width: 100%;
-        font-weight: bolder;
-      }
-      .subtitle {
-        font-size: 1.5vh;
-        text-align: center;
-        width: 100%;
-        font-weight: bolder;
-      }
+        height: auto;
+        padding: 7% 7%;
+        margin-bottom: 2px;
+        background-color: white;
+        border-radius: 4px;
 
-      .mypiscine-box-column {
-        display: flex;
-        flex-direction: column;
-        gap: 1vh;
-        width: 100%;
-        cursor: default;
-        div {
-          height: 10vh;
-          border-radius: 10px;
-          padding: 5px;
-          border: 1px solid rgb(235, 235, 235);
+        .title {
+          font-size: 4vh;
+          text-align: center;
+          width: 100%;
+          font-weight: bolder;
+        }
+        .subtitle {
+          font-size: 1.5vh;
+          text-align: center;
+          width: 100%;
+          font-weight: bolder;
+        }
+
+        .mypiscine-box-column {
           display: flex;
           flex-direction: column;
-          justify-content: space-evenly;
-          h1 {
-            font-size: 2em;
+          gap: 1vh;
+          width: 100%;
+          cursor: default;
+          div {
+            height: 10vh;
+            border-radius: 10px;
+            padding: 5px 15px;
+            border: 1px solid rgb(235, 235, 235);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            h1 {
+              font-size: 2em;
+            }
           }
-        }
-        div:hover {
-          background-color: rgb(235, 235, 235);
+          div:hover {
+            background-color: rgb(235, 235, 235);
+          }
         }
       }
     }
   }
-  // }
 }

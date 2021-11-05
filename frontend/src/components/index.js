@@ -1,21 +1,5 @@
 import Header from './Header';
 import Footer from './Footer';
-import {
-  Line,
-  MDViewer,
-  MySubjectView,
-  MySubjectTitle,
-  MySubjectGitRepository,
-  UserProfile,
-} from './Body';
+import { MDViewer } from './Body';
 
-export {
-  Header,
-  Footer,
-  Line,
-  MDViewer,
-  MySubjectView,
-  MySubjectTitle,
-  MySubjectGitRepository,
-  UserProfile,
-};
+export { Header, Footer, MDViewer };
