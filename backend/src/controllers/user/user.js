@@ -69,22 +69,14 @@ async function remove(req, res, next) {
   res.sendStatus(200);
 }
 
-/* Evaluation/Evaluator (lower FK) */
+/* Evaluation (lower FK) */
 
-async function getEvaluationsByEvaluator(req, res, next) {
+async function getEvaluations(req, res, next) {
   const user_id = req.params.user;
+  const evaluations = [];
 
-  const evaluations = await EvaluationService.getByEvaluatorId(user_id);
-
-  res.status(200).json(evaluations);
-}
-
-/* Evaluation/Evaluatee (lower FK) */
-
-async function getEvaluationsByEvaluatee(req, res, next) {
-  const user_id = req.params.user;
-
-  const evaluations = await EvaluationService.getByEvaluateeId(user_id);
+  evaluations.push(...(await EvaluationService.getByEvaluatorId(user_id)));
+  evaluations.push(...(await EvaluationService.getByEvaluateeId(user_id)));
 
   res.status(200).json(evaluations);
 }
@@ -152,8 +144,7 @@ export default {
   create,
   update,
   remove,
-  getEvaluationsByEvaluator,
-  getEvaluationsByEvaluatee,
+  getEvaluations,
   getPiscines,
   registerPiscine,
   unregisterPiscine,

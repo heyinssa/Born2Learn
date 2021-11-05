@@ -15,13 +15,17 @@ async function getBySubjectId(subject_id) {
 async function create(
   piscine_id, //
   name,
-  readme_link,
+  evaluation_num,
+  subject_link,
+  evaluation_link,
   default_repository,
 ) {
   const subject = await SubjectModel.create(
     piscine_id, //
     name,
-    readme_link,
+    evaluation_num,
+    subject_link,
+    evaluation_link,
     default_repository,
   );
 
@@ -32,7 +36,9 @@ async function update(
   subject_id, //
   piscine_id,
   name,
-  readme_link,
+  evaluation_num,
+  subject_link,
+  evaluation_link,
   default_repository,
 ) {
   await getBySubjectId(subject_id);
@@ -41,7 +47,9 @@ async function update(
     subject_id, //
     piscine_id,
     name,
-    readme_link,
+    evaluation_num,
+    subject_link,
+    evaluation_link,
     default_repository,
   );
 

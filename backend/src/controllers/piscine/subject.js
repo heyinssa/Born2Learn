@@ -14,14 +14,18 @@ async function create(req, res, next) {
   const {
     piscine_id, //
     name,
-    readme_link,
+    evaluation_num,
+    subject_link,
+    evaluation_link,
     default_repository,
   } = req.body.data;
 
   const subject = await SubjectService.create(
     piscine_id, //
     name,
-    readme_link,
+    evaluation_num,
+    subject_link,
+    evaluation_link,
     default_repository,
   );
 
@@ -33,7 +37,9 @@ async function update(req, res, next) {
   const {
     piscine_id, //
     name,
-    readme_link,
+    evaluation_num,
+    subject_link,
+    evaluation_link,
     default_repository,
   } = req.body.data;
 
@@ -41,7 +47,9 @@ async function update(req, res, next) {
     subject_id, //
     piscine_id,
     name,
-    readme_link,
+    evaluation_num,
+    subject_link,
+    evaluation_link,
     default_repository,
   );
 

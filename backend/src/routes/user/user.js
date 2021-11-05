@@ -16,14 +16,7 @@ router.delete('/:user', UserController.remove);
 
 /* Evaluation (lower FK) */
 
-router.get(
-  '/:user/evaluation/as/evaluator',
-  UserController.getEvaluationsByEvaluator,
-);
-router.get(
-  '/:user/evaluation/as/evaluatee',
-  UserController.getEvaluationsByEvaluatee,
-);
+router.get('/:user/evaluations', UserController.getEvaluations);
 
 /* Piscine (Equal FK) */
 
