@@ -9,9 +9,10 @@ $bgColorLight: #3b404f;
 $bgColorGray: #c4c4c4;
 
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 
 .nanumgothiccoding * {
- font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Nanum Gothic Coding', monospace;
 }
 
 @mixin text($size: 16px, $color: $mainColor) {

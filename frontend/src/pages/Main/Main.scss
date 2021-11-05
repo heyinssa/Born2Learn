@@ -10,7 +10,6 @@
   width: 100%;
   // font-family: 'Nanum Gothic Coding', monospace;
   font-size: 1em;
-
   .main-page {
     position: relative;
     height: auto;
@@ -18,88 +17,91 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-
-    .main-box {
-      width: 100%;
-      height: auto;
-      margin-bottom: 5%;
-      padding: 4% 7%;
-
-      h1 {
-        font-size: 2.7vh;
-        margin-bottom: 3%;
-        font-weight: bolder;
-        color: rgb(55, 55, 55);
-      }
-
-      .evaluation {
+    .main-block {
+      background-color: rgb(240, 243, 247);
+      .main-box {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 1.5vh;
-
-        a {
-          width: 100%;
-          div {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            cursor: pointer;
-            border-bottom: 1px solid rgb(230, 230, 230);
-
-            b {
-              font-size: 0.9em;
-            }
-            span {
-              font-size: 0.9em;
-              color: rgb(137, 174, 254);
-            }
-          }
-        }
-      }
-      .not-parti-title {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-
-        button {
+        height: auto;
+        padding: 4% 7%;
+        margin-bottom: 2px;
+        background-color: white;
+        border-radius: 4px;
+        h1 {
           font-size: 2.7vh;
           margin-bottom: 3%;
-          // width: 2em;
-          // height: 2em;
-          background-color: white;
-          border: 0px;
+          font-weight: bolder;
+          color: rgb(55, 55, 55);
         }
-      }
-      .parti,
-      .not-parti {
-        display: flex;
-        flex-flow: wrap;
-        justify-content: space-between;
-        gap: 1vh;
-        background-color: white;
-        .parti-box {
-          cursor: pointer;
-          width: 27vw;
-          height: 27vw;
-          max-width: 250px;
-          max-height: 250px;
-          // margin-bottom: 4%;
-          border-radius: 5%;
+
+        .evaluation {
+          width: 100%;
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 1vh;
-          background-color: rgb(246, 237, 249);
-          img {
-            width: 17vw;
-            max-width: 175px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 1.5vh;
+
+          a {
+            width: 100%;
+            div {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              cursor: pointer;
+              border-bottom: 1px solid rgb(230, 230, 230);
+
+              b {
+                font-size: 0.9em;
+              }
+              span {
+                font-size: 0.9em;
+                color: rgb(137, 174, 254);
+              }
+            }
           }
-          div {
-            text-align: center;
+        }
+        .not-parti-title {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          button {
+            font-size: 2.7vh;
+            margin-bottom: 3%;
+            // width: 2em;
+            // height: 2em;
+            background-color: white;
+            border: 0px;
+          }
+        }
+        .parti,
+        .not-parti {
+          display: flex;
+          flex-flow: wrap;
+          justify-content: space-between;
+          gap: 1vh;
+          background-color: white;
+          .parti-box {
+            cursor: pointer;
+            width: 27vw;
+            height: 27vw;
+            max-width: 250px;
+            max-height: 250px;
+            // margin-bottom: 4%;
+            border-radius: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1vh;
+            background-color: rgb(246, 237, 249);
+            img {
+              width: 17vw;
+              max-width: 175px;
+            }
+            div {
+              text-align: center;
+            }
           }
         }
       }
@@ -117,22 +119,48 @@
     margin: auto;
     background-color: rgba(0, 0, 0, 0.6);
     .modal-box {
-      padding: 4% 2%;
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      width: 60vw;
+      width: 80vw;
+      max-width: 650px;
       height: 20vh;
       background-color: white;
-      border: 1px solid rgb(193, 193, 193);
-      border-radius: 10px;
-      input,
-      button {
-        height: 20%;
-        border-radius: 20px;
-        border: 1px solid rgb(193, 193, 193);
-        padding: 0 4%;
+      border: 0px solid rgb(193, 193, 193);
+      box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.249);
+      border-radius: 5px;
+
+      h1 {
+        flex: 1;
+        font-size: 1em;
+        text-align: center;
+        background: rgb(32, 114, 255);
+        height: 5vh;
+        line-height: 5vh;
+        color: white;
+        font-weight: bold;
+      }
+      .form-box {
+        flex: 3;
+        width: 70vw;
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 1vh;
+        margin: auto;
+        input,
+        button {
+          text-align: center;
+          height: 4.5vh;
+          border: 1px solid rgb(194, 194, 194);
+          border-radius: 5px;
+        }
+        button {
+          background: rgb(32, 114, 255);
+          color: white;
+        }
       }
     }
   }

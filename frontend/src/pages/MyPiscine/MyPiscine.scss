@@ -31,17 +31,23 @@
         font-weight: bolder;
       }
 
-      .dummy {
+      .mypiscine-box-column {
         display: flex;
         flex-direction: column;
+        gap: 1vh;
         width: 100%;
         cursor: default;
         div {
           height: 10vh;
-          margin: 2% 0;
-          font-size: 30px;
           border-radius: 10px;
+          padding: 5px;
           border: 1px solid rgb(235, 235, 235);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          h1 {
+            font-size: 2em;
+          }
         }
         div:hover {
           background-color: rgb(235, 235, 235);

@@ -121,7 +121,7 @@ const Main = ({ location }) => {
           <div className="main-box">
             <div className="not-parti-title">
               <h1>등록 가능한 과정</h1>
-              <button>+</button>
+              <button onClick={openModal}>+</button>
             </div>
             <div className="not-parti">
               {piscineList.map((e, index) => {

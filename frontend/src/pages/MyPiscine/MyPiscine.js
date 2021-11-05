@@ -38,7 +38,7 @@ const MyPiscine = ({ match, location }) => {
           <h2 className="subtitle">Git Branch에 대해 배워봅시다!</h2>
         </div>
         <div className="mypiscine-box">
-          <div className="dummy">
+          <div className="mypiscine-box-column">
             {userPiscineSubjectList.map((e, idx) => {
               console.log(e);
               const url = `/myPiscine/view/${index}-${idx}`;
@@ -49,7 +49,10 @@ const MyPiscine = ({ match, location }) => {
                     state: { id: id },
                   }}
                 >
-                  <div>{e.name}</div>
+                  <div>
+                    <h1>{e.name}</h1>
+                    <h2>asdf</h2>
+                  </div>
                 </Link>
               );
             })}
