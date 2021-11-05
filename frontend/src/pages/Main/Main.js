@@ -89,7 +89,10 @@ const Main = ({ location }) => {
                     }}
                   >
                     <div className="parti-box">
-                      <img src="https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e" />
+                      <img
+                        src="https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e"
+                        alt="img"
+                      />
                       <div>{e.name}</div>
                     </div>
                   </Link>
