@@ -1,9 +1,4 @@
 @import '../../theme';
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
-
-.nanumgothiccoding * {
-  font-family: 'Nanum Gothic Coding', monospace;
-}
 
 .main-container {
   height: 100%;
@@ -20,7 +15,6 @@
     h1 {
       margin: 20px 15px;
       font-size: 30px;
-      font-family: 'Nanum Gothic Coding', monospace;
       font-weight: bolder;
       color: rgb(55, 55, 55);
     }
@@ -45,7 +39,6 @@
         border-radius: 5%;
         text-align: center;
         padding-top: 10px;
-        font-family: 'Nanum Gothic Coding', monospace;
       }
     }
   }

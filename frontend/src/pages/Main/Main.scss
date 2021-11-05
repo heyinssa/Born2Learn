@@ -1,14 +1,8 @@
 @import '../../theme';
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
-
-.nanumgothiccoding * {
-  font-family: 'Nanum Gothic Coding', monospace;
-}
 
 .main-container {
   height: 100%;
   width: 100%;
-  // font-family: 'Nanum Gothic Coding', monospace;
   font-size: 1em;
   .main-page {
     position: relative;

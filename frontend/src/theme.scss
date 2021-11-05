@@ -8,7 +8,7 @@ $bgColor: #252831;
 $bgColorLight: #3b404f;
 $bgColorGray: #c4c4c4;
 $boxborderColor: #d2d2d2;
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 
 .nanumgothiccoding * {
@@ -17,9 +17,8 @@ $boxborderColor: #d2d2d2;
 
 @mixin text($size: 16px, $color: $mainColor) {
   font-size: $size;
-  font-family: 'nanum-gothic';
   color: $color;
-  src: url(https://fonts.google.com/specimen/Nanum+Gothic?query=nanum#about);
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 }
 
 @mixin inner {
