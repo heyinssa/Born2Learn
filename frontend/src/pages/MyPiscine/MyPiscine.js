@@ -1,17 +1,19 @@
 import { React, useState, useEffect } from 'react';
 import { Header, Footer } from 'components';
 import { Link } from 'react-router-dom';
-
-import './MyPiscine.scss';
 import axios from 'axios';
-
+import checkId from 'utils/checkId';
+import './MyPiscine.scss';
+import { useHistory } from 'react-router';
 const getPiscineSubjectAPI = 'http://betti.kr:9000' + '/api/piscines';
 const giscineTitle = 'Git Branch Piscine';
 const giscineSubtitle = 'Git Branch에 대해 배워봅시다!';
 
 const MyPiscine = ({ match, location }) => {
-  const id = location.state.id;
-  const piscine = location.state.piscine;
+  const id = checkId(location);
+  const history = useHistory();
+  let piscine;
+  if (id) piscine = location.state.piscine;
 
   const [userPiscineSubjectList, setUserPiscineSubjectList] = useState([]);
   const index = match.params.index.substring(0);
@@ -28,7 +30,7 @@ const MyPiscine = ({ match, location }) => {
   };
 
   useEffect(() => {
-    getUserPiscine(id);
+    if (id) getUserPiscine(id);
   }, []);
 
   return (

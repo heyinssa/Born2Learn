@@ -2,6 +2,7 @@ import { React } from 'react';
 import { Header, Footer } from 'components';
 import { MDViewer } from 'components/Body';
 import RegisterButton from './RegisterButton';
+import checkId from 'utils/checkId';
 import './RegisterPiscine.scss';
 
 const mdUrl =
@@ -10,7 +11,7 @@ const mdUrl =
 const pdfUrl = 'http://www.africau.edu/images/default/sample.pdf?raw:true';
 
 const RegisterPiscine = ({ match, location }) => {
-  const id = location.state.id;
+  const id = checkId(location);
   return (
     <div className="register-container">
       <Header />

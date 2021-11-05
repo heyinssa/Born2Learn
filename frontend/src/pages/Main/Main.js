@@ -1,9 +1,11 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import axios from 'axios';
-import './Main.scss';
 import { Header, Footer } from 'components';
 import MainModal from './MainModal';
+import './Main.scss';
+import checkId from 'utils/checkId';
 
 const getUserPiscinesAPI = 'http://betti.kr:9000' + '/api/users';
 const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users/';
@@ -11,7 +13,8 @@ const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines';
 
 const usertempid = '026bcd81-2899-40c4-be3d-c661b4cffbd9';
 const Main = ({ location }) => {
-  const id = location.state.userInfo.user_id;
+  const history = useHistory();
+  const id = checkId(location);
 
   const [userPiscine, setUserPiscine] = useState([]);
   const [evaluationList, setEvaluationList] = useState(['aa', 'bb', 'cc']);
@@ -67,7 +70,6 @@ const Main = ({ location }) => {
 
   useEffect(() => {
     getUserPiscine(id);
-    // setEvaluationList(['aa', 'bb', 'cc']);
     getPiscines(id);
   }, []);
 
@@ -139,7 +141,10 @@ const Main = ({ location }) => {
                     }}
                   >
                     <div className="parti-box">
-                      <img src="https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553" />
+                      <img
+                        src="https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553"
+                        alt="box"
+                      />
                       <div>{e.name}</div>
                     </div>
                   </Link>

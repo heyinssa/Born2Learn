@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PatternLock from 'react-pattern-lock';
 import getToken from 'utils/getToken';
 import getUserId from 'utils/getUserId';
-
+import checkId from 'utils/checkId';
 import './Register.scss';
 import axios from 'axios';
 
 const checkValidatePasswordApi = 'http://betti.kr:9000/api';
 
 const Register = ({ location }) => {
-  const id = location.state.userId;
+  const id = checkId(location);
   // const [userInfo, setUserInfo] = useState([]);
   let userInfo;
   let isVaild = false;
