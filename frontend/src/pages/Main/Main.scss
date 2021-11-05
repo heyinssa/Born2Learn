@@ -108,15 +108,15 @@
   .modal {
     position: fixed;
     display: flex;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     margin: auto;
-    background: #ffffff00;
     transition: 0.5s;
-
+    // background: white;
+    background: rgba(0, 0, 0, 0);
     .modal-box {
       position: relative;
       display: flex;
@@ -169,7 +169,7 @@
   }
   .modal-open {
     z-index: -1;
-    bottom: -200%;
+    transform: translateY(100%);
     transition: 0.5s;
   }
 }

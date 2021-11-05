@@ -7,7 +7,7 @@ const Entrance = () => {
   const [userId, setUserId] = useState('');
 
   const handleChangeId = (e) => {
-    setUserId(e.currentTarget.value.replace(/[^A-Za-z]/gi, ''));
+    setUserId(e.currentTarget.value.replace(/[^A-Za-z0-9]/gi, ''));
   };
 
   const handleClickLogin = () => {

@@ -10,10 +10,9 @@ const giscineTitle = 'Git Branch Piscine';
 const giscineSubtitle = 'Git Branch에 대해 배워봅시다!';
 
 const MyPiscine = ({ match, location }) => {
-  const id = checkId(location);
-  const history = useHistory();
+  const user_id = checkId(location);
   let piscine;
-  if (id) piscine = location.state.piscine;
+  if (user_id) piscine = location.state.piscine;
 
   const [userPiscineSubjectList, setUserPiscineSubjectList] = useState([]);
   const index = match.params.index.substring(0);
@@ -30,7 +29,7 @@ const MyPiscine = ({ match, location }) => {
   };
 
   useEffect(() => {
-    if (id) getUserPiscine(id);
+    if (user_id) getUserPiscine(user_id);
   }, []);
 
   return (
@@ -51,7 +50,7 @@ const MyPiscine = ({ match, location }) => {
                   <Link
                     to={{
                       pathname: url,
-                      state: { id: id, subject: e },
+                      state: { user_id: user_id, subject: e },
                     }}
                   >
                     <div>

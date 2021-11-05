@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router';
 import axios from 'axios';
 import { Header, Footer } from 'components';
 import MainModal from './MainModal';
@@ -13,15 +12,14 @@ const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines';
 
 const usertempid = '026bcd81-2899-40c4-be3d-c661b4cffbd9';
 const Main = ({ location }) => {
-  const history = useHistory();
-  const id = checkId(location);
-
+  const user_id = checkId(location);
+  console.log(user_id);
   const [userPiscine, setUserPiscine] = useState([]);
   const [evaluationList, setEvaluationList] = useState(['aa', 'bb', 'cc']);
   const [piscineList, setPiscineList] = useState([]);
   const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
 
-  const getUserPiscine = (id) => {
+  const getUserPiscine = (user_id) => {
     /** usertempid 를 id로 바꿔야함 **/
     const result = axios
       .get(getUserPiscinesAPI + '/' + usertempid + '/piscines')
@@ -34,7 +32,7 @@ const Main = ({ location }) => {
     return result;
   };
 
-  const getUserEvaluation = (id) => {
+  const getUserEvaluation = (user_id) => {
     /** usertempid 를 id로 바꿔야함 **/
     const result = axios
       .get(getEvaluationAPI + '/' + usertempid + '/evaluation')
@@ -69,8 +67,8 @@ const Main = ({ location }) => {
   };
 
   useEffect(() => {
-    getUserPiscine(id);
-    getPiscines(id);
+    getUserPiscine(user_id);
+    getPiscines(user_id);
   }, []);
 
   return (
@@ -87,7 +85,7 @@ const Main = ({ location }) => {
                   <Link
                     to={{
                       pathname: url,
-                      state: { id: id, piscine: e },
+                      state: { user_id: user_id, piscine: e },
                     }}
                   >
                     <div className="parti-box">
@@ -112,7 +110,7 @@ const Main = ({ location }) => {
                   <Link
                     to={{
                       pathname: url,
-                      state: { id: id },
+                      state: { user_id: user_id },
                     }}
                   >
                     <div>
@@ -137,7 +135,7 @@ const Main = ({ location }) => {
                   <Link
                     to={{
                       pathname: url,
-                      state: { id: id },
+                      state: { user_id: user_id },
                     }}
                   >
                     <div className="parti-box">

@@ -67,7 +67,7 @@ const Login = ({ location }) => {
           {idResult !== 'error' ? (
             <>
               <h1 className="title">WMPB</h1>
-              <h2>반가워요, {id}!</h2>
+              <h2 className="subtitle">반가워요, {id}!</h2>
               <PatternLock
                 width={300}
                 pointSize={15}
@@ -81,7 +81,10 @@ const Login = ({ location }) => {
             </>
           ) : (
             <Link to="/">
-              <div>존재하지 않는 아이디! 클릭해서 돌아가세요!</div>
+              <div className="unknown">
+                존재하지 않는 아이디!
+                <br /> 클릭해서 돌아가세요!
+              </div>
             </Link>
           )}
         </>
@@ -90,7 +93,7 @@ const Login = ({ location }) => {
         <Link
           to={{
             pathname: '/main',
-            state: { userInfo: userInfo },
+            state: { user_id: userInfo.user_id },
           }}
         >
           <div className="modal">로그인 성공!</div>
