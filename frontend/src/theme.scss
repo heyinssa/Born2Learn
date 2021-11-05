@@ -7,12 +7,12 @@ $mainColor: #679fff;
 $bgColor: #252831;
 $bgColorLight: #3b404f;
 $bgColorGray: #c4c4c4;
-$boxborderColor: #d2d2d2;
+$boxborderColor: #473535;
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 
-.nanumgothiccoding * {
-  font-family: 'Nanum Gothic Coding', monospace;
+.notosans * {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 @mixin text($size: 16px, $color: $mainColor) {
