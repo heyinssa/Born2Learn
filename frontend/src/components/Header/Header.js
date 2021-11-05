@@ -18,11 +18,6 @@ const Header = ({ path }) => {
             >
               <div>WMPB</div>
             </Link>
-            <img
-              className="fit-picture"
-              src={sq}
-              alt="Grapefruit slice atop a pile of other slices"
-            />
           </div>
         </div>
       )}

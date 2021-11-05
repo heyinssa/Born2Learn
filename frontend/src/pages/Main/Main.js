@@ -86,7 +86,10 @@ const Main = ({ location }) => {
                       state: { id: id, piscine: e },
                     }}
                   >
-                    <div>{e.name}</div>
+                    <div className="parti-box">
+                      <img src="https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e" />
+                      <div>{e.name}</div>
+                    </div>
                   </Link>
                 );
               })}
@@ -118,7 +121,7 @@ const Main = ({ location }) => {
           <div className="main-box">
             <div className="not-parti-title">
               <h1>등록 가능한 과정</h1>
-              <button onClick={openModal}>+</button>
+              <button>+</button>
             </div>
             <div className="not-parti">
               {piscineList.map((e, index) => {
@@ -130,7 +133,10 @@ const Main = ({ location }) => {
                       state: { id: id },
                     }}
                   >
-                    <div>{e.name}</div>
+                    <div className="parti-box">
+                      <img src="https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553" />
+                      <div>{e.name}</div>
+                    </div>
                   </Link>
                 );
               })}
