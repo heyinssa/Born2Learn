@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PatternLock from 'react-pattern-lock';
 import getToken from 'utils/getToken';
 import getUserId from 'utils/getUserId';
-import ReactLoading
+import Loader from './Loader';
 
 import './Login.scss';
 import axios from 'axios';
@@ -17,6 +17,7 @@ const Login = ({ location }) => {
   const [idResult, setIdResult] = useState('');
   const [isFinish, setIsFinish] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangePath = (pattern) => {
     setPath(pattern);
@@ -27,6 +28,7 @@ const Login = ({ location }) => {
   };
 
   const handleFinish = async () => {
+    setIsLoading(true);
     let pwString = path.join('');
     setPath([]);
     await axios
@@ -44,6 +46,7 @@ const Login = ({ location }) => {
         setIsFinish(false);
         setIsWrong(true);
       });
+    setIsLoading(false);
   };
 
   const tempSetToken = (token) => {
@@ -60,7 +63,9 @@ const Login = ({ location }) => {
     };
     fetchId();
   }, []);
-
+  if (isLoading) {
+    return <Loader type="spin" color="RGB 값" message="message" />;
+  }
   return (
     <div className="login-page">
       {idResult && (
