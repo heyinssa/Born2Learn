@@ -7,7 +7,7 @@ import {
   MyPiscine,
   MyEvaluation,
   RegisterPiscine,
-  MySubjectView,
+  MySubject,
   Register,
 } from 'pages';
 
@@ -23,11 +23,7 @@ const Routes = () => {
           <Route exact path="/main" component={Main} />
           <Route exact path="/myPiscine/:index" component={MyPiscine} />
           <Route exact path="/myEvaluation/:index" component={MyEvaluation} />
-          <Route
-            exact
-            path="/myPiscine/view/:index"
-            component={MySubjectView}
-          />
+          <Route exact path="/myPiscine/view/:index" component={MySubject} />
           <Route
             exact
             path="/registerPiscine/:index"

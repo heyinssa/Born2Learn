@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PatternLock from 'react-pattern-lock';
 import getToken from 'utils/getToken';
 import getUserId from 'utils/getUserId';
+import ReactLoading
 
 import './Login.scss';
 import axios from 'axios';
