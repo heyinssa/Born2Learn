@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyPiscineContents = ({ user_id, userPiscineSubjectList, index }) => {
+const MyPiscineContents = ({ user_id, userPiscineSubjectList }) => {
   return (
     <div className="mypiscine-box">
       <div className="mypiscine-box-column">
         {userPiscineSubjectList.map((e, idx) => {
           console.log(e);
-          const url = `/myPiscine/view/${index}-${idx}`;
+          const url = `/myPiscine/subject/${e.subject_id}`;
           return (
             <Link
               to={{

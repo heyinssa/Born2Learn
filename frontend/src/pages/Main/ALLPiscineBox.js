@@ -20,7 +20,7 @@ const ALLPiscineBox = ({ user_id, piscineList, openModal }) => {
             >
               <div className="parti-box">
                 <img
-                  src="https://42seoul.kr/template/cms/seoul42/images/common/head_logo.png"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1024px-42_Logo.svg.png"
                   alt="box"
                 />
                 <div>{e.name}</div>

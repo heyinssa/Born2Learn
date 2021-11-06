@@ -17,7 +17,7 @@ const MyPiscineBox = ({ user_id, userPiscine }) => {
             >
               <div className="parti-box">
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1024px-42_Logo.svg.png"
                   alt="img"
                 />
                 <div>{e.name}</div>

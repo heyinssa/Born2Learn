@@ -23,7 +23,11 @@ const Routes = () => {
           <Route exact path="/main" component={Main} />
           <Route exact path="/myPiscine/:index" component={MyPiscine} />
           <Route exact path="/myEvaluation/:index" component={MyEvaluation} />
-          <Route exact path="/myPiscine/view/:index" component={MySubject} />
+          <Route
+            exact
+            path="/myPiscine/subject/:subject_id"
+            component={MySubject}
+          />
           <Route
             exact
             path="/registerPiscine/:index"

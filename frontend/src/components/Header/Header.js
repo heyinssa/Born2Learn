@@ -1,13 +1,19 @@
 import { React } from 'react';
 import { Link } from 'react-router-dom';
-import sq from 'asset/sq.png';
+import Headroom from 'react-headroom';
+
 import './Header.scss';
 
 const Header = ({ path, user_id }) => {
   console.log(path);
   console.log(user_id);
   return (
-    <>
+    // <div style={{ marginBottom: rhythm(1) }}>
+    <Headroom
+      onPin={() => console.log('pinned')}
+      onUnpin={() => console.log('unpinned')}
+      // wrapperStyle={{ marginBottom: rhythm(1) }}
+    >
       {path !== '/' && (
         <div className="header">
           <div className="header-box">
@@ -22,7 +28,8 @@ const Header = ({ path, user_id }) => {
           </div>
         </div>
       )}
-    </>
+    </Headroom>
+    // </div>
   );
 };
 

@@ -10,25 +10,24 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
       <h1>진행중인 평가</h1>
       <div className="evaluation">
         {evaluationList.map((e, index) => {
-          const url = `/myEvaluation/${index}`;
+          const evalurl = `/myEvaluation/${index}`;
+          const sbjurl = `/myPiscine/subject/${e.subject.subject_id}`;
           const evaluator = e.evaluator.id;
           const evaluatee = e.evaluatee.id;
           const subject = e.subject.name;
+
           return (
-            // 여기서 분기가 들어가야함
             <Link
               to={{
-                pathname: url,
+                pathname: e.evaluatee.user_id === user_id ? evalurl : sbjurl,
                 state: { user_id: user_id },
               }}
             >
               <div>
                 <b>
-                  {console.log(e)}
-                  {evaluator}님이 {evaluatee}님의 {subject}를 평가할 예정입니다.
-                  {/* 예정입니다 */}
+                  {evaluator}님이 {evaluatee}님을 평가할 예정입니다.
                 </b>
-                <span>with ycha</span>
+                <span>{subject}</span>
               </div>
             </Link>
           );
