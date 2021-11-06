@@ -73,7 +73,7 @@ const Main = ({ location }) => {
 
   return (
     <div className="main-container">
-      <Header />
+      <Header user_id={user_id} />
       <div className="main-page ttemp">
         <div className="main-block">
           <div className="main-box">
@@ -90,7 +90,7 @@ const Main = ({ location }) => {
                   >
                     <div className="parti-box">
                       <img
-                        src={require('https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e')}
+                        src="https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e"
                         alt="img"
                       />
                       <div>{e.name}</div>
@@ -140,7 +140,7 @@ const Main = ({ location }) => {
                   >
                     <div className="parti-box">
                       <img
-                        src={require('https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553')}
+                        src="https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553"
                         alt="box"
                       />
                       <div>{e.name}</div>

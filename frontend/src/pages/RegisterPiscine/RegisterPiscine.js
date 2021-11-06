@@ -9,18 +9,22 @@ const mdUrl =
   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.md';
 
 const pdfUrl = 'http://www.africau.edu/images/default/sample.pdf?raw:true';
+const htmlUrl = 'https://woosetcho.github.io/html_css_piscine/pages/day01.html';
 
 const RegisterPiscine = ({ match, location }) => {
-  const id = checkId(location);
+  const user_id = checkId(location);
   return (
     <div className="register-container">
-      <Header />
+      <Header user_id={user_id} />
       <div className="register-page ttemp">
         <div className="register-block">
           <div className="register-box">
             <MDViewer className="md" url={mdUrl}></MDViewer>
             <object className="pdf" data={pdfUrl} type="application/pdf">
               alt : <a href={pdfUrl}>test.pdf</a>
+            </object>
+            <object className="pdf" data={htmlUrl} type="text/html">
+              alt : <a href={htmlUrl}>test.pdf</a>
             </object>
           </div>
         </div>

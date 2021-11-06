@@ -1,11 +1,13 @@
 import React from 'react';
 import { Header, Footer } from 'components';
+import checkId from 'utils/checkId';
 
 const MyEvaluation = ({ match, location }) => {
-  const id = location.state.id;
+  const user_id = checkId(location);
+
   return (
     <div className="myevaluation-container">
-      <Header />
+      <Header user_id={user_id} />
       <div className="myevaluationbox ttemp">
         <button>finish</button>
       </div>

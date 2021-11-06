@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import sq from 'asset/sq.png';
 import './Header.scss';
 
-const Header = ({ path }) => {
+const Header = ({ path, user_id }) => {
   console.log(path);
+  console.log(user_id);
   return (
     <>
       {path !== '/' && (
@@ -13,7 +14,7 @@ const Header = ({ path }) => {
             <Link
               to={{
                 pathname: '/main',
-                state: { userId: process.env.USER_ID },
+                state: { user_id: user_id },
               }}
             >
               <div>WMPB</div>

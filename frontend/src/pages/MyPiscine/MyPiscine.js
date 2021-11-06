@@ -34,7 +34,7 @@ const MyPiscine = ({ match, location }) => {
 
   return (
     <div className="mypiscine-container">
-      <Header />
+      <Header user_id={user_id} />
       <div className="mypiscine-page ttemp">
         <div className="mypiscine-block">
           <div className="mypiscine-box">

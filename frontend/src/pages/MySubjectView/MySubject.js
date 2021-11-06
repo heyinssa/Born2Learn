@@ -8,13 +8,13 @@ import './MySubjectView.scss';
 const temp =
   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/piscine01/README.kr.md';
 
-const MySubjectView = ({ match, location }) => {
-  const id = checkId(location);
+const MySubject = ({ match, location }) => {
+  const user_id = checkId(location);
   const subject = location.state.subject;
 
   return (
     <div className="mysubject-container">
-      <Header />
+      <Header user_id={user_id} />
       <div className="subjectview-page ttemp">
         <div className="main-block">
           <MySubjectTitle></MySubjectTitle>
@@ -26,4 +26,4 @@ const MySubjectView = ({ match, location }) => {
   );
 };
 
-export default MySubjectView;
+export default MySubject;
