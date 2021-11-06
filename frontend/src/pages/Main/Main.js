@@ -6,14 +6,17 @@ import MainModal from './MainModal';
 import './Main.scss';
 import checkId from 'utils/checkId';
 
+import MyPiscineBox from './MyPiscineBox';
+import MyEvaluationBox from './MyEvaluationBox';
+import ALLPiscineBox from './ALLPiscineBox';
+
 const getUserPiscinesAPI = 'http://betti.kr:9000' + '/api/users';
 const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users/';
-const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines';
+const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines/all';
 
 const usertempid = '026bcd81-2899-40c4-be3d-c661b4cffbd9';
 const Main = ({ location }) => {
   const user_id = checkId(location);
-  console.log(user_id);
   const [userPiscine, setUserPiscine] = useState([]);
   const [evaluationList, setEvaluationList] = useState(['aa', 'bb', 'cc']);
   const [piscineList, setPiscineList] = useState([]);
@@ -57,14 +60,8 @@ const Main = ({ location }) => {
     return result;
   };
 
-  const closeModal = () => {
-    setIsAddButtonClicked(false);
-  };
-  const openModal = () => {
-    setIsAddButtonClicked(true);
-
-    console.log(isAddButtonClicked);
-  };
+  const closeModal = () => setIsAddButtonClicked(false);
+  const openModal = () => setIsAddButtonClicked(true);
 
   useEffect(() => {
     getUserPiscine(user_id);
@@ -76,83 +73,15 @@ const Main = ({ location }) => {
       <Header user_id={user_id} />
       <div className="main-page ttemp">
         <div className="main-block">
-          <div className="main-box">
-            <h1>참여 중인 과정</h1>
-            <div className="parti">
-              {userPiscine.map((e, index) => {
-                const url = `/myPiscine/${index}`;
-                return (
-                  <Link
-                    to={{
-                      pathname: url,
-                      state: { user_id: user_id, piscine: e },
-                    }}
-                  >
-                    <div className="parti-box">
-                      <img
-                        src="https://cdn-icons.flaticon.com/png/512/2000/premium/2000176.png?token=exp=1636086572~hmac=e6f9274e9e32e1e170319990c1fd492e"
-                        alt="img"
-                      />
-                      <div>{e.name}</div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-          {/* 컴포넌트 경계 */}
-          <div className="main-box">
-            <h1>진행중인 평가</h1>
-            <div className="evaluation">
-              {evaluationList.map((e, index) => {
-                const url = `/myEvaluation/${index}`;
-                return (
-                  <Link
-                    to={{
-                      pathname: url,
-                      state: { user_id: user_id },
-                    }}
-                  >
-                    <div>
-                      <b>ABCD Piscine must be evaluated</b>
-                      <span>with ycha</span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-          {/* 컴포넌트 경계 */}
-          <div className="main-box">
-            <div className="not-parti-title">
-              <h1>등록 가능한 과정</h1>
-              <button onClick={openModal}>+</button>
-            </div>
-            <div className="not-parti">
-              {piscineList.map((e, index) => {
-                const url = `/registerPiscine/${index}`;
-                return (
-                  <Link
-                    to={{
-                      pathname: url,
-                      state: { user_id: user_id },
-                    }}
-                  >
-                    <div className="parti-box">
-                      <img
-                        src="https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553"
-                        alt="box"
-                      />
-                      <div>{e.name}</div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+          <MyPiscineBox user_id={user_id} userPiscine={userPiscine} />
+          <MyEvaluationBox user_id={user_id} evaluationList={evaluationList} />
+          <ALLPiscineBox
+            user_id={user_id}
+            piscineList={piscineList}
+            openModal={openModal}
+          />
         </div>
       </div>
-      {/* 컴포넌트 경계 */}
       <Footer />
       <MainModal
         isAddButtonClicked={isAddButtonClicked}
