@@ -27,6 +27,7 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
         {evaluationList.map((e, index) => {
           const url = `/myEvaluation/${index}`;
           return (
+            // 여기서 분기가 들어가야함
             <Link
               to={{
                 pathname: url,
@@ -34,7 +35,7 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
               }}
             >
               <div>
-                <b>ABCD Piscine must be evaluated</b>
+                <b>{e.subject_id}</b>
                 <span>with ycha</span>
               </div>
             </Link>

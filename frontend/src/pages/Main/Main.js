@@ -14,7 +14,6 @@ const getUserPiscinesAPI = 'http://betti.kr:9000' + '/api/users';
 const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users/';
 const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines/all';
 
-const usertempid = '026bcd81-2899-40c4-be3d-c661b4cffbd9';
 const Main = ({ location }) => {
   const user_id = checkId(location);
   const [userPiscine, setUserPiscine] = useState([]);
@@ -23,22 +22,20 @@ const Main = ({ location }) => {
   const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
 
   const getUserPiscine = (user_id) => {
-    /** usertempid 를 id로 바꿔야함 **/
     const result = axios
-      .get(getUserPiscinesAPI + '/' + usertempid + '/piscines')
+      .get(getUserPiscinesAPI + '/' + user_id + '/piscines')
       .then((response) => {
         setUserPiscine(response.data);
       })
       .catch((error) => {
-        console.log(`getUserPiscineAPI 호출 실패! (:${usertempid})`);
+        console.log(`getUserPiscineAPI 호출 실패! (:${user_id})`);
       });
     return result;
   };
 
   const getUserEvaluation = (user_id) => {
-    /** usertempid 를 id로 바꿔야함 **/
     const result = axios
-      .get(getEvaluationAPI + '/' + usertempid + '/evaluation')
+      .get(getEvaluationAPI + '/' + user_id + '/evaluations')
       .then((response) => {
         setEvaluationList(response.data);
       })
@@ -66,6 +63,7 @@ const Main = ({ location }) => {
   useEffect(() => {
     getUserPiscine(user_id);
     getPiscines(user_id);
+    getUserEvaluation(user_id);
   }, []);
 
   return (
