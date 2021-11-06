@@ -17,7 +17,7 @@
         // width: 100%;
         height: auto;
         // padding: 7% 7%;
-        margin: 5% 4%;
+        margin: 5% 2%;
         padding: 5%;
         margin-bottom: 2px;
         background-color: #4a8dffc2;
@@ -46,7 +46,7 @@
           a {
             width: 100%;
             div:hover {
-              background: $boxborderColor;
+              background: #ffffffaa;
             }
             div {
               border-radius: 5px;
@@ -87,10 +87,11 @@
             border: 0px;
           }
           button:hover {
-            color: $mainColor;
+            color: #ffffffaa;
             cursor: pointer;
           }
         }
+
         .parti,
         .not-parti {
           display: flex;
@@ -98,6 +99,10 @@
           justify-content: space-between;
           gap: 1vh;
           // background-color: white;
+          .parti-box:hover {
+            background: #ffffff44;
+            box-shadow: inset -1px -1px 1px 1px rgba(0, 123, 255, 0.4);
+          }
           .parti-box {
             cursor: pointer;
             width: 25vw;
@@ -113,11 +118,11 @@
             justify-content: center;
             align-items: center;
             gap: 1vh;
-            // box-shadow: inset -1px -1px 1px 1px rgba(0, 123, 255, 0.4);
+            box-shadow: inset 1px 1px 1px 1px rgba(0, 123, 255, 0.4);
             // background-color: $subColor;
             // background: $bgOverlayColor;
-            border: 1px solid white;
-            border: 1px solid $mainColor;
+            // border: 1px solid white;
+            // border: 1px solid rgb(0, 0, 0);
             img {
               width: 15vw;
               max-width: 175px;
