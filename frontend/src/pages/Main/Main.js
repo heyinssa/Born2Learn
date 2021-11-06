@@ -17,12 +17,12 @@ const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines/all';
 const Main = ({ location }) => {
   const user_id = checkId(location);
   const [userPiscine, setUserPiscine] = useState([]);
-  const [evaluationList, setEvaluationList] = useState(['aa', 'bb', 'cc']);
+  const [evaluationList, setEvaluationList] = useState([]);
   const [piscineList, setPiscineList] = useState([]);
   const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
 
-  const getUserPiscine = (user_id) => {
-    const result = axios
+  const getUserPiscine = async (user_id) => {
+    const result = await axios
       .get(getUserPiscinesAPI + '/' + user_id + '/piscines')
       .then((response) => {
         setUserPiscine(response.data);
@@ -33,8 +33,8 @@ const Main = ({ location }) => {
     return result;
   };
 
-  const getUserEvaluation = (user_id) => {
-    const result = axios
+  const getUserEvaluation = async (user_id) => {
+    const result = await axios
       .get(getEvaluationAPI + '/' + user_id + '/evaluations')
       .then((response) => {
         setEvaluationList(response.data);
@@ -45,8 +45,8 @@ const Main = ({ location }) => {
     return result;
   };
 
-  const getPiscines = () => {
-    const result = axios
+  const getPiscines = async () => {
+    const result = await axios
       .get(getPiscinesAPI)
       .then((response) => {
         setPiscineList(response.data);

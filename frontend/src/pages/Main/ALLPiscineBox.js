@@ -20,7 +20,7 @@ const ALLPiscineBox = ({ user_id, piscineList, openModal }) => {
             >
               <div className="parti-box">
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/2964/premium/2964535.png?token=exp=1636086572~hmac=1a255d30ccfdc9067d57b73d25482553"
+                  src="https://42seoul.kr/template/cms/seoul42/images/common/head_logo.png"
                   alt="box"
                 />
                 <div>{e.name}</div>
