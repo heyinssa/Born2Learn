@@ -10,7 +10,7 @@
     flex-direction: column;
     margin: auto;
     .register-block {
-      background-color: rgb(240, 243, 247);
+      background-color: $mainColorLight;
       .register-box {
         width: 100%;
         height: auto;
@@ -38,11 +38,11 @@
     width: 45vw;
     max-width: 250px;
     background-color: $mainColor;
-    border: 0px solid #9bbdcc;
+    border: 0px;
     margin-top: 50px;
     border-radius: 10px;
     font-size: 1.2em;
-    color: rgb(255, 255, 255);
+    color: white;
     box-shadow: 0 8px 6px -1px rgba(0, 0, 0, 0.5),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
     cursor: pointer;

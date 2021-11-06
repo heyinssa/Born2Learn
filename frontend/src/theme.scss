@@ -4,11 +4,15 @@ $header-bg-colorL: #3b404f;
 $fontFamily: Arial, sans-serif;
 
 $mainColor: #679fff;
+$mainColorRegular: #6cc6fa;
+$mainColorLight: #f0f3f7;
+$subColor: #f6edf9;
 $bgColor: #252831;
 $bgColorLight: #3b404f;
+$bgColorModal: #00000088;
 $bgColorGray: #c4c4c4;
-$boxborderColor: #cdcdcd;
-
+$bgOverlayColor: #00000022;
+$boxborderColor: #dfdfdf;
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 
 .notosans * {

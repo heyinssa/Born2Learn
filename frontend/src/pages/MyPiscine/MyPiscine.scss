@@ -10,7 +10,7 @@
     flex-direction: column;
     margin: auto;
     .mypiscine-block {
-      background-color: rgb(240, 243, 247);
+      background-color: $mainColorLight;
       .mypiscine-box {
         width: 100%;
         height: auto;
@@ -42,7 +42,7 @@
             height: 10vh;
             border-radius: 10px;
             padding: 5px 15px;
-            border: 1px solid rgb(235, 235, 235);
+            border: 1px solid $boxborderColor;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -51,7 +51,7 @@
             }
           }
           div:hover {
-            background-color: rgb(235, 235, 235);
+            background-color: $boxborderColor;
           }
         }
       }

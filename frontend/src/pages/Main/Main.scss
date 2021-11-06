@@ -12,7 +12,7 @@
     flex-direction: column;
     margin: auto;
     .main-block {
-      background-color: rgb(240, 243, 247);
+      background-color: $mainColorLight;
       .main-box {
         width: 100%;
         height: auto;
@@ -24,7 +24,6 @@
           font-size: 2.7vh;
           margin-bottom: 3%;
           font-weight: bolder;
-          color: rgb(55, 55, 55);
         }
 
         .evaluation {
@@ -33,22 +32,26 @@
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          gap: 1.5vh;
+          gap: 1vh;
           a {
             width: 100%;
+            div:hover {
+              background: $boxborderColor;
+            }
             div {
+              border-radius: 5px;
               display: flex;
               flex-wrap: wrap;
               justify-content: space-between;
               cursor: pointer;
-              border-bottom: 1px solid rgb(230, 230, 230);
-
+              border-bottom: 1px solid $boxborderColor;
+              padding: 1%;
               b {
                 font-size: 0.9em;
               }
               span {
                 font-size: 0.9em;
-                color: rgb(137, 174, 254);
+                color: $mainColor;
               }
             }
           }
@@ -84,14 +87,13 @@
             height: 27vw;
             max-width: 250px;
             max-height: 250px;
-            // margin-bottom: 4%;
             border-radius: 5%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1vh;
-            background-color: rgb(246, 237, 249);
+            background-color: $subColor;
             img {
               width: 17vw;
               max-width: 175px;
@@ -125,8 +127,8 @@
       max-width: 650px;
       height: 20vh;
       background-color: white;
-      border: 0px solid rgb(193, 193, 193);
-      box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.249);
+      border: 0px solid $boxborderColor;
+      box-shadow: 4px 4px 2px $bgOverlayColor;
       border-radius: 5px;
 
       h1 {
