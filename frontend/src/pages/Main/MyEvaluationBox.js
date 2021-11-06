@@ -35,7 +35,7 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
               }}
             >
               <div>
-                <b>{e.subject_id}</b>
+                <b>{console.log(e)}님이</b>
                 <span>with ycha</span>
               </div>
             </Link>
