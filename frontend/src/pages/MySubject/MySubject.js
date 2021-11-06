@@ -15,8 +15,8 @@ const MySubject = ({ match, location }) => {
   return (
     <div className="mysubject-container">
       <Header user_id={user_id} />
-      <div className="subjectview-page ttemp">
-        <div className="main-block">
+      <div className="mysubject-page ttemp">
+        <div className="mysubject-block">
           <MySubjectTitle></MySubjectTitle>
           <MDViewer url={temp}> </MDViewer>
         </div>

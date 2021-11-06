@@ -1,7 +1,25 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const MyEvaluationBox = ({ user_id, evaluationList }) => {
+  //   const [eval, setIsFinish] = useState(false);
+
+  //   const fetchIsFinish = async () => {
+  //     axios
+  //       .get(getUserEvaluationListAPI)
+  //       .then((response) => {
+  //         setUserEvaluationList(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(`getUserEvaluationListAPI호출 에러!! ${error}`);
+  //       });
+  //   };
+
+  //   useEffect(() => {
+  //     fetchIsFinish();
+  //   });
+
   return (
     <div className="main-box">
       <h1>진행중인 평가</h1>

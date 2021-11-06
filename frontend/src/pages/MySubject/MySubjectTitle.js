@@ -40,8 +40,9 @@ const MySubjectTitle = () => {
   });
 
   return (
-    <div className="mysubjectview-box">
-      <div className="mysubjectview-title-box">
+    <div className="mysubject-box">
+      {/* 컴포넌트 경계 */}
+      <div className="mysubject-box-title">
         {userState === 'done' && (
           <img class="state" src="../../logo192.png" alt="done" />
         )}
@@ -51,7 +52,8 @@ const MySubjectTitle = () => {
         </div>
         <div className="percent">100%</div>
       </div>
-      <div className="gitrepo-box">
+      {/* 컴포넌트 경계 */}
+      <div className="mysubject-box-gitbox">
         <h2>REPOSITORY URL</h2>
         <CopyToClipboard
           className="gitrepo-button"
@@ -61,6 +63,9 @@ const MySubjectTitle = () => {
           <button>{state.value}</button>
         </CopyToClipboard>
       </div>
+      {/* 컴포넌트 경계 */}
+      <div className="mysubject-box-evaluationbox"></div>
+      {/* 컴포넌트 경계 */}
     </div>
   );
 };

@@ -29,6 +29,7 @@ const Routes = () => {
             path="/registerPiscine/:index"
             component={RegisterPiscine}
           />
+          <Route exact path="/main" component={Main} />
         </Switch>
       </Router>
     </>

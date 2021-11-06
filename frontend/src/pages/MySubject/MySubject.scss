@@ -3,15 +3,15 @@
 .mysubject-container {
   height: 100%;
   width: 100%;
-  .subjectview-page {
+  .mysubject-page {
     position: relative;
     height: auto;
     display: flex;
     flex-direction: column;
     margin: auto;
-    .main-block {
+    .mysubject-block {
       background-color: $mainColorLight;
-      .mysubjectview-box {
+      .mysubject-box {
         width: 100%;
         height: auto;
         padding: 7% 7%;
@@ -19,7 +19,7 @@
         background-color: white;
         border-radius: 4px;
 
-        .mysubjectview-title-box {
+        .mysubject-box-title {
           display: flex;
           justify-content: space-between;
           flex-direction: row;
@@ -49,7 +49,7 @@
             max-width: 40px;
           }
         }
-        .gitrepo-box {
+        .mysubject-box-gitbox {
           margin-top: 2vh;
           display: flex;
           flex-direction: column;
@@ -71,6 +71,8 @@
             background-color: $boxborderColor;
             cursor: pointer;
           }
+        }
+        .mysubject-box-evaluationbox {
         }
       }
     }
