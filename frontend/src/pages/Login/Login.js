@@ -63,11 +63,12 @@ const Login = ({ location }) => {
     };
     fetchId();
   }, []);
-  if (isLoading) {
-    return <Loader type="spin" color="RGB 값" message="message" />;
-  }
+
   return (
     <div className="login-page">
+      {isLoading && (
+        <Loader type="spin" color="rgb(103, 159, 255)" message="message" />
+      )}
       {idResult && (
         <>
           {idResult !== 'error' ? (

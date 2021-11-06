@@ -3,7 +3,10 @@ import ReactLoading from 'react-loading';
 
 const Loader = ({ type, color, message }) => {
   return (
-    <div class="contentWrap">
+    <div
+      class="contentWrap"
+      style={{ background: 'rgba(0,0,0,0.6)', zIndex: 4 }}
+    >
       {' '}
       <div
         style={{
@@ -13,15 +16,13 @@ const Loader = ({ type, color, message }) => {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        {' '}
-        {/* <h2>{message}</h2> <h2>창을 닫지 말아주세요.</h2>{' '} */}
         <ReactLoading
           type={type}
           color={color}
-          height={'80%'}
-          width={'80%'}
-        />{' '}
-      </div>{' '}
+          height={'15vw'}
+          width={'15vw'}
+        />
+      </div>
     </div>
   );
 };
