@@ -12,7 +12,9 @@ const MyEvaluation = ({ match, location }) => {
       <Header user_id={user_id} />
       <div className="myevaluation-page ttemp">
         <div className="myevaluation-block">
-          {/* <MyEvaluationContents /> */}
+          <div>a</div>
+          <div>b</div>
+          <div>c</div>
         </div>
       </div>
       <Footer />

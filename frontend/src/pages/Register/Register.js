@@ -95,7 +95,7 @@ const Register = ({ location }) => {
   }, []);
 
   return (
-    <div className="login-page">
+    <div className="register-page">
       {idResult && (
         <>
           {idResult !== 'error' ? (

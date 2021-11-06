@@ -14,12 +14,13 @@
   width: 100%;
   height: 6vh;
   font-size: 1.8em;
-  background: linear-gradient(#ffffff, #ffffffff, #f5fbffcc);
-  // background: #ffffff00;
+  background: linear-gradient($mainColor, #ffffff00);
+  // background: #ffffff35;
   border-bottom: 1px solid rgb(242, 242, 242);
   text-align: center;
   font-family: 'ImcreSoojin';
   color: $mainColor;
+  color: white;
   // font-weight: bolder;
 
   .header-box {
