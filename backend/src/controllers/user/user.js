@@ -2,6 +2,12 @@ import { EvaluationService, UserService } from '../../services/index.js';
 
 /* User (PK) */
 
+async function getAll(req, res, next) {
+  const users = await UserService.getAll();
+
+  res.status(200).json(users);
+}
+
 async function get(req, res, next) {
   const user_id = req.params.user;
 
@@ -95,9 +101,9 @@ async function registerPiscine(req, res, next) {
   const user_id = req.params.user;
   const piscine_id = req.params.piscine;
 
-  const piscine = await UserService.registerPiscine(user_id, piscine_id);
+  const register = await UserService.registerPiscine(user_id, piscine_id);
 
-  res.status(200).json(piscine);
+  res.status(200).json(register);
 }
 
 async function unregisterPiscine(req, res, next) {
@@ -123,9 +129,9 @@ async function registerSubject(req, res, next) {
   const user_id = req.params.user;
   const subject_id = req.params.subject;
 
-  const subject = await UserService.registerSubject(user_id, subject_id);
+  const register = await UserService.registerSubject(user_id, subject_id);
 
-  res.status(200).json(subject);
+  res.status(200).json(register);
 }
 
 async function unregisterSubject(req, res, next) {
@@ -138,6 +144,7 @@ async function unregisterSubject(req, res, next) {
 }
 
 export default {
+  getAll,
   get,
   login,
   getValidId,

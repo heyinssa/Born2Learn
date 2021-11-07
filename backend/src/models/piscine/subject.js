@@ -1,4 +1,5 @@
 import { Sequelize, DataTypes } from '../database.js';
+import { PiscineService } from '../../services/index.js'; //temp
 
 const Subject = Sequelize.define(
   'subject',
@@ -45,16 +46,38 @@ const Subject = Sequelize.define(
   },
 );
 
+async function __temp__convert(subject) {
+  if (!subject) return subject;
+
+  subject.piscine = await PiscineService.getByPiscineId(subject.piscine_id);
+
+  delete subject.piscine_id;
+
+  return subject;
+}
+
 async function getBySubjectId(subject_id) {
-  return Subject.findOne({
+  const subject = await Subject.findOne({
     where: { subject_id },
+  }).then(data => {
+    if (data) return data.get({ plain: true });
   });
+
+  return await __temp__convert(subject);
 }
 
 async function getByPiscineId(piscine_id) {
-  return Subject.findAll({
+  const subjects = await Subject.findAll({
     where: { piscine_id },
   });
+
+  const ret = await Promise.all(
+    subjects.map(subject => {
+      return __temp__convert(subject.get({ plain: true }));
+    }),
+  );
+
+  return ret;
 }
 
 async function create(

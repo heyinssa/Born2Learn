@@ -7,6 +7,7 @@ const router = express.Router();
 
 /* User (PK) */
 
+router.get('/all', UserController.getAll);
 router.get('/:user', UserController.get);
 router.post('/login', UserController.login);
 router.get('/register/valid/:id', UserController.getValidId);

@@ -1,6 +1,6 @@
 import { SubjectModel, UserSubjectModel } from '../../models/index.js';
 import ApiError from '../../modules/error.js';
-import { EvaluationService, UserService } from '../index.js';
+import { EvaluationService } from '../index.js';
 
 /* Subject (PK) */
 
@@ -86,11 +86,7 @@ async function getUsers(subject_id) {
 
   const user_subjects = await UserSubjectModel.getBySubjectId(subject_id);
 
-  const users = await Promise.all(
-    user_subjects.map(user_subject => {
-      return UserService.getByUserId(user_subject.user_id);
-    }),
-  );
+  const users = user_subjects.map(user_subject => user_subject.user);
 
   return users;
 }

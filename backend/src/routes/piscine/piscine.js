@@ -7,7 +7,7 @@ const router = express.Router();
 
 /* Piscine (PK) */
 
-router.get('/', PiscineController.getAll);
+router.get('/all', PiscineController.getAll);
 router.get('/:piscine', PiscineController.get);
 router.post('/', PiscineController.create);
 router.put('/:piscine', PiscineController.update);

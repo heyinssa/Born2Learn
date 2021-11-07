@@ -1,5 +1,5 @@
 import { PiscineModel, UserPiscineModel } from '../../models/index.js';
-import { SubjectService, UserService } from '../index.js';
+import { SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
 
 /* Piscine (PK) */
@@ -65,11 +65,7 @@ async function getUsers(piscine_id) {
 
   const user_piscines = await UserPiscineModel.getByPiscineId(piscine_id);
 
-  const users = await Promise.all(
-    user_piscines.map(user_piscine => {
-      return UserService.getByUserId(user_piscine.user_id);
-    }),
-  );
+  const users = user_piscines.map(user_piscine => user_piscine.user);
 
   return users;
 }

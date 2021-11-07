@@ -29,12 +29,20 @@ const Piscine = Sequelize.define(
 );
 
 async function getAll() {
-  return Piscine.findAll();
+  const piscines = await Piscine.findAll();
+
+  const ret = piscines.map(piscine => {
+    return piscine.get({ plain: true });
+  });
+
+  return ret;
 }
 
 async function getByPiscineId(piscine_id) {
   return Piscine.findOne({
     where: { piscine_id },
+  }).then(data => {
+    if (data) return data.get({ plain: true });
   });
 }
 

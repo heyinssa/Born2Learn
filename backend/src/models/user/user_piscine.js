@@ -1,4 +1,5 @@
 import { Sequelize, DataTypes } from '../database.js';
+import { PiscineService, UserService } from '../../services/index.js';
 
 const UserPiscine = Sequelize.define(
   'user_piscine',
@@ -30,22 +31,56 @@ const UserPiscine = Sequelize.define(
   },
 );
 
+async function __temp__convert(user_piscine) {
+  if (!user_piscine) return user_piscine;
+
+  user_piscine.piscine = await PiscineService.getByPiscineId(
+    user_piscine.piscine_id,
+  );
+  user_piscine.user = await UserService.getByUserId(user_piscine.user_id);
+
+  delete user_piscine.piscine_id;
+  delete user_piscine.user_id;
+
+  return user_piscine;
+}
+
 async function getByUserId(user_id) {
-  return UserPiscine.findAll({
+  const user_piscines = await UserPiscine.findAll({
     where: { user_id },
   });
+
+  const ret = await Promise.all(
+    user_piscines.map(user_piscine => {
+      return __temp__convert(user_piscine.get({ plain: true }));
+    }),
+  );
+
+  return ret;
 }
 
 async function getByPiscineId(piscine_id) {
-  return UserPiscine.findAll({
+  const user_piscines = await UserPiscine.findAll({
     where: { piscine_id },
   });
+
+  const ret = await Promise.all(
+    user_piscines.map(user_piscine => {
+      return __temp__convert(user_piscine.get({ plain: true }));
+    }),
+  );
+
+  return ret;
 }
 
 async function getByUserPiscineId(user_id, piscine_id) {
-  return UserPiscine.findOne({
+  const user_piscine = await UserPiscine.findOne({
     where: { user_id, piscine_id },
+  }).then(data => {
+    if (data) return data.get({ plain: true });
   });
+
+  return await __temp__convert(user_piscine);
 }
 
 async function create(

@@ -5,8 +5,17 @@ import {
 } from '../../models/index.js';
 import { EvaluationService, PiscineService, SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
+import supertest from 'supertest';
+
+const request = supertest('http://skyrich3.synology.me:9900');
 
 /* User (PK) */
+
+async function getAll() {
+  const users = await UserModel.getAll();
+
+  return users;
+}
 
 async function getByUserId(user_id) {
   const user = await UserModel.getByUserId(user_id);
@@ -77,11 +86,7 @@ async function getPiscines(user_id) {
 
   const user_piscines = await UserPiscineModel.getByUserId(user_id);
 
-  const piscines = await Promise.all(
-    user_piscines.map(user_piscine => {
-      return PiscineService.getByPiscineId(user_piscine.piscine_id);
-    }),
-  );
+  const piscines = user_piscines.map(user_piscine => user_piscine.piscine);
 
   return piscines;
 }
@@ -109,15 +114,12 @@ async function getSubjects(user_id) {
 
   const user_subjects = await UserSubjectModel.getByUserId(user_id);
 
-  const subjects = await Promise.all(
-    user_subjects.map(user_subject => {
-      return SubjectService.getBySubjectId(user_subject.subject_id);
-    }),
-  );
+  const subjects = user_subjects.map(user_subject => user_subject.subject);
 
   return subjects;
 }
 
+// TODO: subject 가 등록된 piscine 에도 가입하였는가?
 async function registerSubject(user_id, subject_id) {
   await getByUserId(user_id);
   await SubjectService.getBySubjectId(subject_id);
@@ -145,6 +147,7 @@ async function unregisterSubject(user_id, subject_id) {
 }
 
 export default {
+  getAll,
   getByUserId,
   getById,
   getByLogin,

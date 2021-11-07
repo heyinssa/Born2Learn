@@ -13,20 +13,24 @@ async function getByEvaluationId(evaluation_id) {
   return evaluation;
 }
 
+// TODO: 이전에 잡힌 평가자는 제외로 잡기
 async function create(
   evaluatee_id, //
   subject_id,
 ) {
   const is_done = 0;
+  const evaluator_feedback = '';
+  const evaluatee_feedback = '';
   const score = 0;
 
   const subject = await SubjectService.getBySubjectId(subject_id);
-  const users = await PiscineService.getUsers(subject.piscine_id);
+  const users = await PiscineService.getUsers(subject.piscine.piscine_id);
 
   if (!users || users.length < 2)
     throw new ApiError(404, `Evaluator not found`);
 
-  const evaluator = users[Math.floor(Math.random() * users.length)];
+  const user_pool = users.filter(user => user.user_id != evaluatee_id);
+  const evaluator = user_pool[Math.floor(Math.random() * user_pool.length)];
   const evaluator_id = evaluator.user_id;
 
   const evaluation = await EvaluationModel.create(
@@ -34,6 +38,8 @@ async function create(
     evaluatee_id,
     subject_id,
     is_done,
+    evaluator_feedback,
+    evaluatee_feedback,
     score,
   );
 
@@ -46,6 +52,8 @@ async function update(
   evaluatee_id,
   subject_id,
   is_done,
+  evaluator_feedback,
+  evaluatee_feedback,
   score,
 ) {
   await getByEvaluationId(evaluation_id);
@@ -56,6 +64,8 @@ async function update(
     evaluatee_id,
     subject_id,
     is_done,
+    evaluator_feedback,
+    evaluatee_feedback,
     score,
   );
 
