@@ -5,8 +5,7 @@ import MySubjectTitleEvaluationLog from './MySubjectTitleEvaluationLog';
 const getUserEvaluationListAPI = 'http://betti.kr:9000' + '/api/users';
 const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users';
 
-const MySubjectTitleEvaluation = ({ user_id, subject }) => {
-  const [isFinish, setIsFinish] = useState(false);
+const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
   // const [userEvaluationList, setUserEvaluationList] = useState([]);
   const [evaluationList, setEvaluationList] = useState([]);
   const [subjectEvaluationList, setSubjectEvaluationList] = useState([]);
@@ -16,6 +15,14 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
       .get(getEvaluationAPI + '/' + user_id + '/evaluations')
       .then((response) => {
         setEvaluationList(response.data);
+        setSubjectEvaluationList(
+          response.data.filter((result) => {
+            return (
+              result.subject.subject_id == subject.subject_id &&
+              result.evaluator.user_id != user_id
+            );
+          })
+        );
       })
       .catch((error) => {
         console.log(`getUserEvaluation 호출 실패!`);
@@ -36,33 +43,36 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
   };
 
   const handleFisish = () => {
-    setIsFinish(true);
     axios
-      .post()
-      .then((response) => {})
-      .catch((error) => {});
+      .put(
+        getEvaluationAPI +
+          '/' +
+          user_id +
+          '/subjects/' +
+          subject.subject_id +
+          '/finish'
+      )
+      .then((response) => {
+        // /isFinished = true;
+      })
+      .catch((error) => {
+        console.log('set finish 호출 실패!');
+      });
   };
 
   useEffect(() => {
-    console.log(subject);
-    setIsFinish(subject.is_done);
+    console.log(isFinished);
     fetchEvaluationList();
-    fetchUserSubject();
-    setSubjectEvaluationList(
-      evaluationList.filter((result) => {
-        return result.subject.subject_id !== subject.subject_id;
-      })
-    );
   }, []);
 
   return (
     <div className="mysubject-box-evaluation">
-      {isFinish && (
+      {isFinished == 1 && (
         <MySubjectTitleEvaluationLog
           subjectEvaluationList={subjectEvaluationList}
         />
       )}
-      {!isFinish && (
+      {isFinished == 0 && (
         <div className="finishbutton">
           <button onClick={handleFisish}> Set Finish </button>
         </div>

@@ -13,9 +13,10 @@ function sleep(t) {
 }
 
 const MySubjectTitle = ({ user_id, subject }) => {
-  const [isRegister, setIsRegister] = useState(false);
-  const [myPiscine, setMyPiscine] = useState([]);
-  const [userState, setUserState] = useState('done');
+  const [isFinished, setIsFinished] = useState(false);
+  const [isLoading, setIsLoading] = useState();
+  const [isRegister, setIsRegister] = useState();
+  // const [userState, setUserState] = useState('done');
   const [state, setState] = useState(false);
   const [repositoryURL, setRepositoryURL] = useState('');
 
@@ -25,26 +26,61 @@ const MySubjectTitle = ({ user_id, subject }) => {
     setState(false);
   };
 
+  const checkRegister = (userSubjects) => {
+    userSubjects.forEach((userSubject) => {
+      if (userSubject.subject_id == subject.subject_id) {
+        setIsRegister(true);
+        setIsFinished(userSubject.is_finished);
+        console.log(isFinished);
+      }
+    });
+  };
+
+  const fetchUserSubjects = async () => {
+    await axios
+      .get(getUserSubjectAPI + '/' + user_id + '/subjects')
+      .then((response) => {
+        // setUserSubjects(response.data);
+        checkRegister(response.data);
+        setIsLoading(true);
+      })
+      .catch((error) => {
+        console.log('getUserSubjectsAPI 호출 실패!');
+      });
+  };
+
   const handleRegsiter = () => {
-    setIsRegister(true);
+    // setIsRegister(true);
+
     axios
-      .post()
+      .post(
+        getUserSubjectAPI + '/' + user_id + '/subjects/' + subject.subject_id
+      )
       .then((response) => {
         setIsRegister(true);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(`getUserSubjectAPI POST 실패! ${subject.subject_id}`);
+      });
   };
+
   useEffect(() => {
+    setIsLoading(false);
     setRepositoryURL(subject.default_repository);
+    fetchUserSubjects();
   }, []);
 
   return (
     <div className="mysubject-box">
       {/* 컴포넌트 경계 */}
       <div className="mysubject-box-title">
-        {userState === 'done' && (
-          <img class="state" src="../../logo192.png" alt="done" />
-        )}
+        {/* {userState === 'done' && (
+          <img
+            class="state"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1024px-42_Logo.svg.png"
+            alt="done"
+          />
+        )} */}
         <div className="subject">
           <h3>{subject.piscine.name}</h3>
           <h1>{subject.name}</h1>
@@ -52,12 +88,12 @@ const MySubjectTitle = ({ user_id, subject }) => {
         <div className="percent">100%</div>
       </div>
       {/* 컴포넌트 경계 */}
-      {!isRegister && (
+      {!isRegister && isLoading && (
         <div className="registerbutton">
           <button onClick={handleRegsiter}> Register </button>
         </div>
       )}
-      {isRegister && (
+      {isRegister && isLoading && (
         <>
           <div className="mysubject-box-gitbox">
             <h2>REPOSITORY URL</h2>
@@ -70,7 +106,11 @@ const MySubjectTitle = ({ user_id, subject }) => {
             </CopyToClipboard>
           </div>
           {/* 컴포넌트 경계 */}
-          <MySubjectTitleEvaluation user_id={user_id} subject={subject} />
+          <MySubjectTitleEvaluation
+            user_id={user_id}
+            subject={subject}
+            isFinished={isFinished}
+          />
           {/* 컴포넌트 경계 */}
         </>
       )}

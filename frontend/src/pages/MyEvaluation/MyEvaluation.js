@@ -2,32 +2,39 @@ import { React, useState, useEffect } from 'react';
 import { Header, Footer } from 'components';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Slider } from '@mui/material';
 import './MyEvaluation.scss';
 
 import checkId from 'utils/checkId';
 // import MyEvaluationContents from './MyEvaluationContents';
 
+const putUserFeedbackAPI = 'http://betti.kr:9000' + '/api/users';
+
 const MyEvaluation = ({ match, location }) => {
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState('');
+
   const user_id = checkId(location);
   const subject = location.state.subject;
 
+  let valuetext;
+
   const handleFeedback = (event) => {
     console.log(event);
+    console.log(valuetext);
     setFeedback(event.target.value);
   };
 
   const handleScore = (event) => {
     setScore(event.target.value);
   };
-
   const checkEmpty = () => {
-    if (!score || !feedback) return false;
+    if (!feedback) return false;
   };
 
-  const feedbackFinish = () => {
-    axios
+  const feedbackFinish = async () => {
+    // score , feedback 보내기
+    await axios
       .put()
       .then((response) => {})
       .catch((error) => {});
@@ -55,11 +62,16 @@ const MyEvaluation = ({ match, location }) => {
               </div>
               <div className="myevaluation-box-form-box">
                 <h2>Score</h2>
-                <textarea
-                  type="text"
-                  name="score"
-                  value={score}
+                <Slider
+                  aria-label="Temperature"
+                  defaultValue={30}
                   onChange={handleScore}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={10}
+                  marks
+                  min={0}
+                  max={100}
                 />
               </div>
               <Link

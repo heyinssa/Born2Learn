@@ -16,7 +16,7 @@ const Entrance = () => {
 
   return (
     <div className="login-page">
-      <h1 className="title">ㅇ</h1>
+      <h1 className="title">Born to Learn</h1>
       <input
         onChange={handleChangeId}
         className="inputid"

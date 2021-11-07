@@ -12,6 +12,8 @@
     .mysubject-block {
       background-color: $mainColorLight;
       .mysubject-box {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: auto;
         padding: 7% 7%;
@@ -53,7 +55,10 @@
             color: rgb(62, 191, 62);
           }
           img {
-            width: 10vw;
+            border: 1px solid;
+            border-radius: 100px;
+            padding: 1%;
+            width: 15vw;
             max-width: 40px;
           }
         }
@@ -73,7 +78,7 @@
           }
         }
         .mysubject-box-gitbox {
-          margin-top: 2vh;
+          margin: 3% 0;
           display: flex;
           flex-direction: column;
           gap: 1vh;
@@ -99,7 +104,11 @@
           }
         }
         .mysubject-box-evaluation {
-          margin: 2% 0;
+          display: flex;
+          flex-direction: column;
+          gap: 1vh;
+          margin: 3% 0;
+
           h2 {
             font-size: 0.8em;
           }
@@ -122,10 +131,9 @@
           .evaluation-box {
             display: flex;
             flex-direction: column;
-
+            gap: 0.5vh;
             margin: 1% 0;
             .evaluation-box-title {
-              // padding: 1% 0;
               font-size: 0.8em;
               align-items: center;
               display: flex;
@@ -136,9 +144,11 @@
               padding: 1% 0;
               display: flex;
               flex-direction: column;
+              font-size: 0.9em;
               gap: 1vh;
               div {
-                padding: 1%;
+                min-height: 4vh;
+                padding: 2%;
                 border: 1px solid $boxborderColor;
                 border-radius: 5px;
               }

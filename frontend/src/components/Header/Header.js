@@ -23,7 +23,7 @@ const Header = ({ path, user_id }) => {
             >
               <div className="header-box-flex">
                 {/* <div className="profile-button hidden">d</div> */}
-                <div>ㅇ</div>
+                <div>Born to Learn</div>
                 {/* <div className="profile-button hidden">d</div> */}
               </div>
             </Link>

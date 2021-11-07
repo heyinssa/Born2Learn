@@ -16,7 +16,7 @@ const MyPiscineContents = ({ user_id, userPiscineSubjectList }) => {
             >
               <div>
                 <h1>{e.name}</h1>
-                <h2>asdf</h2>
+                {/* <h2>asdf</h2> */}
               </div>
             </Link>
           );

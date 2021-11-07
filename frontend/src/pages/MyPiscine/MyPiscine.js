@@ -40,7 +40,7 @@ const MyPiscine = ({ match, location }) => {
       <Header user_id={user_id} />
       <div className="mypiscine-page ttemp">
         <div className="mypiscine-block">
-          <MyPiscineTitle />
+          <MyPiscineTitle piscine={piscine} />
           <MyPiscineContents
             user_id={user_id}
             userPiscineSubjectList={userPiscineSubjectList}

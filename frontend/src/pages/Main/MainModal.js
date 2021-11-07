@@ -9,7 +9,7 @@ const PostRepository = ({ closeModal }) => {
 
   const handleChange = ({ target: { value } }) => setRepositoryURL(value);
   const handleSubmit = async (event) => {
-    // setPostRepo(true);
+    closeModal();
     event.preventDefault();
     await axios
       .post(url)
@@ -19,14 +19,14 @@ const PostRepository = ({ closeModal }) => {
   };
   return (
     <>
-      <form className="form-box" onSubmit={handleSubmit}>
+      <form className="form-box">
         <input
           type="text"
           name="repositoryurl"
           value={repositoryURL}
           onChange={handleChange}
         />
-        <button type="submit" disabled={postRepo} onClick={closeModal}>
+        <button type="submit" disabled={postRepo} onClick={handleSubmit}>
           완료
         </button>
       </form>

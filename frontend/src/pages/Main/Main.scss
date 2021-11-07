@@ -12,7 +12,7 @@
     flex-direction: column;
     margin: auto;
     .main-block {
-      background-color: $mainColorLight;
+      // background-color: $mainColorLight;
       .main-box {
         // width: 100%;
         height: auto;
@@ -20,7 +20,7 @@
         // margin: 5% 2%;
         // padding: 5%;
         margin-bottom: 2px;
-        background: white;
+        // background: white;
         // background-color: #4a8dffc2;
         // background-color: #ffffffaa;
         border-radius: 4px;
@@ -30,7 +30,7 @@
         // box-shadow: 1px 1px 3px 1px rgba(135, 135, 135, 0.4);
         h1 {
           font-size: 2.7vh;
-          margin-bottom: 3%;
+          margin-bottom: 7%;
           font-weight: bolder;
           // color: $mainColor;
           // color: rgb(255, 255, 255);
@@ -99,8 +99,8 @@
         .not-parti {
           display: flex;
           flex-flow: wrap;
-          justify-content: space-between;
-          gap: 1vh;
+          justify-content: flex-start;
+          gap: 2vh;
           // background-color: white;
           .parti-box:hover {
             background: #ffffff44;
@@ -123,9 +123,10 @@
             align-items: center;
             gap: 1vh;
             // box-shadow: inset 1px 1px 1px 1px rgba(0, 123, 255, 0.4);
-            background: $mainColor;
-            background: #89b4fc;
-            // border: 1px solid white;
+            // background: $mainColor;
+            // background: #aeccff;
+            border: 1px solid white;
+            border: 1px solid $mainColor;
             // border: 1px solid rgb(0, 0, 0);
             img {
               width: 15vw;

@@ -15,7 +15,7 @@ const ALLPiscineBox = ({ user_id, piscineList, openModal }) => {
             <Link
               to={{
                 pathname: url,
-                state: { user_id: user_id },
+                state: { user_id: user_id, piscine: e },
               }}
             >
               <div className="parti-box">

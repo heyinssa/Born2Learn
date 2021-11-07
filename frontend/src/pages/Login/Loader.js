@@ -4,7 +4,7 @@ import ReactLoading from 'react-loading';
 const Loader = ({ type, color, message }) => {
   return (
     <div
-      class="contentWrap"
+      className="contentWrap"
       style={{ background: 'rgba(0,0,0,0.6)', zIndex: 4 }}
     >
       {' '}

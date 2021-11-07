@@ -1,9 +1,11 @@
 import React from 'react';
 
-const RegisterButton = () => {
+const RegisterButton = ({ registerPiscine }) => {
   return (
     <div>
-      <button className="register-button">Register</button>
+      <button className="register-button" onClick={registerPiscine}>
+        Register
+      </button>
     </div>
   );
 };
