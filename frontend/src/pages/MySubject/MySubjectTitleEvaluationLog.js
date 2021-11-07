@@ -2,17 +2,24 @@ import React from 'react';
 
 const MySubjectTitleEvaluationLog = ({ subjectEvaluationList }) => {
   return (
-    <div className="evaluation-log">
-      <div>
-        <div>
-          <span> User </span>
-          <span> 100점 </span>
-        </div>
-        <div>
-          <div> 매우 긴 평가 로그일듯 </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <h2>EVALUATION LOG</h2>
+      {subjectEvaluationList.map((e) => {
+        return (
+          <div className="evaluation-box">
+            <div className="evaluation-box-title">
+              {console.log(e)}
+              <span> {e.evaluatee.id} </span>
+              <span> {e.score} % </span>
+            </div>
+            <div className="evaluation-box-feedback">
+              <div> here {e.evaluatee_feedback} </div>
+              {/* <div> 여긴 {e.evaluator_feedback} </div> */}
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

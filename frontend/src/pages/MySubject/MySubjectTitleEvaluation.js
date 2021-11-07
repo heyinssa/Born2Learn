@@ -20,12 +20,25 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
       .catch((error) => {
         console.log(`getUserEvaluation 호출 실패!`);
       });
-    console.log(evaluationList);
+    return result;
+  };
+  const fetchUserSubject = async () => {
+    const result = await axios
+      .get(getEvaluationAPI + '/' + user_id + '/evaluations')
+      .then((response) => {
+        setEvaluationList(response.data);
+      })
+      .catch((error) => {
+        console.log(`getUserEvaluation 호출 실패!`);
+      });
     return result;
   };
 
   useEffect(() => {
+    console.log(subject);
+    setIsFinish(subject.is_done);
     fetchEvaluationList();
+    fetchUserSubject();
     setSubjectEvaluationList(
       evaluationList.filter((result) => {
         return result.subject.subject_id !== subject.subject_id;
@@ -34,7 +47,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
   }, []);
 
   return (
-    <div className="mysubject-box-evaluationbox">
+    <div className="mysubject-box-evaluation">
       {isFinish && (
         <MySubjectTitleEvaluationLog
           subjectEvaluationList={subjectEvaluationList}
@@ -42,9 +55,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
       )}
       {!isFinish && (
         <div className="finishbutton">
-          <div>
-            <button> Set Finish </button>
-          </div>
+          <button> Set Finish </button>
         </div>
       )}
     </div>

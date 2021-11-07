@@ -83,7 +83,49 @@
             cursor: pointer;
           }
         }
-        .mysubject-box-evaluationbox {
+        .mysubject-box-evaluation {
+          margin: 2% 0;
+          h2 {
+            font-size: 0.8em;
+          }
+
+          .finishbutton {
+            button:hover {
+              background: $boxborderColor;
+              cursor: pointer;
+            }
+            button {
+              width: 100%;
+              height: 4vh;
+              background: white;
+              border: 1px solid $boxborderColor;
+            }
+          }
+          .evaluation-box {
+            display: flex;
+            flex-direction: column;
+
+            margin: 1% 0;
+            .evaluation-box-title {
+              // padding: 1% 0;
+              font-size: 0.8em;
+              align-items: center;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+            .evaluation-box-feedback {
+              padding: 1% 0;
+              display: flex;
+              flex-direction: column;
+              gap: 1vh;
+              div {
+                padding: 1%;
+                border: 1px solid $boxborderColor;
+                border-radius: 5px;
+              }
+            }
+          }
         }
       }
     }
