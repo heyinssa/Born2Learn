@@ -91,13 +91,15 @@
 
           .finishbutton {
             button:hover {
-              background: $boxborderColor;
+              // background: $mainColorLight;
+              color: black;
               cursor: pointer;
             }
             button {
               width: 100%;
               height: 4vh;
-              background: white;
+              color: white;
+              background: $mainColor;
               border: 1px solid $boxborderColor;
             }
           }

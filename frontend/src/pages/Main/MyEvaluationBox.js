@@ -15,12 +15,12 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
           const evaluator = e.evaluator.id;
           const evaluatee = e.evaluatee.id;
           const subject = e.subject.name;
-
+          // console.log(e);
           return (
             <Link
               to={{
                 pathname: e.evaluatee.user_id === user_id ? sbjurl : evalurl,
-                state: { user_id: user_id },
+                state: { user_id: user_id, subject: e.subject },
               }}
             >
               <div>

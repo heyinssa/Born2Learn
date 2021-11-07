@@ -22,6 +22,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
       });
     return result;
   };
+  // 끝났는지 안끝났는지 결과 가져와야함
   const fetchUserSubject = async () => {
     const result = await axios
       .get(getEvaluationAPI + '/' + user_id + '/evaluations')

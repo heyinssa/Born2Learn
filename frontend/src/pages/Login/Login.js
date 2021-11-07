@@ -11,6 +11,7 @@ import axios from 'axios';
 const checkValidatePasswordApi = 'http://betti.kr:9000/api/users';
 
 const Login = ({ location }) => {
+  const [errorMessage, setErrorMessage] = useState('');
   const id = location.state.userId;
   const [userInfo, setUserInfo] = useState([]);
   const [path, setPath] = useState([]);
@@ -45,6 +46,8 @@ const Login = ({ location }) => {
       .catch((error) => {
         setIsFinish(false);
         setIsWrong(true);
+        if (error.response.status == 500) setErrorMessage('서버 is die...');
+        else setErrorMessage('일치하지 않습니다!');
       });
     setIsLoading(false);
   };
@@ -108,7 +111,7 @@ const Login = ({ location }) => {
       )}
       {isWrong && (
         <div className="modal" role="presentation" onClick={closeModal}>
-          일치하지 않습니다!
+          {errorMessage}
         </div>
       )}
     </div>

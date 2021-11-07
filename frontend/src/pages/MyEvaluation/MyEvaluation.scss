@@ -1,13 +1,9 @@
 @import '../../theme';
 
 .myevaluation-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+  font-size: 1em;
 
   .myevaluation-page {
     position: relative;
@@ -19,11 +15,54 @@
       background-color: $mainColorLight;
       .myevaluation-box {
         width: 100%;
-        height: 100%;
+        height: auto;
         padding: 7% 7%;
         margin-bottom: 2px;
         background-color: white;
         border-radius: 4px;
+        .myevaluation-box-title {
+          h1 {
+            font-size: 1.4em;
+            width: 100%;
+          }
+        }
+        .myevaluation-box-form {
+          margin: 1% 0;
+          display: flex;
+          flex-direction: column;
+
+          button:hover {
+            color: black;
+          }
+          button {
+            margin: 1% 0;
+            background: $mainColor;
+            color: white;
+            height: 4.5vh;
+            font-size: 1em;
+            border: 1px solid rgb(169, 168, 168);
+            border-radius: 5px;
+          }
+          .myevaluation-box-form-box {
+            h2,
+            textarea {
+              font-size: 0.8em;
+              margin-top: 1%;
+              width: 100%;
+            }
+            textarea {
+              height: auto;
+              word-wrap: break-word;
+              word-break: break-all;
+              border-radius: 5px;
+              padding: 2%;
+              border: 1px solid rgb(169, 168, 168);
+            }
+            .feedback {
+              min-height: 20vh;
+            }
+          }
+        }
       }
     }
   }
