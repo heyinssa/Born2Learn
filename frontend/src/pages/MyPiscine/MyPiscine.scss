@@ -10,20 +10,20 @@
     flex-direction: column;
     margin: auto;
     .mypiscine-block {
-      // background-color: $mainColorLight;
+      background-color: $mainColorLight;
       .mypiscine-box {
         width: 100%;
         height: auto;
-        // padding: 7% 7%;
-        // margin-bottom: 2px;
-        margin: 5% 2%;
-        padding: 5%;
-        // background-color: white;
-        background-color: #ffffffaa;
+        padding: 7% 7%;
+        margin-bottom: 2px;
+        // margin: 5% 2%;
+        // padding: 5%;
+        background-color: white;
+        // background-color: #ffffffaa;
         border-radius: 4px;
-        border-radius: 15px;
+        // border-radius: 15px;
 
-        box-shadow: 1px 1px 3px 1px rgba(135, 135, 135, 0.4);
+        // box-shadow: 1px 1px 3px 1px rgba(135, 135, 135, 0.4);
 
         .title {
           font-size: 4vh;
@@ -49,6 +49,7 @@
             border-radius: 10px;
             padding: 5px 15px;
             border: 1px solid $mainColor;
+            border: 1px solid $boxborderColor;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
