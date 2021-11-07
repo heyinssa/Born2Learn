@@ -5,6 +5,7 @@
   width: 100%;
   font-size: 1em;
   .main-page {
+    width: 100%;
     position: relative;
     height: auto;
     align-items: center;
@@ -12,9 +13,10 @@
     flex-direction: column;
     margin: auto;
     .main-block {
+      width: 100%;
       // background-color: $mainColorLight;
       .main-box {
-        // width: 100%;
+        width: 100%;
         height: auto;
         padding: 7% 7%;
         // margin: 5% 2%;
@@ -57,6 +59,7 @@
               justify-content: space-between;
               cursor: pointer;
               border-bottom: 1px solid $boxborderColor;
+              border-bottom: 1px solid white;
               padding: 1%;
               align-items: center;
               b {
@@ -169,7 +172,7 @@
 
       h1 {
         flex: 1;
-        font-size: 1.1em;
+        font-size: 2em;
         text-align: center;
         background: $mainColor;
         height: 5vh;
