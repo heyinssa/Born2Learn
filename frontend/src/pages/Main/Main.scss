@@ -12,28 +12,29 @@
     flex-direction: column;
     margin: auto;
     .main-block {
-      // background-color: $mainColorLight;
+      background-color: $mainColorLight;
       .main-box {
         // width: 100%;
         height: auto;
-        // padding: 7% 7%;
-        margin: 5% 2%;
-        padding: 5%;
+        padding: 7% 7%;
+        // margin: 5% 2%;
+        // padding: 5%;
         margin-bottom: 2px;
-        background-color: #4a8dffc2;
-        background-color: #ffffffaa;
-        // border-radius: 4px;
-        border-radius: 15px;
+        background: white;
+        // background-color: #4a8dffc2;
+        // background-color: #ffffffaa;
+        border-radius: 4px;
+        // border-radius: 15px;
 
-        box-shadow: 1px 1px 3px 1px rgba(0, 123, 255, 0.4);
-        box-shadow: 1px 1px 3px 1px rgba(135, 135, 135, 0.4);
+        // box-shadow: 1px 1px 3px 1px rgba(0, 123, 255, 0.4);
+        // box-shadow: 1px 1px 3px 1px rgba(135, 135, 135, 0.4);
         h1 {
           font-size: 2.7vh;
           margin-bottom: 3%;
           font-weight: bolder;
           // color: $mainColor;
-          color: rgb(255, 255, 255);
-          color: $mainColor;
+          // color: rgb(255, 255, 255);
+          // color: $mainColor;
         }
 
         .evaluation {
@@ -101,7 +102,7 @@
           // background-color: white;
           .parti-box:hover {
             background: #ffffff44;
-            box-shadow: inset -1px -1px 1px 1px rgba(0, 123, 255, 0.4);
+            // box-shadow: inset -1px -1px 1px 1px rgba(0, 123, 255, 0.4);
           }
           .parti-box {
             cursor: pointer;
@@ -118,8 +119,8 @@
             justify-content: center;
             align-items: center;
             gap: 1vh;
-            box-shadow: inset 1px 1px 1px 1px rgba(0, 123, 255, 0.4);
-            // background-color: $subColor;
+            // box-shadow: inset 1px 1px 1px 1px rgba(0, 123, 255, 0.4);
+            background-color: $subColor;
             // background: $bgOverlayColor;
             // border: 1px solid white;
             // border: 1px solid rgb(0, 0, 0);
