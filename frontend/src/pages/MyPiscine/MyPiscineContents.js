@@ -6,7 +6,6 @@ const MyPiscineContents = ({ user_id, userPiscineSubjectList }) => {
     <div className="mypiscine-box">
       <div className="mypiscine-box-column">
         {userPiscineSubjectList.map((e, idx) => {
-          console.log(e);
           const url = `/myPiscine/subject/${e.subject_id}`;
           return (
             <Link

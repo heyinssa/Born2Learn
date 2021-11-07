@@ -81,8 +81,8 @@
           button {
             font-size: 2.7vh;
             margin-bottom: 3%;
-            color: white;
-            color: $mainColor;
+            // color: white;
+            // color: $mainColor;
             // width: 2em;
             // height: 2em;
             background-color: #ffffff00;
@@ -90,6 +90,7 @@
           }
           button:hover {
             color: #ffffffaa;
+            color: $mainColor;
             cursor: pointer;
           }
         }

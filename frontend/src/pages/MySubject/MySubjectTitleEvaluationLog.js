@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MySubjectTitleEvaluationLog = () => {
+const MySubjectTitleEvaluationLog = ({ subjectEvaluationList }) => {
   return (
     <div className="evaluation-log">
       <div>

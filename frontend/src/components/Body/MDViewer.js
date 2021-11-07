@@ -12,7 +12,7 @@ const MDViewer = ({ url }) => {
       axios
         .get(url)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           setContents(response.data);
         })
         .catch((error) => {
