@@ -8,11 +8,9 @@ const Header = ({ path, user_id }) => {
   console.log(path);
   console.log(user_id);
   return (
-    // <div style={{ marginBottom: rhythm(1) }}>
     <Headroom
       onPin={() => console.log('pinned')}
       onUnpin={() => console.log('unpinned')}
-      // wrapperStyle={{ marginBottom: rhythm(1) }}
     >
       {path !== '/' && (
         <div className="header">
@@ -23,7 +21,11 @@ const Header = ({ path, user_id }) => {
                 state: { user_id: user_id },
               }}
             >
-              <div>WMPB</div>
+              <div className="header-box-flex">
+                {/* <div className="profile-button hidden">d</div> */}
+                <div>ㅇ</div>
+                {/* <div className="profile-button hidden">d</div> */}
+              </div>
             </Link>
           </div>
         </div>

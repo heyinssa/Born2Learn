@@ -35,6 +35,14 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
     return result;
   };
 
+  const handleFisish = () => {
+    setIsFinish(true);
+    axios
+      .post()
+      .then((response) => {})
+      .catch((error) => {});
+  };
+
   useEffect(() => {
     console.log(subject);
     setIsFinish(subject.is_done);
@@ -56,7 +64,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject }) => {
       )}
       {!isFinish && (
         <div className="finishbutton">
-          <button> Set Finish </button>
+          <button onClick={handleFisish}> Set Finish </button>
         </div>
       )}
     </div>

@@ -31,10 +31,11 @@
           display: flex;
           flex-direction: column;
 
-          button:hover {
+          .finishbutton:hover {
             color: black;
           }
-          button {
+          .finishbutton {
+            width: 100%;
             margin: 1% 0;
             background: $mainColor;
             color: white;
@@ -43,6 +44,7 @@
             border: 1px solid rgb(169, 168, 168);
             border-radius: 5px;
           }
+
           .myevaluation-box-form-box {
             h2,
             textarea {
@@ -51,6 +53,7 @@
               width: 100%;
             }
             textarea {
+              max-width: 774px;
               height: auto;
               word-wrap: break-word;
               word-break: break-all;

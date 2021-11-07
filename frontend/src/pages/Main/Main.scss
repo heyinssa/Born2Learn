@@ -104,6 +104,7 @@
           // background-color: white;
           .parti-box:hover {
             background: #ffffff44;
+            background: $mainColor;
             // box-shadow: inset -1px -1px 1px 1px rgba(0, 123, 255, 0.4);
           }
           .parti-box {
@@ -122,13 +123,13 @@
             align-items: center;
             gap: 1vh;
             // box-shadow: inset 1px 1px 1px 1px rgba(0, 123, 255, 0.4);
-            background-color: $subColor;
-            // background: $bgOverlayColor;
+            background: $mainColor;
+            background: #89b4fc;
             // border: 1px solid white;
             // border: 1px solid rgb(0, 0, 0);
             img {
               width: 15vw;
-              max-width: 175px;
+              max-width: 135px;
             }
             div {
               text-align: center;

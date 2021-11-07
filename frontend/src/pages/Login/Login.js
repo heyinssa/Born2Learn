@@ -76,7 +76,7 @@ const Login = ({ location }) => {
         <>
           {idResult !== 'error' ? (
             <>
-              <h1 className="title">WMPB</h1>
+              <h1 className="title">ㅇ</h1>
               <h2 className="subtitle">반가워요, {id}!</h2>
               <PatternLock
                 width={300}

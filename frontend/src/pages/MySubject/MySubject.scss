@@ -57,11 +57,26 @@
             max-width: 40px;
           }
         }
+        .registerbutton {
+          margin-top: 4%;
+          button:hover {
+            background: $mainColor;
+            cursor: pointer;
+          }
+          button {
+            width: 100%;
+            height: 4vh;
+            color: white;
+            background: rgb(0, 171, 0);
+            border: 1px solid $boxborderColor;
+            border-radius: 5px;
+          }
+        }
         .mysubject-box-gitbox {
           margin-top: 2vh;
           display: flex;
           flex-direction: column;
-          gap: 0.7vh;
+          gap: 1vh;
           h2 {
             font-size: 0.8em;
           }
@@ -101,6 +116,7 @@
               color: white;
               background: $mainColor;
               border: 1px solid $boxborderColor;
+              border-radius: 5px;
             }
           }
           .evaluation-box {

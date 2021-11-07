@@ -13,6 +13,7 @@ function sleep(t) {
 }
 
 const MySubjectTitle = ({ user_id, subject }) => {
+  const [isRegister, setIsRegister] = useState(false);
   const [myPiscine, setMyPiscine] = useState([]);
   const [userState, setUserState] = useState('done');
   const [state, setState] = useState(false);
@@ -24,6 +25,15 @@ const MySubjectTitle = ({ user_id, subject }) => {
     setState(false);
   };
 
+  const handleRegsiter = () => {
+    setIsRegister(true);
+    axios
+      .post()
+      .then((response) => {
+        setIsRegister(true);
+      })
+      .catch((error) => {});
+  };
   useEffect(() => {
     setRepositoryURL(subject.default_repository);
   }, []);
@@ -42,19 +52,28 @@ const MySubjectTitle = ({ user_id, subject }) => {
         <div className="percent">100%</div>
       </div>
       {/* 컴포넌트 경계 */}
-      <div className="mysubject-box-gitbox">
-        <h2>REPOSITORY URL</h2>
-        <CopyToClipboard
-          className="gitrepo-button"
-          text={repositoryURL}
-          onCopy={() => copyAndReset()}
-        >
-          <button>{state ? 'copied' : repositoryURL}</button>
-        </CopyToClipboard>
-      </div>
-      {/* 컴포넌트 경계 */}
-      <MySubjectTitleEvaluation user_id={user_id} subject={subject} />
-      {/* 컴포넌트 경계 */}
+      {!isRegister && (
+        <div className="registerbutton">
+          <button onClick={handleRegsiter}> Register </button>
+        </div>
+      )}
+      {isRegister && (
+        <>
+          <div className="mysubject-box-gitbox">
+            <h2>REPOSITORY URL</h2>
+            <CopyToClipboard
+              className="gitrepo-button"
+              text={repositoryURL}
+              onCopy={() => copyAndReset()}
+            >
+              <button>{state ? 'copied' : repositoryURL}</button>
+            </CopyToClipboard>
+          </div>
+          {/* 컴포넌트 경계 */}
+          <MySubjectTitleEvaluation user_id={user_id} subject={subject} />
+          {/* 컴포넌트 경계 */}
+        </>
+      )}
     </div>
   );
 };

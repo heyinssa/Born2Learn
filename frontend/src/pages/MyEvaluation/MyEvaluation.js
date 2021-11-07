@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { Header, Footer } from 'components';
-import axios, { Axios } from 'axios';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './MyEvaluation.scss';
 
 import checkId from 'utils/checkId';
@@ -27,7 +28,7 @@ const MyEvaluation = ({ match, location }) => {
 
   const feedbackFinish = () => {
     axios
-      .post()
+      .put()
       .then((response) => {})
       .catch((error) => {});
   };
@@ -53,7 +54,7 @@ const MyEvaluation = ({ match, location }) => {
                 />
               </div>
               <div className="myevaluation-box-form-box">
-                <h2>FEEDBACK LOG</h2>
+                <h2>Score</h2>
                 <textarea
                   type="text"
                   name="score"
@@ -61,13 +62,21 @@ const MyEvaluation = ({ match, location }) => {
                   onChange={handleScore}
                 />
               </div>
-              <button
-                type="submit"
-                disabled={checkEmpty}
-                onClick={feedbackFinish}
+              <Link
+                to={{
+                  pathname: '/main',
+                  state: { user_id: user_id },
+                }}
               >
-                완료
-              </button>
+                <button
+                  className="finishbutton"
+                  type="submit"
+                  disabled={checkEmpty}
+                  onClick={feedbackFinish}
+                >
+                  완료
+                </button>
+              </Link>
             </form>
           </div>
         </div>
