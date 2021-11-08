@@ -31,7 +31,7 @@ const Register = ({ location }) => {
         console.log(response.data);
       })
       .catch((error) => {
-        if (error.reponse.status == 404) {
+        if (error.response.status == 404) {
           setIsValid(true);
         }
       });
