@@ -9,5 +9,6 @@ export default [
   express.json(), //
   cors(),
   morgan('combined'),
-  helmet(),
 ];
+
+// helmet(),
