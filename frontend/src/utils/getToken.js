@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 const getToken = async () => {
-  const url = 'https://api.intra.42.fr/oauth/token';
+  const url = '/oauth/token';
   const query =
     '?' +
     'grant_type=client_credentials' +
@@ -11,7 +13,7 @@ const getToken = async () => {
     '1a3c7803cac7d2019618214318b6000842ce4983f37ac958407b5b3d50817422' +
     '&' +
     'redirect_uri=' +
-    'http://localhost:3000/mypage' +
+    'http://betti.kr:9003/' +
     '&' +
     'scope=public';
   const config = {
@@ -23,14 +25,21 @@ const getToken = async () => {
     },
   };
   try {
-    const fetchToken = await fetch(url + query, config);
+    // const fetchToken = await fetch(url + query, config);
+    const fetchToken = await axios.post(url + query, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Mobile': 'false',
+        'response-Type': 'text',
+      },
+    });
     const response = await fetchToken.json();
     console.log(fetchToken);
     console.log(response);
 
     return response;
   } catch (e) {
-    // alert('getToken failed');
+    alert('getToken failed');
     return e;
   }
 };

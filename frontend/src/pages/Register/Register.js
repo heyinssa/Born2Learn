@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PatternLock from 'react-pattern-lock';
 import getToken from 'utils/getToken';
 import getUserId from 'utils/getUserId';
-import checkId from 'utils/checkId';
 import './Register.scss';
 import axios from 'axios';
 
@@ -13,7 +12,6 @@ const Register = ({ location }) => {
   const id = location.state.userId;
   // const [userInfo, setUserInfo] = useState([]);
   let userInfo;
-  // let isVaild = false;
   const [isValid, setIsValid] = useState(false);
   const [path, setPath] = useState([]);
   const [comparePath, setComparePath] = useState('');
@@ -30,11 +28,10 @@ const Register = ({ location }) => {
         },
       })
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
-        // console.log(error.response.status);
-        if (error.response.status == 404) {
+        if (error.reponse.status == 404) {
           setIsValid(true);
         }
       });
