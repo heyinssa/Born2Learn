@@ -134,6 +134,18 @@ async function registerSubject(req, res, next) {
   res.status(200).json(register);
 }
 
+async function setFinishSubject(req, res, next) {
+  const user_id = req.params.user;
+  const subject_id = req.params.subject;
+
+  const register = await UserService.setFinishSubject(
+    user_id, //
+    subject_id,
+  );
+
+  res.status(200).json(register);
+}
+
 async function unregisterSubject(req, res, next) {
   const user_id = req.params.user;
   const subject_id = req.params.subject;
@@ -157,5 +169,6 @@ export default {
   unregisterPiscine,
   getSubjects,
   registerSubject,
+  setFinishSubject,
   unregisterSubject,
 };

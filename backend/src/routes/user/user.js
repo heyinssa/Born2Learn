@@ -29,6 +29,7 @@ router.delete('/:user/piscines/:piscine', UserController.unregisterPiscine);
 
 router.get('/:user/subjects', UserController.getSubjects);
 router.post('/:user/subjects/:subject', UserController.registerSubject);
+router.put('/:user/subjects/:subject/finish', UserController.setFinishSubject);
 router.delete('/:user/subjects/:subject', UserController.unregisterSubject);
 
 export default router;

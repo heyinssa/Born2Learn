@@ -5,9 +5,7 @@ import {
 } from '../../models/index.js';
 import { EvaluationService, PiscineService, SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
-import supertest from 'supertest';
-
-const request = supertest('http://skyrich3.synology.me:9900');
+import request from 'request';
 
 /* User (PK) */
 
@@ -45,6 +43,10 @@ async function create(
   id, //
   password,
 ) {
+  const _user = await UserModel.getById(id);
+
+  if (_user) throw new ApiError(404, `User is exsit: ${id}`);
+
   const user = await UserModel.create(
     id, //
     password,
@@ -114,7 +116,14 @@ async function getSubjects(user_id) {
 
   const user_subjects = await UserSubjectModel.getByUserId(user_id);
 
-  const subjects = user_subjects.map(user_subject => user_subject.subject);
+  const subjects = user_subjects.map(user_subject => {
+    return {
+      is_finished: user_subject.is_finished,
+      score: user_subject.score,
+      repository: user_subject.repository,
+      ...user_subject.subject,
+    };
+  });
 
   return subjects;
 }
@@ -124,16 +133,61 @@ async function registerSubject(user_id, subject_id) {
   await getByUserId(user_id);
   await SubjectService.getBySubjectId(subject_id);
 
-  const state = 0;
+  const is_finished = 0;
   const score = 0;
-  const repository = 'none';
+  let repository = 'none';
+
+  const repository_name = Math.random().toString(36).substr(2, 11);
+
+  const option = {
+    uri: 'http://skyrich3.synology.me:9900/api/v4/projects',
+    method: 'POST',
+    body: {
+      name: repository_name,
+      visibility: 'public',
+    },
+    json: true,
+  };
+
+  await new Promise((resolve, reject) => {
+    request.post(option, function (error, response, body) {
+      if (error) reject();
+      resolve(body);
+    });
+  })
+    .then(() => {
+      repository = `http://skyrich3.synology.me:9900/pisciner/${repository_name}`;
+    })
+    .catch(() => {
+      throw new ApiError(404, `Repository build failed`);
+    });
 
   const register = await UserSubjectModel.create(
     user_id, //
     subject_id,
-    state,
+    is_finished,
     score,
     repository,
+  );
+
+  return register;
+}
+
+async function setFinishSubject(
+  user_id, //
+  subject_id,
+) {
+  await getByUserId(user_id);
+  await SubjectService.getBySubjectId(subject_id);
+
+  // await EvaluationService.create(user_id, subject_id);
+
+  const register = await UserSubjectModel.update(
+    user_id, //
+    subject_id,
+    1,
+    null,
+    null,
   );
 
   return register;
@@ -159,5 +213,6 @@ export default {
   unregisterPiscine,
   getSubjects,
   registerSubject,
+  setFinishSubject,
   unregisterSubject,
 };

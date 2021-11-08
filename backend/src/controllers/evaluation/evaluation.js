@@ -31,6 +31,8 @@ async function update(req, res, next) {
     evaluatee_id,
     subject_id,
     is_done,
+    evaluator_feedback,
+    evaluatee_feedback,
     score,
   } = req.body.data;
 
@@ -40,6 +42,8 @@ async function update(req, res, next) {
     evaluatee_id,
     subject_id,
     is_done,
+    evaluator_feedback,
+    evaluatee_feedback,
     score,
   );
 

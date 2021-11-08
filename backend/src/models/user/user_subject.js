@@ -24,7 +24,7 @@ const UserSubject = Sequelize.define(
         key: 'subject_id',
       },
     },
-    state: {
+    is_finished: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -98,19 +98,42 @@ async function getByUserSubjectId(user_id, subject_id) {
 async function create(
   user_id, //
   subject_id,
-  state,
+  is_finished,
   score,
   repository,
 ) {
   return UserSubject.create({
     user_id,
     subject_id,
-    state,
+    is_finished,
     score,
     repository,
   }).then(data =>
     getByUserSubjectId(data.dataValues.user_id, data.dataValues.subject_id),
   );
+}
+
+async function update(
+  user_id, //
+  subject_id,
+  is_finished,
+  score,
+  repository,
+) {
+  return UserSubject.findOne({
+    where: { user_id, subject_id },
+  }).then(user_subject => {
+    if (user_id) user_subject.user_id = user_id;
+    if (subject_id) user_subject.subject_id = subject_id;
+    if (is_finished) user_subject.is_finished = is_finished;
+    if (score) user_subject.score = score;
+    if (repository) user_subject.repository = repository;
+    return user_subject
+      .save()
+      .then(data =>
+        getByUserSubjectId(data.dataValues.user_id, data.dataValues.subject_id),
+      );
+  });
 }
 
 async function remove(user_id, subject_id) {
@@ -137,6 +160,7 @@ export default {
   getByUserId,
   getBySubjectId,
   create,
+  update,
   remove,
   removeByUserId,
   removeBySubjectId,
