@@ -1,9 +1,7 @@
-import ElementController from './feedback/element.js';
-import FeedbackController from './feedback/feedback.js';
-import TeamController from './team/team.js';
-import ProviderController from './user/provider.js';
-import TesterController from './user/tester.js';
-import VersionController from './version/version.js';
+import EvaluationController from './evaluation/evaluation.js';
+import PiscineController from './piscine/piscine.js';
+import SubjectController from './piscine/subject.js';
+import UserController from './user/user.js';
 
 /**
  * Controller
@@ -17,6 +15,7 @@ import VersionController from './version/version.js';
  *
  * @interface
  * PK 에 대한 아래의 인터페이스 제공
+ *   - getAll (option)
  *   - getByPK
  *   - create
  *   - update
@@ -35,10 +34,8 @@ import VersionController from './version/version.js';
  */
 
 export {
-  ElementController,
-  FeedbackController,
-  TeamController,
-  ProviderController,
-  TesterController,
-  VersionController,
+  EvaluationController, //
+  PiscineController,
+  SubjectController,
+  UserController,
 };

@@ -24,9 +24,37 @@ const User = Sequelize.define(
   },
 );
 
+async function getAll() {
+  const users = await User.findAll();
+
+  const ret = users.map(user => {
+    return user.get({ plain: true });
+  });
+
+  return ret;
+}
+
 async function getByUserId(user_id) {
   return User.findOne({
     where: { user_id },
+  }).then(data => {
+    if (data) return data.get({ plain: true });
+  });
+}
+
+async function getById(id) {
+  return User.findOne({
+    where: { id },
+  }).then(data => {
+    if (data) return data.get({ plain: true });
+  });
+}
+
+async function getByLogin(id, password) {
+  return User.findOne({
+    where: { id, password },
+  }).then(data => {
+    if (data) return data.get({ plain: true });
   });
 }
 
@@ -57,7 +85,10 @@ async function remove(user_id) {
 }
 
 export default {
+  getAll,
   getByUserId,
+  getById,
+  getByLogin,
   create,
   update,
   remove,

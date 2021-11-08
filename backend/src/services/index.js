@@ -1,10 +1,7 @@
-import ElementService from './feedback/element.js';
-import FeedbackService from './feedback/feedback.js';
-import ImageService from './media/image.js';
-import TeamService from './team/team.js';
-import ProviderService from './user/provider.js';
-import TesterService from './user/tester.js';
-import VersionService from './version/version.js';
+import EvaluationService from './evaluation/evaluation.js';
+import PiscineService from './piscine/piscine.js';
+import SubjectService from './piscine/subject.js';
+import UserService from './user/user.js';
 
 /**
  * Service
@@ -20,10 +17,11 @@ import VersionService from './version/version.js';
  *
  * @interface
  * PK 에 대한 아래의 인터페이스 제공
+ *   - getAll (option)
  *   - getByPK -> 없으면 throw
  *   - create
  *   - update
- *   - removeByPK -> 하위 계층 리소스도 remove
+ *   - removeByPK -> 하위 및 동등 계층 리소스도 remove
  * 상위 계층 리소스 Upper FK 에 대한 아래의 인터페이스 제공
  *   - getByFK
  *   - removeByFK -> removeByPK 호출
@@ -39,11 +37,8 @@ import VersionService from './version/version.js';
  */
 
 export {
-  ElementService,
-  FeedbackService,
-  ImageService,
-  TeamService,
-  ProviderService,
-  TesterService,
-  VersionService,
+  EvaluationService, //
+  PiscineService,
+  SubjectService,
+  UserService,
 };
