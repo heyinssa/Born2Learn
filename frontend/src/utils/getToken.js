@@ -25,6 +25,8 @@ const getToken = async () => {
   try {
     const fetchToken = await fetch(url + query, config);
     const response = await fetchToken.json();
+    console.log(fetchToken);
+    console.log(response);
 
     return response;
   } catch (e) {

@@ -13,7 +13,8 @@ const Register = ({ location }) => {
   const id = location.state.userId;
   // const [userInfo, setUserInfo] = useState([]);
   let userInfo;
-  let isVaild = false;
+  // let isVaild = false;
+  const [isValid, setIsValid] = useState(false);
   const [path, setPath] = useState([]);
   const [comparePath, setComparePath] = useState('');
   const [idResult, setIdResult] = useState('');
@@ -21,19 +22,22 @@ const Register = ({ location }) => {
   const [isWrong, setIsWrong] = useState(false);
 
   const postRegiser = async (id, pwString) => {
-    try {
-      const result = await axios.post(checkValidatePasswordApi + '/register', {
+    const result = await axios
+      .post(checkValidatePasswordApi + '/register', {
         data: {
           id: id,
           password: pwString,
         },
+      })
+      .then((response) => {
+        // console.log(response.data);
+      })
+      .catch((error) => {
+        // console.log(error.response.status);
+        if (error.response.status == 404) {
+          setIsValid(true);
+        }
       });
-      console.log(result);
-
-      return result;
-    } catch (e) {
-      return e;
-    }
   };
 
   const handleChangePath = (pattern) => {
@@ -47,12 +51,12 @@ const Register = ({ location }) => {
       console.log('비교해야 합니다.');
       if (pwString === comparePath) {
         const result = await postRegiser(id, pwString);
-        if (result.status === 200) {
+        if (result) {
           userInfo = result.data;
-          console.log(userInfo);
+          // console.log(userInfo);
           setIsFinish(true);
         } else {
-          alert(result);
+          // alert(result);
         }
       } else {
         setIsWrong(true);
@@ -84,27 +88,17 @@ const Register = ({ location }) => {
     fetchId();
   }, []);
 
-  useEffect(() => {
-    const checkValidate = async () => {
-      const result = await axios.get(
-        checkValidatePasswordApi + '/register/valid/' + id
-      );
-      isVaild = result.status === 200 ? true : false;
-    };
-    checkValidate();
-  }, []);
-
   return (
     <div className="login-page">
       {idResult && (
         <>
           {idResult !== 'error' ? (
             <>
-              <h1 className="title">WMPB</h1>
+              <h1 className="title">Born to Learn</h1>
               {comparePath ? (
-                <h2>한 번 더 입력해주세요.</h2>
+                <h2 className="subtitle">한 번 더 입력해주세요.</h2>
               ) : (
-                <h2>어서와요, {id}!</h2>
+                <h2 className="subtitle">어서와요, {id}!</h2>
               )}
               <PatternLock
                 width={300}
@@ -139,10 +133,11 @@ const Register = ({ location }) => {
           일치하지 않습니다!
         </div>
       )}
-      {isVaild && (
+      {isValid && (
         <Link to={'/'}>
           <div className="modal">
-            이미 존재하는 아이디입니다! 비밀번호를 잊으셨다면 유감입니다 :)
+            이미 존재하는 아이디입니다! 비밀번호를 잊으셨다면 개발자에게
+            연락하세요 :)
           </div>
         </Link>
       )}
