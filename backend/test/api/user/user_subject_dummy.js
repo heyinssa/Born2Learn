@@ -7,7 +7,7 @@ export default async () => {
 
   await new Promise((resolve, reject) => {
     const option = {
-      uri: 'http://betti.kr:9000/api/users/all',
+      uri: 'https://betti.kr:9000/api/users/all',
       method: 'GET',
     };
 
@@ -25,7 +25,7 @@ export default async () => {
     user_ids.map(user_id => {
       return new Promise((resolve, reject) => {
         const option = {
-          uri: `http://betti.kr:9000/api/users/${user_id}/piscines`,
+          uri: `https://betti.kr:9000/api/users/${user_id}/piscines`,
           method: 'GET',
         };
 
@@ -54,7 +54,7 @@ export default async () => {
         user_piscine.piscine_id.map(piscine => {
           return new Promise((resolve, reject) => {
             const option = {
-              uri: `http://betti.kr:9000/api/piscines/${piscine}/subjects`,
+              uri: `https://betti.kr:9000/api/piscines/${piscine}/subjects`,
               method: 'GET',
             };
 
@@ -95,7 +95,7 @@ export default async () => {
 
   const options = datas.map(data => {
     return {
-      uri: `http://betti.kr:9000/api/users/${data.user_id}/subjects/${data.subject_id}`,
+      uri: `https://betti.kr:9000/api/users/${data.user_id}/subjects/${data.subject_id}`,
       method: 'GET',
     };
   });

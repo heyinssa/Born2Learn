@@ -7,7 +7,7 @@ export default async () => {
 
   await new Promise((resolve, reject) => {
     const option = {
-      uri: 'http://betti.kr:9000/api/users/all',
+      uri: 'https://betti.kr:9000/api/users/all',
       method: 'GET',
     };
 
@@ -25,7 +25,7 @@ export default async () => {
     user_ids.map(user_id => {
       return new Promise((resolve, reject) => {
         const option = {
-          uri: `http://betti.kr:9000/api/users/${user_id}/subjects`,
+          uri: `https://betti.kr:9000/api/users/${user_id}/subjects`,
           method: 'GET',
         };
 
@@ -63,7 +63,7 @@ export default async () => {
 
   const options = datas.map(data => {
     return {
-      uri: 'http://betti.kr:9000/api/evaluations',
+      uri: 'https://betti.kr:9000/api/evaluations',
       method: 'POST',
       body: data,
       json: true,

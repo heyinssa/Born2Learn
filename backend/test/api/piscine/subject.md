@@ -1,4 +1,4 @@
-- POST http://betti.kr:9000/api/subjects
+- POST https://betti.kr:9000/api/subjects
 
   ```json
   {
@@ -27,9 +27,9 @@
   }
   ```
 
-- GET http://betti.kr:9000/api/subjects/0f7b0fba-5493-43dd-b13f-062c318bd54f
+- GET https://betti.kr:9000/api/subjects/0f7b0fba-5493-43dd-b13f-062c318bd54f
 
-- PUT http://betti.kr:9000/api/subjects/0f7b0fba-5493-43dd-b13f-062c318bd54f
+- PUT https://betti.kr:9000/api/subjects/0f7b0fba-5493-43dd-b13f-062c318bd54f
 
   ```json
   {
@@ -39,6 +39,6 @@
   }
   ```
 
-- DELETE http://betti.kr:9000/api/subjects/0f7b0fba-5493-43dd-b13f-062c318bd54f
+- DELETE https://betti.kr:9000/api/subjects/0f7b0fba-5493-43dd-b13f-062c318bd54f
 
-- GET http://betti.kr:9000/api/subjects/b9902c6d-db1f-4411-b2a3-a5c184fd6789/users
+- GET https://betti.kr:9000/api/subjects/b9902c6d-db1f-4411-b2a3-a5c184fd6789/users

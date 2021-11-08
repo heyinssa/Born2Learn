@@ -1,4 +1,4 @@
-- POST http://betti.kr:9000/api/evaluations
+- POST https://betti.kr:9000/api/evaluations
 
   ```json
   {
@@ -9,9 +9,9 @@
   }
   ```
 
-- GET http://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c
+- GET https://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c
 
-- PUT http://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c
+- PUT https://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c
 
   ```json
   {
@@ -22,7 +22,7 @@
   }
   ```
 
-- DELETE http://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c
+- DELETE https://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c
 
-- GET http://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c/subjects
-- GET http://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c/users
+- GET https://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c/subjects
+- GET https://betti.kr:9000/api/piscines/39c11564-c06a-4a8a-958e-b2455993633c/users

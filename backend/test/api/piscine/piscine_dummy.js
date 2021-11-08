@@ -40,7 +40,7 @@ export default async () => {
 
   const options = datas.map(data => {
     return {
-      uri: 'http://betti.kr:9000/api/piscines',
+      uri: 'https://betti.kr:9000/api/piscines',
       method: 'POST',
       body: data,
       json: true,

@@ -6,7 +6,7 @@ export default async () => {
   const datas = [];
 
   const option = {
-    uri: 'http://betti.kr:9000/api/piscines/all',
+    uri: 'https://betti.kr:9000/api/piscines/all',
     method: 'GET',
   };
 
@@ -36,7 +36,7 @@ export default async () => {
 
   const options = datas.map(data => {
     return {
-      uri: 'http://betti.kr:9000/api/subjects',
+      uri: 'https://betti.kr:9000/api/subjects',
       method: 'POST',
       body: data,
       json: true,

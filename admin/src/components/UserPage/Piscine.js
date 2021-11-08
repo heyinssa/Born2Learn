@@ -8,36 +8,35 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
-import DetailMenu from "./DetailMenu";
 
-const User = () => {
-  const [users, setUsers] = useState([]);
+const Piscine = ({ userId }) => {
+  const [piscines, setPiscines] = useState([]);
 
   useEffect(() => {
-    const url = "http://betti.kr:9000/api/users/all";
+    const url = `https://betti.kr:9000/api/users/${userId}/piscines`;
 
     axios
       .get(url)
       .then((response) => {
-        setUsers(response.data);
+        setPiscines(response.data);
       })
       .catch((error) => {
         console.log(`${url} 호출 실패!`);
       });
-  }, []);
+  }, [userId]);
 
   return (
-    <Stack sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}>
+    <Stack sx={{ width: "100%", maxWidth: 500, bgcolor: "background.paper" }}>
       <Typography
         variant="h4"
         component="div"
         gutterBottom
         sx={{ textAlign: "center" }}
       >
-        User
+        Piscine
       </Typography>
       <List>
-        {users.map((user, index) => {
+        {piscines.map((piscine, index) => {
           return (
             <ListItem>
               <Accordion style={{ width: "100%" }}>
@@ -46,7 +45,7 @@ const User = () => {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography variant="h6">{user.id}</Typography>
+                  <Typography>{piscine.name}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <div
@@ -55,12 +54,8 @@ const User = () => {
                       flexDirection: "column",
                     }}
                   >
-                    <span>user_id : {user.user_id}</span>
-                    <span>id : {user.id}</span>
-                    <span>password : {user.password}</span>
-                    <span>created_at : {user.createdAt}</span>
-                    <span>updated_at : {user.updatedAt}</span>
-                    <DetailMenu />
+                    <pre>{JSON.stringify(piscine, null, 2)}</pre>
+                    <br />
                   </div>
                 </AccordionDetails>
               </Accordion>
@@ -72,23 +67,4 @@ const User = () => {
   );
 };
 
-export default User;
-
-/*
-<div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <span>{user.user_id}</span>
-                <span>
-                  <strong>{user.id}</strong>
-                </span>
-                <span>{user.password}</span>
-                <span>{user.password}</span>
-                <span>{user.password}</span>
-                <span>{user.password}</span>
-              </div>
-            </ListItem>
-            */
+export default Piscine;

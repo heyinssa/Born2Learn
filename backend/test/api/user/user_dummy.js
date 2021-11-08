@@ -38,7 +38,7 @@ export default async () => {
 
   const options = datas.map(data => {
     return {
-      uri: 'http://betti.kr:9000/api/users/register',
+      uri: 'https://betti.kr:9000/api/users/register',
       method: 'POST',
       body: data,
       json: true,
