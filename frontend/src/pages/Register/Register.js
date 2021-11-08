@@ -28,6 +28,9 @@ const Register = ({ location }) => {
         },
       })
       .then((response) => {
+          userInfo = response.data;
+          // console.log(userInfo);
+          setIsFinish(true);
         console.log(response.data);
       })
       .catch((error) => {
