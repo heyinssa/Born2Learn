@@ -2,8 +2,8 @@ import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 
 import MySubjectTitleEvaluationLog from './MySubjectTitleEvaluationLog';
-const getUserEvaluationListAPI = 'http://betti.kr:9000' + '/api/users';
-const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users';
+const getUserEvaluationListAPI = 'https://betti.kr:9000' + '/api/users';
+const getEvaluationAPI = 'https://betti.kr:9000' + '/api/users';
 
 const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
   // const [userEvaluationList, setUserEvaluationList] = useState([]);

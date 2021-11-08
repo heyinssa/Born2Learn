@@ -8,7 +8,7 @@ import MyPiscineTitle from './MyPiscineTitle';
 import MyPiscineContents from './MyPiscineContents';
 import checkId from 'utils/checkId';
 
-const getPiscineSubjectAPI = 'http://betti.kr:9000' + '/api/piscines';
+const getPiscineSubjectAPI = 'https://betti.kr:9000' + '/api/piscines';
 
 const MyPiscine = ({ match, location }) => {
   const user_id = checkId(location);

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import MySubjectTitleEvaluation from './MySubjectTitleEvaluation';
 
-const getUserSubjectAPI = 'http://betti.kr:9000' + '/api/users';
+const getUserSubjectAPI = 'https://betti.kr:9000' + '/api/users';
 
 // const url = 'https://github.com/euiminnn/Learn-Git-Branch';
 
@@ -31,6 +31,7 @@ const MySubjectTitle = ({ user_id, subject }) => {
       if (userSubject.subject_id == subject.subject_id) {
         setIsRegister(true);
         setIsFinished(userSubject.is_finished);
+	      console.log(userSubject.repository);
         setRepositoryURL(userSubject.repository);
         console.log(isFinished);
       }

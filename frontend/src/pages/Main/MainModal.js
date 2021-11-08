@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const url = 'http://betti.kr:9000';
+const url = 'https://betti.kr:9000';
 
 const PostRepository = ({ closeModal }) => {
   const [repositoryURL, setRepositoryURL] = useState('');

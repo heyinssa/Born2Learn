@@ -8,7 +8,7 @@ import './MyEvaluation.scss';
 import checkId from 'utils/checkId';
 // import MyEvaluationContents from './MyEvaluationContents';
 
-const putUserFeedbackAPI = 'http://betti.kr:9000' + '/api/users';
+const putUserFeedbackAPI = 'https://betti.kr:9000' + '/api/users';
 
 const MyEvaluation = ({ match, location }) => {
   const [feedback, setFeedback] = useState('');

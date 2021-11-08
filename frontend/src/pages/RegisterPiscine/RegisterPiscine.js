@@ -6,7 +6,7 @@ import checkId from 'utils/checkId';
 import './RegisterPiscine.scss';
 import axios from 'axios';
 
-const getPiscineAPI = 'http://betti.kr:9000' + '/api/users/';
+const getPiscineAPI = 'https://betti.kr:9000' + '/api/users/';
 
 // const mdUrl =
 //   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.md';
