@@ -5,14 +5,6 @@
 ![42seoul](https://img.shields.io/badge/-42Seoul-325916?logo=42&logoColor=white&style=flat)
 ![react](https://img.shields.io/badge/-ReactJs-40AEF0?logo=react&logoColor=white&style=flat)
 
-WMPB는 보다 큰 피씬 경험을 위한 웹 서비스입니다.
-
-현대의 웹 서비스는 많은 수의 피씬과 복잡하게 구성된 서브젝트를 관리하는 웹 기반 플랫폼입니다.
-일정 규모 이상의 피씬을 제작하기 위해선 쉬운 배포, 편한 접근성이 있어야 합니다.
-WMPB는 제젝자와 피씨너간의 연결을 도와주는 환경을 제공합니다.
-
-빠르고 생산성 높은 피씬 배포를 위해 각 피씬들은 github로 관리합니다.
-
 <br/>
 
 아래 사이트로 가서 오픈소스 피신 플랫폼을 체험해보세요!
