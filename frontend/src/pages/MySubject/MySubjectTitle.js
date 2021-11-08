@@ -16,7 +16,7 @@ const MySubjectTitle = ({ user_id, subject }) => {
   const [isFinished, setIsFinished] = useState(false);
   const [isLoading, setIsLoading] = useState();
   const [isRegister, setIsRegister] = useState();
-  // const [userState, setUserState] = useState('done');
+  // const [userState, setUserState] = useState('done');]
   const [state, setState] = useState(false);
   const [repositoryURL, setRepositoryURL] = useState('');
 
@@ -31,6 +31,7 @@ const MySubjectTitle = ({ user_id, subject }) => {
       if (userSubject.subject_id == subject.subject_id) {
         setIsRegister(true);
         setIsFinished(userSubject.is_finished);
+        setRepositoryURL(userSubject.repository);
         console.log(isFinished);
       }
     });
@@ -66,7 +67,6 @@ const MySubjectTitle = ({ user_id, subject }) => {
 
   useEffect(() => {
     setIsLoading(false);
-    setRepositoryURL(subject.default_repository);
     fetchUserSubjects();
   }, []);
 
