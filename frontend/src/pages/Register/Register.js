@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PatternLock from 'react-pattern-lock';
 import getToken from 'utils/getToken';
 import getUserId from 'utils/getUserId';
-import checkId from 'utils/checkId';
 import './Register.scss';
 import axios from 'axios';
 
@@ -13,7 +12,7 @@ const Register = ({ location }) => {
   const id = location.state.userId;
   // const [userInfo, setUserInfo] = useState([]);
   let userInfo;
-  let isVaild = false;
+  const [isValid, setIsValid] = useState(false);
   const [path, setPath] = useState([]);
   const [comparePath, setComparePath] = useState('');
   const [idResult, setIdResult] = useState('');
@@ -21,19 +20,21 @@ const Register = ({ location }) => {
   const [isWrong, setIsWrong] = useState(false);
 
   const postRegiser = async (id, pwString) => {
-    try {
-      const result = await axios.post(checkValidatePasswordApi + '/register', {
+    const result = await axios
+      .post(checkValidatePasswordApi + '/register', {
         data: {
           id: id,
           password: pwString,
         },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        if (error.reponse.status == 404) {
+          setIsValid(true);
+        }
       });
-      console.log(result);
-
-      return result;
-    } catch (e) {
-      return e;
-    }
   };
 
   const handleChangePath = (pattern) => {
@@ -82,16 +83,6 @@ const Register = ({ location }) => {
       setIdResult(result);
     };
     fetchId();
-  }, []);
-
-  useEffect(() => {
-    const checkValidate = async () => {
-      const result = await axios.get(
-        checkValidatePasswordApi + '/register/valid/' + id
-      );
-      isVaild = result.status === 200 ? true : false;
-    };
-    checkValidate();
   }, []);
 
   return (
