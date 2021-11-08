@@ -142,6 +142,9 @@ async function registerSubject(user_id, subject_id) {
   const option = {
     uri: 'http://skyrich3.synology.me:9900/api/v4/projects',
     method: 'POST',
+    headers: {
+      'Authorization': "Bearer gP42jbDSXNj_tQpK9BsP"
+    },
     body: {
       name: repository_name,
       visibility: 'public',
