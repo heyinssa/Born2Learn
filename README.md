@@ -45,6 +45,22 @@ Born To Learn은 피신 제작자와 카뎃분들을 이어주는 플랫폼입�
 
 `끝!`
 
+```
+github repository는 아래와 같은 구조를 가지고 있어야 합니다!
+
+main
+ㄴ subject-00
+   ㄴ README.md // subject 01 소개 페이지
+ㄴ subject-01
+   ㄴ README.pdf // subject 02 소개 페이지
+ㄴ subject-02
+   ㄴ README.html // subject 03 소개 페이지
+ㄴ README.md // piscine 소개 페이지
+```
+
+각 서브젝트 디렉토리의 네이밍 규칙은 없습니다! 단, README.md 파일을 가지고 있어야 합니다!
+만약 Markdown이 아니라 pdf, html 파일이여도 괜찮습니다! 파일 이름만 README로 맞춰주세요!!
+
 <br/>
 <br/>
 <br/>
@@ -77,6 +93,14 @@ Born To Learn은 피신 제작자와 카뎃분들을 이어주는 플랫폼입�
 <br/>
 <br/>
 
+## Release note (2021.11.08)
+
+- GitLab auto repository generator
+- SSL cert
+- Register
+- peer to peer evaluate log
+- add piscine button(for piscine builder)
+
 ## Release note (2021.11.02)
 
 - Markdown Viewer update
@@ -86,9 +110,7 @@ Born To Learn은 피신 제작자와 카뎃분들을 이어주는 플랫폼입�
 
 ## Comming soon
 
-- peer to peer evaluate log
 - personal github sync
 - password change
 - cancel subject
 - cancel piscine
-- add piscine button(for piscine builder)
