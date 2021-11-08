@@ -6,7 +6,7 @@ import getUserId from 'utils/getUserId';
 import './Register.scss';
 import axios from 'axios';
 
-const checkValidatePasswordApi = 'http://betti.kr:9000' + '/api/users';
+const checkValidatePasswordApi = 'https://betti.kr:9000' + '/api/users';
 
 const Register = ({ location }) => {
   const id = location.state.userId;
@@ -31,7 +31,7 @@ const Register = ({ location }) => {
         console.log(response.data);
       })
       .catch((error) => {
-        if (error.response.status == 404) {
+        if (!error || !error.response || error.response.status == 404) {
           setIsValid(true);
         }
       });

@@ -8,7 +8,7 @@ import Loader from './Loader';
 import './Login.scss';
 import axios from 'axios';
 
-const checkValidatePasswordApi = 'http://betti.kr:9000/api/users';
+const checkValidatePasswordApi = 'https://betti.kr:9000/api/users';
 
 const Login = ({ location }) => {
   const [errorMessage, setErrorMessage] = useState('');
@@ -46,7 +46,7 @@ const Login = ({ location }) => {
       .catch((error) => {
         setIsFinish(false);
         setIsWrong(true);
-        if (error.response.status == 500) setErrorMessage('서버 is die...');
+        if (!error || !error.response || error.response.status == 500) setErrorMessage('서버 is die...');
         else setErrorMessage('일치하지 않습니다!');
       });
     setIsLoading(false);

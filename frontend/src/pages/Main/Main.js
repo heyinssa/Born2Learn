@@ -10,9 +10,9 @@ import MyPiscineBox from './MyPiscineBox';
 import MyEvaluationBox from './MyEvaluationBox';
 import ALLPiscineBox from './ALLPiscineBox';
 
-const getUserPiscinesAPI = 'http://betti.kr:9000' + '/api/users';
-const getEvaluationAPI = 'http://betti.kr:9000' + '/api/users/';
-const getPiscinesAPI = 'http://betti.kr:9000' + '/api/piscines/all';
+const getUserPiscinesAPI = 'https://betti.kr:9000' + '/api/users';
+const getEvaluationAPI = 'https://betti.kr:9000' + '/api/users/';
+const getPiscinesAPI = 'https://betti.kr:9000' + '/api/piscines/all';
 
 const Main = ({ location }) => {
   const user_id = checkId(location);
