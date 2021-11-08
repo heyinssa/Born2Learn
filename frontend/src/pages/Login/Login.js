@@ -69,9 +69,7 @@ const Login = ({ location }) => {
 
   return (
     <div className="login-page">
-      {isLoading && (
-        <Loader type="spin" color="rgb(103, 159, 255)" message="message" />
-      )}
+      {isLoading && <Loader type="spin" color="white" message="message" />}
       {idResult && (
         <>
           {idResult !== 'error' ? (

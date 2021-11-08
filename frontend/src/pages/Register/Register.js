@@ -7,10 +7,10 @@ import checkId from 'utils/checkId';
 import './Register.scss';
 import axios from 'axios';
 
-const checkValidatePasswordApi = 'http://betti.kr:9000/api';
+const checkValidatePasswordApi = 'http://betti.kr:9000' + '/api/users';
 
 const Register = ({ location }) => {
-  const id = checkId(location);
+  const id = location.state.userId;
   // const [userInfo, setUserInfo] = useState([]);
   let userInfo;
   let isVaild = false;
@@ -95,7 +95,7 @@ const Register = ({ location }) => {
   }, []);
 
   return (
-    <div className="register-page">
+    <div className="login-page">
       {idResult && (
         <>
           {idResult !== 'error' ? (

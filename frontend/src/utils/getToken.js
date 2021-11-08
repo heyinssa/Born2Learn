@@ -28,7 +28,7 @@ const getToken = async () => {
 
     return response;
   } catch (e) {
-    alert('getToken failed');
+    // alert('getToken failed');
     return e;
   }
 };

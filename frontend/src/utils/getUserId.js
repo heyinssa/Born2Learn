@@ -19,7 +19,7 @@ const getUserId = async (id, token) => {
     const result = await fetchId.json();
     return result.login;
   } catch (e) {
-    alert('getUserId failed');
+    // alert('getUserId failed');
     return e;
     // 인자로 에러에 대한 정보가 들어온다. 보통은 그 에러를 송출하는 식으로 쓰인다. 서버 통신 오류나 사용자 문제로 인한 오류를 핸들링한다.
     // try catch 를 쓰는 의도는 에러를 애초에 핸들링 하기 위함
