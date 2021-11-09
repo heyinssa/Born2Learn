@@ -6,6 +6,8 @@
 ![react](https://img.shields.io/badge/-ReactJs-40AEF0?logo=react&logoColor=white&style=flat)
 
 <br/>
+안녕하세요 저희는 자유롭게 만든 피신(교육과정)을 편하게 등록하고 참여할 수 있는 서비스 Born To Learn 입니다!
+Github를 통해 누구나 쉽게 교육과정을 제작하고 저희 서비스에 링크만 등록해 주세요! 나머진 모두 저희가 책임집니다!
 
 아래 사이트로 가서 오픈소스 피신 플랫폼을 체험해보세요!
 
@@ -17,6 +19,7 @@
 # 핵심기능
 
 Born To Learn은 피신 제작자와 카뎃분들을 이어주는 플랫폼입니다! 2주간의 해커톤 너무 고생많으셨습니다. 앞으로도 좋은 피신 많이 제작해주시면 좋겠습니다 :)
+- 제작한 피신(교육과정)의 github링크만 등록하면, subject, 소개페이지, repository link를 모두 자동 생성!
 
 - 피신 탐색, 등록
 
