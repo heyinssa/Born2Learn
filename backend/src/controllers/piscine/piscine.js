@@ -16,6 +16,14 @@ async function get(req, res, next) {
   res.status(200).json(piscine);
 }
 
+async function createWithGithubAPI(req, res, next) {
+  const { github_link } = req.body.data;
+
+  const piscine = await PiscineService.createWithGithubAPI(github_link);
+
+  res.status(200).json(piscine);
+}
+
 async function create(req, res, next) {
   const {
     name, //
@@ -81,6 +89,7 @@ async function getUsers(req, res, next) {
 export default {
   getAll,
   get,
+  createWithGithubAPI,
   create,
   update,
   remove,

@@ -1,7 +1,7 @@
 import { PiscineModel, UserPiscineModel } from '../../models/index.js';
 import { SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
-
+import GithubAPI from './githubapi';
 /* Piscine (PK) */
 
 async function getAll() {
@@ -14,6 +14,18 @@ async function getByPiscineId(piscine_id) {
   const piscine = await PiscineModel.getByPiscineId(piscine_id);
 
   if (!piscine) throw new ApiError(404, `Piscine not found: ${piscine_id}`);
+
+  return piscine;
+}
+
+async function createWithGithubAPI(github_link) {
+  const piscine2 = GithubAPI(github_link);
+
+  const piscine = await create(
+    piscine2.name,
+    piscine2.github_link,
+    piscine2.readme_link,
+  );
 
   return piscine;
 }
@@ -73,6 +85,7 @@ async function getUsers(piscine_id) {
 export default {
   getAll,
   getByPiscineId,
+  createWithGithubAPI,
   create,
   update,
   removeByPiscineId,
