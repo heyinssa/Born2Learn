@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.get('/all', PiscineController.getAll);
 router.get('/:piscine', PiscineController.get);
+router.post('/ps', PiscineController.createWithGithubAPI);
 router.post('/', PiscineController.create);
 router.put('/:piscine', PiscineController.update);
 router.delete('/:piscine', PiscineController.remove);

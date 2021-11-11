@@ -1,7 +1,33 @@
 const { request } = require('@octokit/request');
 const GitUrlParse = require('git-url-parse');
 
-async function process(github_link) {
+/**
+ * 1. github 주소를 받음
+ * 2. github api로 깃헙에 있는 것들을 가져옴
+ * 3. 처음에 가져와야 하는 것들
+ *    ㄴ 피씬 이름
+ *    ㄴ github 링크
+ *    ㄴ 메인 리드미 링크
+ * @param {} github_link
+ * @returns
+ */
+
+async function GithubAPI(github_link) {
+  var result = {
+    name: '',
+    github_link: '',
+    readme_link: '',
+  };
+  const piscineContents = await getRepositoryContents(
+    gitUrlParse(github_link),
+    '',
+  );
+
+  console.log(piscineContents);
+  return result;
+}
+
+async function GithubAPIsubject(github_link) {
   const allContents = await getRepositoryContents(gitUrlParse(github_link), '');
   const directories = allContents.data.filter(result => result.type == 'dir');
 
@@ -41,4 +67,4 @@ async function getRepositoryContents(item, path) {
   return results;
 }
 
-export default process;
+export default { GithubAPI, GithubAPIsubject };

@@ -19,7 +19,7 @@ async function getByPiscineId(piscine_id) {
 }
 
 async function createWithGithubAPI(github_link) {
-  const piscine2 = GithubAPI(github_link);
+  const piscine2 = GithubAPI.process(github_link);
 
   const piscine = await create(
     piscine2.name,
