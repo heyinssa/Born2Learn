@@ -1,5 +1,5 @@
-const { request } = require('@octokit/request');
-const GitUrlParse = require('git-url-parse');
+import { request } from '@octokit/request';
+import GitUrlParse from 'git-url-parse';
 
 /**
  * 1. github 주소를 받음
@@ -12,22 +12,28 @@ const GitUrlParse = require('git-url-parse');
  * @returns
  */
 
-async function GithubAPI(github_link) {
+async function processPiscine(github_link) {
   var result = {
     name: '',
     github_link: '',
     readme_link: '',
   };
-  const piscineContents = await getRepositoryContents(
-    gitUrlParse(github_link),
-    '',
+  console.log(`link : ${github_link}`);
+  const githubData = await gitUrlParse(github_link);
+  const piscineContents = await getRepositoryContents(githubData, '');
+  const promises = piscineContents.data.filter(
+    result => result.name == 'README.md',
   );
+  const pathContents = await Promise.all(promises);
 
-  console.log(piscineContents);
+  result.readme_link = pathContents[0].download_url;
+  result.github_link = github_link;
+  result.name = githubData.name;
+
   return result;
 }
 
-async function GithubAPIsubject(github_link) {
+async function processSubject(github_link) {
   const allContents = await getRepositoryContents(gitUrlParse(github_link), '');
   const directories = allContents.data.filter(result => result.type == 'dir');
 
@@ -50,7 +56,7 @@ async function GithubAPIsubject(github_link) {
   return filteredDirectories;
 }
 
-function gitUrlParse(github_link) {
+async function gitUrlParse(github_link) {
   const data = GitUrlParse(github_link);
   return data;
 }
@@ -58,7 +64,7 @@ function gitUrlParse(github_link) {
 async function getRepositoryContents(item, path) {
   const results = await request('GET /repos/{owner}/{repo}/contents/{path}', {
     headers: {
-      Authorization: 'token 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',
+      Authorization: 'token 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',
     },
     owner: item.owner,
     repo: item.name,
@@ -67,4 +73,4 @@ async function getRepositoryContents(item, path) {
   return results;
 }
 
-export default { GithubAPI, GithubAPIsubject };
+export default { processPiscine, processSubject };

@@ -1,7 +1,7 @@
 import { PiscineModel, UserPiscineModel } from '../../models/index.js';
 import { SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
-import GithubAPI from './githubapi';
+import githubapi from './githubprocess.js';
 /* Piscine (PK) */
 
 async function getAll() {
@@ -19,8 +19,10 @@ async function getByPiscineId(piscine_id) {
 }
 
 async function createWithGithubAPI(github_link) {
-  const piscine2 = GithubAPI.process(github_link);
-
+  console.log('***************\n');
+  const piscine2 = await githubapi.processPiscine(github_link);
+  console.log(piscine2);
+  console.log('***************\n');
   const piscine = await create(
     piscine2.name,
     piscine2.github_link,
