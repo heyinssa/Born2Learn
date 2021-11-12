@@ -30,20 +30,43 @@ async function createWithGithubAPI(github_link) {
     github_data,
     piscineContents,
   );
-  console.log(subject_list);
+  // console.log(subject_list);
   const piscine = await PiscineModel.create(
     github_data.name,
     github_link,
     readme_link,
   );
 
-  subject_list.forEach(element => {
-    SubjectModel.create(piscine.piscine_id, element.name, 3, null, null);
-  });
+  async function getDownloadUrl(element) {
+    const innerContents = await githubapi.getRepositoryContents(
+      github_data,
+      element.name,
+    );
+    innerContents.data.forEach(element => {
+      if (element.name == 'README.md') {
+        return element.download_url;
+      }
+    });
+    return '';
+  }
+
+  async function getReadmeAndCreate(element) {
+    const download_url = getDownloadUrl(element);
+    await SubjectModel.create(
+      piscine.piscine_id,
+      element.name,
+      3,
+      download_url,
+      null,
+    );
+  }
+
+  await Promise.all(
+    subject_list.forEach(element => getReadmeAndCreate(element)),
+  );
 
   return piscine;
 }
-c;
 
 async function create(
   name, //

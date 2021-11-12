@@ -70,7 +70,7 @@ async function gitUrlParse(github_link) {
 async function getRepositoryContents(item, path) {
   const results = await request('GET /repos/{owner}/{repo}/contents/{path}', {
     headers: {
-      Authorization: 'token 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',
+      Authorization: 'token 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',
     },
     owner: item.owner,
     repo: item.name,
@@ -79,4 +79,10 @@ async function getRepositoryContents(item, path) {
   return results;
 }
 
-export default { processName, processReadme, processPiscine, processSubject };
+export default {
+  processName,
+  processReadme,
+  processPiscine,
+  processSubject,
+  getRepositoryContents,
+};
