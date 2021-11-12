@@ -70,7 +70,7 @@ async function gitUrlParse(github_link) {
 async function getRepositoryContents(item, path) {
   const results = await request('GET /repos/{owner}/{repo}/contents/{path}', {
     headers: {
-      Authorization: 'token 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',
+      Authorization: 'token '토큰넣기,
     },
     owner: item.owner,
     repo: item.name,

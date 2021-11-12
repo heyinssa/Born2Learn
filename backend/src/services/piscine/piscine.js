@@ -21,6 +21,19 @@ async function getByPiscineId(piscine_id) {
 
   return piscine;
 }
+async function getDownloadUrl(element, github_data) {
+  const innerContents = await githubapi.getRepositoryContents(
+    github_data,
+    element.name,
+  );
+  innerContents.data.forEach(element => {
+    if (element.name == 'README.md') {
+      // console.log(element.download_url);
+      return element.download_url;
+    }
+  });
+  return 'empty';
+}
 
 async function createWithGithubAPI(github_link) {
   const github_data = await githubapi.processName(github_link);
@@ -30,41 +43,25 @@ async function createWithGithubAPI(github_link) {
     github_data,
     piscineContents,
   );
-  // console.log(subject_list);
+
   const piscine = await PiscineModel.create(
     github_data.name,
     github_link,
     readme_link,
   );
 
-  async function getDownloadUrl(element) {
-    const innerContents = await githubapi.getRepositoryContents(
-      github_data,
-      element.name,
-    );
-    innerContents.data.forEach(element => {
-      if (element.name == 'README.md') {
-        return element.download_url;
-      }
-    });
-    return '';
-  }
-
   async function getReadmeAndCreate(element) {
-    const download_url = getDownloadUrl(element);
+    const download_url = await getDownloadUrl(element, github_data);
     await SubjectModel.create(
       piscine.piscine_id,
       element.name,
-      3,
+      '3',
       download_url,
-      null,
+      'evaluation_link',
+      'default_repo',
     );
   }
-
-  await Promise.all(
-    subject_list.forEach(element => getReadmeAndCreate(element)),
-  );
-
+  await Promise.all(subject_list.map(element => getReadmeAndCreate(element)));
   return piscine;
 }
 
