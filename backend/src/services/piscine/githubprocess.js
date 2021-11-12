@@ -1,70 +1,76 @@
 import { request } from '@octokit/request';
 import GitUrlParse from 'git-url-parse';
 
-/**
- * 1. github 주소를 받음
- * 2. github api로 깃헙에 있는 것들을 가져옴
- * 3. 처음에 가져와야 하는 것들
- *    ㄴ 피씬 이름
- *    ㄴ github 링크
- *    ㄴ 메인 리드미 링크
- * @param {} github_link
- * @returns
- */
-
-async function processPiscine(github_link) {
-  var result = {
-    name: '',
-    github_link: '',
-    readme_link: '',
-  };
-  console.log(`link : ${github_link}`);
-  const githubData = await gitUrlParse(github_link);
-  const piscineContents = await getRepositoryContents(githubData, '');
+async function processReadme(piscineContents) {
   const promises = piscineContents.data.filter(
     result => result.name == 'README.md',
   );
-  const pathContents = await Promise.all(promises);
+  const piscine = await Promise.all(promises);
 
-  result.readme_link = pathContents[0].download_url;
-  result.github_link = github_link;
-  result.name = githubData.name;
-
-  return result;
+  return piscine[0].download_url;
 }
 
-async function processSubject(github_link) {
-  const allContents = await getRepositoryContents(gitUrlParse(github_link), '');
-  const directories = allContents.data.filter(result => result.type == 'dir');
+async function processName(github_link) {
+  const github_data = await gitUrlParse(github_link);
 
-  const promises = await directories.map(result =>
-    getRepositoryContents(gitUrlParse(), result.name),
-  );
-  const pathContents = await Promise.all(promises);
+  return github_data;
+}
 
-  let filteredDirectories = pathContents.filter((result, index) => {
-    return pathContents[index].data[1].name.includes('README');
+async function processPiscine(github_data) {
+  const piscineContents = await getRepositoryContents(github_data, '');
+
+  return piscineContents;
+}
+
+async function processSubject(github_data, piscineContents) {
+  let inner_list = [];
+
+  const promises = await piscineContents.data.filter(result => {
+    if (result.type != 'dir') {
+      return false;
+    }
+    return true;
   });
 
-  filteredDirectories = filteredDirectories.map(result => {
-    return result.data[0];
+  const subject = await Promise.all(promises);
+
+  async function make_inner_list(element) {
+    const innerContents = await getRepositoryContents(
+      github_data,
+      element.name,
+    );
+
+    for (const inner of innerContents.data) {
+      if (inner.name == 'README.md') {
+        inner_list.push(element);
+      }
+    }
+  }
+
+  await Promise.all(subject.map(element => make_inner_list(element)));
+
+  const promises2 = await piscineContents.data.filter(result => {
+    for (const element of inner_list) {
+      if (element.name == result.name) return true;
+    }
+    return false;
   });
-  console.log(filteredDirectories);
-  filteredDirectories.forEach(result => {
-    console.log(result.path, ': ', result.download_url);
-  });
-  return filteredDirectories;
+
+  const subject2 = await Promise.all(promises2);
+
+  return subject2;
 }
 
 async function gitUrlParse(github_link) {
   const data = GitUrlParse(github_link);
+
   return data;
 }
 
 async function getRepositoryContents(item, path) {
   const results = await request('GET /repos/{owner}/{repo}/contents/{path}', {
     headers: {
-      Authorization: 'token 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',
+      Authorization: 'token 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',
     },
     owner: item.owner,
     repo: item.name,
@@ -73,4 +79,4 @@ async function getRepositoryContents(item, path) {
   return results;
 }
 
-export default { processPiscine, processSubject };
+export default { processName, processReadme, processPiscine, processSubject };

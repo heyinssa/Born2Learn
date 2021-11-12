@@ -1,4 +1,8 @@
-import { PiscineModel, UserPiscineModel } from '../../models/index.js';
+import {
+  PiscineModel,
+  SubjectModel,
+  UserPiscineModel,
+} from '../../models/index.js';
 import { SubjectService } from '../index.js';
 import ApiError from '../../modules/error.js';
 import githubapi from './githubprocess.js';
@@ -19,15 +23,23 @@ async function getByPiscineId(piscine_id) {
 }
 
 async function createWithGithubAPI(github_link) {
-  console.log('***************\n');
-  const piscine2 = await githubapi.processPiscine(github_link);
-  console.log(piscine2);
-  console.log('***************\n');
-  const piscine = await create(
-    piscine2.name,
-    piscine2.github_link,
-    piscine2.readme_link,
+  const github_data = await githubapi.processName(github_link);
+  const piscineContents = await githubapi.processPiscine(github_data);
+  const readme_link = await githubapi.processReadme(piscineContents);
+  const subject_list = await githubapi.processSubject(
+    github_data,
+    piscineContents,
   );
+  console.log(subject_list);
+  const piscine = await PiscineModel.create(
+    github_data.name,
+    github_link,
+    readme_link,
+  );
+
+  subject_list.forEach(element => {
+    SubjectModel.create(piscine.piscine_id, element.name, 3, null, null);
+  });
 
   return piscine;
 }
