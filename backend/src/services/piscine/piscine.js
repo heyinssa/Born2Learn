@@ -55,7 +55,7 @@ async function createWithGithubAPI(github_link) {
     await SubjectModel.create(
       piscine.piscine_id,
       element.name,
-      '3',
+      3,
       download_url,
       'evaluation_link',
       'default_repo',
