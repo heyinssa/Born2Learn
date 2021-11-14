@@ -21,6 +21,7 @@ async function getByPiscineId(piscine_id) {
 
   return piscine;
 }
+
 async function getDownloadUrl(element, github_data) {
   const innerContents = await githubapi.getRepositoryContents(
     github_data,
@@ -62,6 +63,7 @@ async function createWithGithubAPI(github_link) {
     );
   }
   await Promise.all(subject_list.map(element => getReadmeAndCreate(element)));
+
   return piscine;
 }
 
