@@ -12,9 +12,11 @@ const PostRepository = ({ closeModal }) => {
     closeModal();
     event.preventDefault();
     await axios
-      .post(url)
+      .post(url + '/api/piscines/ps')
       .then((response) => {})
-      .catch((error) => {});
+      .catch((error) => {
+        console.log('API 호출 실패!');
+      });
     setPostRepo(false);
   };
   return (

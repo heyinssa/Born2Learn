@@ -15,7 +15,7 @@ function sleep(t) {
 const MySubjectTitle = ({ user_id, subject }) => {
   const [isFinished, setIsFinished] = useState(false);
   const [isLoading, setIsLoading] = useState();
-  const [isRegister, setIsRegister] = useState();
+  const [isRegister, setIsRegister] = useState(false);
   // const [userState, setUserState] = useState('done');]
   const [state, setState] = useState(false);
   const [repositoryURL, setRepositoryURL] = useState('');
