@@ -12,8 +12,8 @@ const getPiscineAPI = 'https://betti.kr:9000' + '/api/users/';
 // const mdUrl =
 //   'https://raw.githubusercontent.com/euiminnn/Learn-Git-Branch/main/README.md';
 
-const pdfUrl = 'http://www.africau.edu/images/default/sample.pdf?raw:true';
-const htmlUrl = 'https://woosetcho.github.io/html_css_piscine/pages/day01.html';
+// const pdfUrl = 'http://www.africau.edu/images/default/sample.pdf?raw:true';
+// const htmlUrl = 'https://woosetcho.github.io/html_css_piscine/pages/day01.html';
 
 const RegisterPiscine = ({ match, location }) => {
   const history = useHistory();
@@ -44,12 +44,15 @@ const RegisterPiscine = ({ match, location }) => {
         <div className="register-block">
           <div className="register-box">
             <MDViewer className="md" url={piscine.readme_link}></MDViewer>
+            {/*
+            // pdf 뷰어
             <object className="pdf" data={pdfUrl} type="application/pdf">
               alt : <a href={pdfUrl}>test.pdf</a>
             </object>
+            // html 뷰어
             <object className="pdf" data={htmlUrl} type="text/html">
               alt : <a href={htmlUrl}>test.pdf</a>
-            </object>
+            </object> */}
           </div>
         </div>
       </div>

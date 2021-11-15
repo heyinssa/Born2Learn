@@ -5,6 +5,7 @@ import './Entrance.scss';
 
 const Entrance = () => {
   const [userId, setUserId] = useState('');
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const handleChangeId = (e) => {
     setUserId(e.currentTarget.value.replace(/[^A-Za-z0-9]/gi, ''));
@@ -14,6 +15,10 @@ const Entrance = () => {
     setUserId('');
   };
 
+  useEffect(() => {
+    if (userId) setIsEmpty(true);
+  }, []);
+
   return (
     <div className="login-page">
       <h1 className="title">Born to Learn</h1>
@@ -21,7 +26,8 @@ const Entrance = () => {
         onChange={handleChangeId}
         className="inputid"
         value={userId}
-        maxLength="10"
+        maxLength="15"
+        placeholder={isEmpty ? '아이디를 입력하세요' : ''}
       />
       <Link
         to={{
