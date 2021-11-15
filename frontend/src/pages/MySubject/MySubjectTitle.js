@@ -31,9 +31,7 @@ const MySubjectTitle = ({ user_id, subject }) => {
       if (userSubject.subject_id == subject.subject_id) {
         setIsRegister(true);
         setIsFinished(userSubject.is_finished);
-	      console.log(userSubject.repository);
         setRepositoryURL(userSubject.repository);
-        console.log(isFinished);
       }
     });
   };
@@ -53,7 +51,6 @@ const MySubjectTitle = ({ user_id, subject }) => {
 
   const handleRegsiter = () => {
     // setIsRegister(true);
-
     axios
       .post(
         getUserSubjectAPI + '/' + user_id + '/subjects/' + subject.subject_id
