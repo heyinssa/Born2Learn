@@ -51,7 +51,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
 
   useEffect(() => {
     fetchEvaluationList();
-    setIsClicked(isFinished);
+    setIsClicked(isFinished == 1 ? true : false);
   }, []);
 
   return (
