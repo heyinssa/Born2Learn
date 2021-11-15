@@ -12,8 +12,14 @@ const PostRepository = ({ closeModal }) => {
     closeModal();
     event.preventDefault();
     await axios
-      .post(url + '/api/piscines/ps')
-      .then((response) => {})
+      .post(url + '/api/piscines/ps', {
+        data: {
+          github_link: repositoryURL,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
       .catch((error) => {
         console.log('API 호출 실패!');
       });

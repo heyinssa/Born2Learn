@@ -5,6 +5,7 @@ import axios from 'axios';
 const MyEvaluationBox = ({ user_id, evaluationList }) => {
   //   const [eval, setIsFinish] = useState(false);
 
+  console.log(evaluationList[0]);
   return (
     <div className="main-box">
       <h1>진행중인 평가</h1>
