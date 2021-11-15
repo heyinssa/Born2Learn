@@ -5,7 +5,7 @@ import axios from 'axios';
 const MyEvaluationBox = ({ user_id, evaluationList }) => {
   //   const [eval, setIsFinish] = useState(false);
   const filteredEvaluationList = evaluationList.filter(
-    (evaluation) => evaluation.is_done
+    (evaluation) => !evaluation.is_done
   );
 
   return (
