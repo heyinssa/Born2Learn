@@ -51,7 +51,7 @@ const MyEvaluation = ({ match, location }) => {
         console.log('put evaluation api 성공!');
       })
       .catch((error) => {
-        'put evaluation api 성공!';
+        console.log('put evaluation api 성공!');
       });
   };
 
