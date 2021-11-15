@@ -8,6 +8,7 @@ const getEvaluationAPI = 'https://betti.kr:9000' + '/api/users';
 const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
   // const [userEvaluationList, setUserEvaluationList] = useState([]);
   // const [evaluationList, setEvaluationList] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
   const [subjectEvaluationList, setSubjectEvaluationList] = useState([]);
 
   const fetchEvaluationList = async () => {
@@ -53,7 +54,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
           '/finish'
       )
       .then((response) => {
-        isFinished = 1;
+        setIsClicked(true);
       })
       .catch((error) => {
         console.log('set finish 호출 실패!');
@@ -61,18 +62,18 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
   };
 
   useEffect(() => {
-    console.log(isFinished);
     fetchEvaluationList();
+    console.log(subjectEvaluationList);
   }, []);
 
   return (
     <div className="mysubject-box-evaluation">
-      {isFinished == 1 && (
+      {isClicked && (
         <MySubjectTitleEvaluationLog
           subjectEvaluationList={subjectEvaluationList}
         />
       )}
-      {isFinished == 0 && (
+      {isClicked && (
         <div className="finishbutton">
           <button onClick={handleFisish}> Set Finish </button>
         </div>
