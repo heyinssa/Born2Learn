@@ -21,9 +21,10 @@ const MyEvaluation = ({ match, location }) => {
   let valuetext;
 
   const handleFeedback = (event) => {
-    console.log(event);
-    console.log(valuetext);
+    // console.log(event);
+    // console.log(valuetext);
     setFeedback(event.target.value);
+    console.log(feedback);
   };
 
   const handleScore = (event) => {
