@@ -30,18 +30,6 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
       });
     return result;
   };
-  // 끝났는지 안끝났는지 결과 가져와야함
-  // const fetchUserSubject = async () => {
-  //   const result = await axios
-  //     .get(getEvaluationAPI + '/' + user_id + '/evaluations')
-  //     .then((response) => {
-  //       setEvaluationList(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(`getUserEvaluation 호출 실패!`);
-  //     });
-  //   return result;
-  // };
 
   const handleFisish = () => {
     axios
@@ -63,7 +51,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
 
   useEffect(() => {
     fetchEvaluationList();
-    console.log(subjectEvaluationList);
+    setIsClicked(isFinished);
   }, []);
 
   return (
@@ -73,7 +61,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
           subjectEvaluationList={subjectEvaluationList}
         />
       )}
-      {isClicked && (
+      {!isClicked && (
         <div className="finishbutton">
           <button onClick={handleFisish}> Set Finish </button>
         </div>

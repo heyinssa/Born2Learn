@@ -10,6 +10,7 @@ const MyPiscineBox = ({ user_id, userPiscine }) => {
           const url = `/myPiscine/${index}`;
           return (
             <Link
+              key={e.piscine_id}
               to={{
                 pathname: url,
                 state: { user_id: user_id, piscine: e },

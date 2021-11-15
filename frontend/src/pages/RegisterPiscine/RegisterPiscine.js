@@ -5,6 +5,7 @@ import RegisterButton from './RegisterButton';
 import checkId from 'utils/checkId';
 import './RegisterPiscine.scss';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const getPiscineAPI = 'https://betti.kr:9000' + '/api/users/';
 
@@ -15,6 +16,7 @@ const pdfUrl = 'http://www.africau.edu/images/default/sample.pdf?raw:true';
 const htmlUrl = 'https://woosetcho.github.io/html_css_piscine/pages/day01.html';
 
 const RegisterPiscine = ({ match, location }) => {
+  const history = useHistory();
   const user_id = checkId(location);
   let piscine;
   if (user_id) piscine = location.state.piscine;
@@ -25,6 +27,10 @@ const RegisterPiscine = ({ match, location }) => {
       .post(getPiscineAPI + '/' + user_id + '/piscines/' + piscine.piscine_id)
       .then((response) => {
         console.log(response.data);
+        history.push({
+          pathname: '/main',
+          state: { user_id },
+        });
       })
       .catch((error) => {
         console.log('피신 등록 실패!');
@@ -48,7 +54,7 @@ const RegisterPiscine = ({ match, location }) => {
         </div>
       </div>
       <Footer />
-      <RegisterButton registerPiscine={registerPiscine} />
+      <RegisterButton registerPiscine={registerPiscine} user_id={user_id} />
     </div>
   );
 };

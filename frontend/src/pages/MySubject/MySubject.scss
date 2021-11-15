@@ -148,6 +148,10 @@
               font-size: 0.9em;
               gap: 1vh;
               div {
+                // overflow: hidden;
+                white-space: normal;
+                word-break: break-all;
+                background: white;
                 min-height: 4vh;
                 padding: 2%;
                 border: 1px solid $boxborderColor;

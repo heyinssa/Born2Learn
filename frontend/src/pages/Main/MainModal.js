@@ -12,7 +12,7 @@ const PostRepository = ({ closeModal }) => {
     closeModal();
     event.preventDefault();
     await axios
-      .post(url + '/api/piscines/ps', {
+      .post(url + '/api/piscines', {
         data: {
           github_link: repositoryURL,
         },

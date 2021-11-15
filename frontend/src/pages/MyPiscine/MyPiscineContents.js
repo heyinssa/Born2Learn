@@ -9,6 +9,7 @@ const MyPiscineContents = ({ user_id, userPiscineSubjectList }) => {
           const url = `/myPiscine/subject/${e.subject_id}`;
           return (
             <Link
+              key={e.subject_id}
               to={{
                 pathname: url,
                 state: { user_id: user_id, subject: e },

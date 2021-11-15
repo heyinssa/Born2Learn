@@ -4,11 +4,15 @@ import axios from 'axios';
 
 const MyEvaluationBox = ({ user_id, evaluationList }) => {
   //   const [eval, setIsFinish] = useState(false);
+  const filteredEvaluationList = evaluationList.filter(
+    (evaluation) => evaluation.is_done
+  );
+
   return (
     <div className="main-box">
       <h1>진행중인 평가</h1>
       <div className="evaluation">
-        {evaluationList.map((e, index) => {
+        {filteredEvaluationList.map((e, index) => {
           const evalurl = `/myEvaluation/${index}`;
           const sbjurl = `/myPiscine/subject/${e.subject.subject_id}`;
           const evaluator = e.evaluator.id;
@@ -17,6 +21,7 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
           // console.log(e);
           return (
             <Link
+              key={e.evaluation_id}
               to={{
                 pathname: e.evaluatee.user_id === user_id ? sbjurl : evalurl,
                 state: { user_id: user_id, subject: e.subject, evaluation: e },

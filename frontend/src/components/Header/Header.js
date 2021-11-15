@@ -5,8 +5,6 @@ import Headroom from 'react-headroom';
 import './Header.scss';
 
 const Header = ({ path, user_id }) => {
-  console.log(path);
-  console.log(user_id);
   return (
     <Headroom
       onPin={() => console.log('pinned')}
