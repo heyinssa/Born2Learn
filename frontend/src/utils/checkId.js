@@ -4,7 +4,7 @@ const checkId = (location) => {
   let id;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const history = useHistory();
-  // console.log(location.state);
+
   if (!location.state || !location.state.user_id) {
     history.push('/');
   } else {

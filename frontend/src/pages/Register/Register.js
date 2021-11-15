@@ -28,10 +28,8 @@ const Register = ({ location }) => {
         },
       })
       .then((response) => {
-          userInfo = response.data;
-          // console.log(userInfo);
-          setIsFinish(true);
-        console.log(response.data);
+        userInfo = response.data;
+        setIsFinish(true);
       })
       .catch((error) => {
         if (!error || !error.response || error.response.status == 404) {
@@ -48,22 +46,17 @@ const Register = ({ location }) => {
     const pwString = path.join('');
     setPath([]);
     if (comparePath) {
-      console.log('비교해야 합니다.');
       if (pwString === comparePath) {
         const result = await postRegiser(id, pwString);
         if (result) {
           userInfo = result.data;
-          // console.log(userInfo);
           setIsFinish(true);
         } else {
-          // alert(result);
         }
       } else {
         setIsWrong(true);
       }
     } else {
-      console.log(pwString);
-      console.log('한번더 입력.');
       setComparePath(pwString);
     }
   };

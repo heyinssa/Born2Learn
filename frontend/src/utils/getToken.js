@@ -34,8 +34,8 @@ const getToken = async () => {
       },
     });
     const response = await fetchToken.json();
-    console.log(fetchToken);
-    console.log(response);
+    // console.log(fetchToken);
+    // console.log(response);
 
     return response;
   } catch (e) {

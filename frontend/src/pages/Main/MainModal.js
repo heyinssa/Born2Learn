@@ -17,9 +17,7 @@ const PostRepository = ({ closeModal }) => {
           github_link: repositoryURL,
         },
       })
-      .then((response) => {
-        console.log(response);
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log('API 호출 실패!');
       });

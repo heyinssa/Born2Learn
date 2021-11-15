@@ -121,19 +121,3 @@ const MySubjectTitle = ({ user_id, subject }) => {
 };
 
 export default MySubjectTitle;
-
-// useEffect(() => {
-// const asyncProcess = async () => {
-//   axios
-//     .get(url)
-//     .then((response) => {
-//       console.log(response.data);
-//       setReposiporyUrl(response.data);
-//       state.value = url;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
-// asyncProcess();
-// });

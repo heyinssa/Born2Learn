@@ -21,10 +21,7 @@ const MyEvaluation = ({ match, location }) => {
   let valuetext;
 
   const handleFeedback = (event) => {
-    // console.log(event);
-    // console.log(valuetext);
     setFeedback(event.target.value);
-    // console.log(feedback);
   };
 
   const handleScore = (event) => {
@@ -36,10 +33,6 @@ const MyEvaluation = ({ match, location }) => {
   };
 
   const feedbackFinish = async () => {
-    // score , feedback 보내기
-    // console.log('here');
-    // console.log(evaluation.evaluatee_id);
-    // console.log(score);
     await axios
       .put(putUserFeedbackAPI + '/' + evaluation.evaluation_id, {
         data: {

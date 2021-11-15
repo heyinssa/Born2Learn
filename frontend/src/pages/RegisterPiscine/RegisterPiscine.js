@@ -20,13 +20,11 @@ const RegisterPiscine = ({ match, location }) => {
   const user_id = checkId(location);
   let piscine;
   if (user_id) piscine = location.state.piscine;
-  console.log(piscine);
 
   const registerPiscine = () => {
     axios
       .post(getPiscineAPI + '/' + user_id + '/piscines/' + piscine.piscine_id)
       .then((response) => {
-        console.log(response.data);
         history.push({
           pathname: '/main',
           state: { user_id },

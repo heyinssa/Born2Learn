@@ -6,13 +6,11 @@ import axios from 'axios';
 const MDViewer = ({ url }) => {
   const [contents, setContents] = useState([]);
 
-  console.log(url);
   useEffect(() => {
     const asyncProcess = async () => {
       axios
         .get(url)
         .then((response) => {
-          // console.log(response.data);
           setContents(response.data);
         })
         .catch((error) => {

@@ -18,7 +18,7 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
           const evaluator = e.evaluator.id;
           const evaluatee = e.evaluatee.id;
           const subject = e.subject.name;
-          // console.log(e);
+
           return (
             <Link
               key={e.evaluation_id}
