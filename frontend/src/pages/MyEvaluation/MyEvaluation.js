@@ -32,6 +32,7 @@ const MyEvaluation = ({ match, location }) => {
   };
   const checkEmpty = () => {
     if (!feedback) return false;
+    return true;
   };
 
   const feedbackFinish = async () => {
