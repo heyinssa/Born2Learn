@@ -36,6 +36,7 @@ const MyEvaluation = ({ match, location }) => {
 
   const feedbackFinish = async () => {
     // score , feedback 보내기
+    console.log('here');
     await axios
       .put(putUserFeedbackAPI + '/' + evaluation.evaluation_id, {
         data: {
