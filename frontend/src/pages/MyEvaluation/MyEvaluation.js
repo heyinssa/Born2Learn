@@ -16,7 +16,7 @@ const MyEvaluation = ({ match, location }) => {
 
   const user_id = checkId(location);
   const evaluation = location.state.evaluation;
-  const subject = location.state.evaluation.subject;
+  const subject = location.state.subject;
 
   let valuetext;
 

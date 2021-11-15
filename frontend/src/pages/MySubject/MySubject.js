@@ -10,7 +10,7 @@ const temp =
 
 const MySubject = ({ match, location }) => {
   const user_id = checkId(location);
-  const subject = location.state.evaluation.subject;
+  const subject = location.state.subject;
 
   return (
     <div className="mysubject-container">

@@ -21,7 +21,7 @@ const MyEvaluationBox = ({ user_id, evaluationList }) => {
             <Link
               to={{
                 pathname: e.evaluatee.user_id === user_id ? sbjurl : evalurl,
-                state: { user_id: user_id, evaluation: e },
+                state: { user_id: user_id, subject: e.subject, evaluation: e },
               }}
             >
               <div>
