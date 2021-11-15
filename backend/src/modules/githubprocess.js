@@ -1,6 +1,6 @@
 import { request } from '@octokit/request';
 import GitUrlParse from 'git-url-parse';
-import ApiError from './error';
+import ApiError from './error.js';
 
 async function getRepositoryContents(owner, repo, path) {
   const results = await request('GET /repos/{owner}/{repo}/contents/{path}', {

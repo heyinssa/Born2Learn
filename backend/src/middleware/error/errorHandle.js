@@ -27,6 +27,7 @@ async function errorHandler(error, req, res, next) {
   const body = {
     message,
   };
+  console.error(body)
   res.status(statusCode).json(body);
 }
 
