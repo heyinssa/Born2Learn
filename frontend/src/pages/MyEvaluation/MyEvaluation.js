@@ -8,14 +8,15 @@ import './MyEvaluation.scss';
 import checkId from 'utils/checkId';
 // import MyEvaluationContents from './MyEvaluationContents';
 
-const putUserFeedbackAPI = 'https://betti.kr:9000' + '/api/users';
+const putUserFeedbackAPI = 'https://betti.kr:9000' + '/api/evaluations';
 
 const MyEvaluation = ({ match, location }) => {
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState('');
 
   const user_id = checkId(location);
-  const subject = location.state.subject;
+  const evaluation = location.state.evaluation;
+  const subject = location.state.evaluation.subject;
 
   let valuetext;
 
@@ -35,9 +36,23 @@ const MyEvaluation = ({ match, location }) => {
   const feedbackFinish = async () => {
     // score , feedback 보내기
     await axios
-      .put()
-      .then((response) => {})
-      .catch((error) => {});
+      .put(putUserFeedbackAPI + '/' + evaluation.evaluation_id, {
+        data: {
+          evaluator_id: evaluation.evaluator_id,
+          evaluatee_id: evaluation.evaluatee_id,
+          subject_id: subject.subject_id,
+          is_done: 1,
+          evaluator_feedback: feedback,
+          evaluatee_feedback: 'none',
+          score: score,
+        },
+      })
+      .then((response) => {
+        console.log('put evaluation api 성공!');
+      })
+      .catch((error) => {
+        'put evaluation api 성공!';
+      });
   };
 
   return (
