@@ -19,9 +19,11 @@ const User = ({ setUserId }) => {
     axios
       .get(url)
       .then((response) => {
-        setUsers(response.data.sort(function(a, b) {
-          return  new Date(b.createdAt) -  new Date(a.createdAt);
-        }));
+        setUsers(
+          response.data.sort(function (a, b) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          })
+        );
       })
       .catch((error) => {
         console.log(`${url} 호출 실패!`);
