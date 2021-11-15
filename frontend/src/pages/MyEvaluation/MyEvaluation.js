@@ -12,7 +12,7 @@ const putUserFeedbackAPI = 'https://betti.kr:9000' + '/api/evaluations';
 
 const MyEvaluation = ({ match, location }) => {
   const [feedback, setFeedback] = useState('');
-  const [score, setScore] = useState('');
+  const [score, setScore] = useState('30');
 
   const user_id = checkId(location);
   const evaluation = location.state.evaluation;
@@ -24,7 +24,7 @@ const MyEvaluation = ({ match, location }) => {
     // console.log(event);
     // console.log(valuetext);
     setFeedback(event.target.value);
-    console.log(feedback);
+    // console.log(feedback);
   };
 
   const handleScore = (event) => {
@@ -37,12 +37,14 @@ const MyEvaluation = ({ match, location }) => {
 
   const feedbackFinish = async () => {
     // score , feedback 보내기
-    console.log('here');
+    // console.log('here');
+    // console.log(evaluation.evaluatee_id);
+    // console.log(score);
     await axios
       .put(putUserFeedbackAPI + '/' + evaluation.evaluation_id, {
         data: {
-          evaluator_id: evaluation.evaluator_id,
-          evaluatee_id: evaluation.evaluatee_id,
+          evaluator_id: evaluation.evaluator.user_id,
+          evaluatee_id: evaluation.evaluatee.user_id,
           subject_id: subject.subject_id,
           is_done: 1,
           evaluator_feedback: feedback,
@@ -101,7 +103,7 @@ const MyEvaluation = ({ match, location }) => {
                 <button
                   className="finishbutton"
                   type="submit"
-                  disabled={checkEmpty}
+                  // disabled={checkEmpty}
                   onClick={feedbackFinish}
                 >
                   완료

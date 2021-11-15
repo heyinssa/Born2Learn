@@ -22,6 +22,11 @@ const MyPiscine = ({ match, location }) => {
     axios
       .get(getPiscineSubjectAPI + '/' + piscine.piscine_id + '/subjects')
       .then((response) => {
+        response.data.sort((e1, e2) => {
+          if (e1.name < e2.name) return -1;
+          else if (e1.name > e2.name) return 1;
+          else return 0;
+        });
         setUserPiscineSubjectList(response.data);
       })
       .catch((error) => {

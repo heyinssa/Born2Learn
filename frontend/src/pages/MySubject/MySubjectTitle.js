@@ -56,7 +56,11 @@ const MySubjectTitle = ({ user_id, subject }) => {
         getUserSubjectAPI + '/' + user_id + '/subjects/' + subject.subject_id
       )
       .then((response) => {
+        const userSubject = response.data;
+
         setIsRegister(true);
+        setIsFinished(userSubject.is_finished);
+        setRepositoryURL(userSubject.repository);
       })
       .catch((error) => {
         console.log(`getUserSubjectAPI POST 실패! ${subject.subject_id}`);

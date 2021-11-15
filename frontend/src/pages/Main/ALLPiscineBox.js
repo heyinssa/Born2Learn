@@ -13,6 +13,7 @@ const ALLPiscineBox = ({ user_id, piscineList, openModal }) => {
           const url = `/registerPiscine/${index}`;
           return (
             <Link
+              key={e.piscine_id}
               to={{
                 pathname: url,
                 state: { user_id: user_id, piscine: e },
