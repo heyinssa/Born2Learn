@@ -45,7 +45,7 @@ async function create(github_link) {
       piscine.piscine_id,
       subject.name,
       subject.evaluation_num,
-      subject.download_url,
+      subject.subject_link,
       subject.evaluation_link,
       subject.default_repository,
     );
