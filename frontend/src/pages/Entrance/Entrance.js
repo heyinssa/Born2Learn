@@ -55,7 +55,7 @@ const Entrance = () => {
       >
         <button
           type="button"
-          onClick={userId ? handleClickLogin : setIsEmpty(true)}
+          onClick={handleClickLogin}
           className="loginbutton"
         >
           회원가입
