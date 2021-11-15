@@ -51,15 +51,11 @@ const Entrance = () => {
         onChange={handleChangeId}
         className="inputid"
         value={userId}
+        onKeyPress={onKeyPress}
         maxLength="15"
         placeholder={isEmpty ? '아이디 입력!' : ''}
       />
-      <button
-        type="button"
-        onKeyPress={onKeyPress}
-        onClick={handleClickLogin}
-        className="loginbutton"
-      >
+      <button type="button" onClick={handleClickLogin} className="loginbutton">
         로그인
       </button>
       <button
