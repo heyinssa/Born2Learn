@@ -1,18 +1,37 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import './Entrance.scss';
+import { useHistory } from 'react-router';
 
 const Entrance = () => {
   const [userId, setUserId] = useState('');
   const [isEmpty, setIsEmpty] = useState(false);
+  const history = useHistory();
 
   const handleChangeId = (e) => {
     setUserId(e.currentTarget.value.replace(/[^A-Za-z0-9]/gi, ''));
   };
 
   const handleClickLogin = () => {
-    setUserId('');
+    if (userId == '') setIsEmpty(true);
+    else {
+      setUserId('');
+      history.push({
+        pathname: '/login',
+        state: { userId },
+      });
+    }
+  };
+
+  const handleClickRegister = () => {
+    if (userId == '') setIsEmpty(true);
+    else {
+      setUserId('');
+      history.push({
+        pathname: '/register',
+        state: { userId },
+      });
+    }
   };
 
   useEffect(() => {
@@ -29,38 +48,16 @@ const Entrance = () => {
         maxLength="15"
         placeholder={isEmpty ? '아이디를 입력하세요' : ''}
       />
-      <Link
-        to={{
-          pathname: '/login',
-          state: {
-            userId: userId,
-          },
-        }}
+      <button type="button" onClick={handleClickLogin} className="loginbutton">
+        로그인
+      </button>
+      <button
+        type="button"
+        onClick={handleClickRegister}
+        className="loginbutton"
       >
-        <button
-          type="button"
-          onClick={handleClickLogin}
-          className="loginbutton"
-        >
-          로그인
-        </button>
-      </Link>
-      <Link
-        to={{
-          pathname: '/register',
-          state: {
-            userId: userId,
-          },
-        }}
-      >
-        <button
-          type="button"
-          onClick={handleClickLogin}
-          className="loginbutton"
-        >
-          회원가입
-        </button>
-      </Link>
+        회원가입
+      </button>
     </div>
   );
 };
