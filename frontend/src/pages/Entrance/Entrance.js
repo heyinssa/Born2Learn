@@ -34,6 +34,10 @@ const Entrance = () => {
     }
   };
 
+  const onKeyPress = (e) => {
+    if (e.key == 'Enter') handleClickLogin();
+  };
+
   useEffect(() => {
     if (userId) setIsEmpty(true);
   }, []);
@@ -48,7 +52,12 @@ const Entrance = () => {
         maxLength="15"
         placeholder={isEmpty ? '아이디 입력!' : ''}
       />
-      <button type="button" onClick={handleClickLogin} className="loginbutton">
+      <button
+        type="button"
+        onKeyPress={onKeyPress}
+        onClick={handleClickLogin}
+        className="loginbutton"
+      >
         로그인
       </button>
       <button

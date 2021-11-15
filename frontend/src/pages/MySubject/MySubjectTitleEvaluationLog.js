@@ -12,7 +12,7 @@ const MySubjectTitleEvaluationLog = ({ subjectEvaluationList }) => {
               <span> {e.score} % </span>
             </div>
             <div className="evaluation-box-feedback">
-              <div> here {e.evaluator_feedback} </div>
+              <div> {e.evaluator_feedback} </div>
               {/* <div> 여긴 {e.evaluator_feedback} </div> */}
             </div>
           </div>
