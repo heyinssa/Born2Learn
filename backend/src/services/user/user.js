@@ -143,7 +143,7 @@ async function registerSubject(user_id, subject_id) {
     uri: 'http://skyrich3.synology.me:9900/api/v4/projects',
     method: 'POST',
     headers: {
-      'Authorization': "Bearer gP42jbDSXNj_tQpK9BsP"
+      Authorization: 'Bearer gP42jbDSXNj_tQpK9BsP',
     },
     body: {
       name: repository_name,
@@ -183,7 +183,7 @@ async function setFinishSubject(
   await getByUserId(user_id);
   await SubjectService.getBySubjectId(subject_id);
 
-  // await EvaluationService.create(user_id, subject_id);
+  await EvaluationService.create(user_id, subject_id);
 
   const register = await UserSubjectModel.update(
     user_id, //

@@ -26,24 +26,29 @@ async function create(
   const subject = await SubjectService.getBySubjectId(subject_id);
   const users = await PiscineService.getUsers(subject.piscine.piscine_id);
 
-  if (!users || users.length < 2)
+  if (!users || users.length <= subject.evaluation_num)
     throw new ApiError(404, `Evaluator not found`);
 
-  const user_pool = users.filter(user => user.user_id != evaluatee_id);
-  const evaluator = user_pool[Math.floor(Math.random() * user_pool.length)];
-  const evaluator_id = evaluator.user_id;
+  let user_pool = users.filter(user => user.user_id != evaluatee_id);
+  const evaluations = [];
+  for (let i = 0; i < subject.evaluation_num; i++) {
+    const evaluator = user_pool[Math.floor(Math.random() * user_pool.length)];
+    const evaluator_id = evaluator.user_id;
 
-  const evaluation = await EvaluationModel.create(
-    evaluator_id, //
-    evaluatee_id,
-    subject_id,
-    is_done,
-    evaluator_feedback,
-    evaluatee_feedback,
-    score,
-  );
+    user_pool = user_pool.filter(user => user.user_id != evaluator_id);
+    const evaluation = await EvaluationModel.create(
+      evaluator_id, //
+      evaluatee_id,
+      subject_id,
+      is_done,
+      evaluator_feedback,
+      evaluatee_feedback,
+      score,
+    );
+    evaluations.push(evaluation);
+  }
 
-  return evaluation;
+  return evaluations;
 }
 
 async function update(

@@ -51,14 +51,14 @@ export default async () => {
     const subjects = user_subject.subject_id;
     const subject = subjects[Math.floor(Math.random() * subjects.length)];
 
-    for (let i = 0; i < Math.floor(Math.random() * 3) + 1; i++) {
-      datas.push({
-        data: {
-          evaluatee_id: user_subject.user_id,
-          subject_id: subject,
-        },
-      });
-    }
+    // for (let i = 0; i < Math.floor(Math.random() * 3) + 1; i++) {
+    datas.push({
+      data: {
+        evaluatee_id: user_subject.user_id,
+        subject_id: subject,
+      },
+    });
+    // }
   });
 
   const options = datas.map(data => {
