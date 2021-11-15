@@ -35,8 +35,6 @@ const Entrance = () => {
   };
 
   const onKeyPress = (e) => {
-    console.log('here');
-    console.log(e.key);
     if (e.key == 'Enter') handleClickLogin();
   };
 
