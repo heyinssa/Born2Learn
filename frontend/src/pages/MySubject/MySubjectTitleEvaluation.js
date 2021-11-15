@@ -42,6 +42,7 @@ const MySubjectTitleEvaluation = ({ user_id, subject, isFinished }) => {
           '/finish'
       )
       .then((response) => {
+        fetchEvaluationList();
         setIsClicked(true);
       })
       .catch((error) => {
