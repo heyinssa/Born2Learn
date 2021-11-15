@@ -46,7 +46,7 @@ const Entrance = () => {
         className="inputid"
         value={userId}
         maxLength="15"
-        placeholder={isEmpty ? '아이디를 입력하세요' : ''}
+        placeholder={isEmpty ? '아이디 입력!' : ''}
       />
       <button type="button" onClick={handleClickLogin} className="loginbutton">
         로그인
