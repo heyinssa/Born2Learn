@@ -1,11 +1,12 @@
 import { request } from '@octokit/request';
 import GitUrlParse from 'git-url-parse';
+import config from '../config/index.js';
 import ApiError from './error.js';
 
 async function getRepositoryContents(owner, repo, path) {
   const results = await request('GET /repos/{owner}/{repo}/contents/{path}', {
     headers: {
-      Authorization: 'token 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',
+      Authorization: `token ${config.github.token}`,
     },
     owner,
     repo,

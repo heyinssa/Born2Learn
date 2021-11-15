@@ -30,4 +30,7 @@ export default {
     password: configCheck('DB_PASSWORD'),
     log: configCheck('DB_LOG'),
   },
+  github: {
+    token: configCheck('GITHUB_TOKEN'),
+  },
 };
