@@ -31,6 +31,8 @@ var sslOptions = {
 
 https
   .createServer(sslOptions, app, (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Credentials', true);
     console.log('필요한 코드 넣기');
   })
   .listen(config.host.port, () => {
