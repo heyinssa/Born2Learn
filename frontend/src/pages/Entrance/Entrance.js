@@ -37,7 +37,7 @@ const Entrance = () => {
 
   const handleCookie = () => {
     axios
-      .get('https://betti.kr/api/cookie')
+      .get('https://betti.kr:9000/api/cookie')
       .then((response) => {
         console.log('성공!');
       })
