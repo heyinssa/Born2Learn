@@ -8,7 +8,7 @@ import helmet from 'helmet';
 export default [
   express.json(), //
   cors({
-    // origin: true,
+    origin: true,
     credentials: true,
   }),
   morgan('combined'),
