@@ -5,7 +5,7 @@ const ALLPiscineBox = ({ user_id, piscineList, openModal }) => {
   return (
     <div className="main-box">
       <div className="not-parti-title">
-        <h1>등록 가능한 과정</h1>
+        <h1>전체 과정</h1>
         <button onClick={openModal}>+</button>
       </div>
       <div className="not-parti">

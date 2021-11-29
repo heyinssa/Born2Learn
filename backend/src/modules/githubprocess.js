@@ -19,6 +19,7 @@ async function getRepositoryContents(owner, repo, path) {
 async function processPiscine(github_link) {
   let piscine_name;
   let readme_link;
+  let pdf_link;
   let subject_names = [];
 
   const github_data = GitUrlParse(github_link);
@@ -30,8 +31,11 @@ async function processPiscine(github_link) {
 
   piscine_name = github_data.name;
   const readme = piscineContents.data.find(file => file.name == 'README.md');
+  const pdf = piscineContents.data.find(file => file.name == 'README.pdf');
   if (!readme) new ApiError(404, 'README.md file not found');
+  if (!pdf) new ApiError(404, 'README.pdf file not found');
   readme_link = readme.download_url;
+  pdf_link = pdf.download_url;
 
   subject_names = piscineContents.data
     .filter(element => element.type == 'dir')
@@ -40,6 +44,7 @@ async function processPiscine(github_link) {
   return {
     piscine_name,
     readme_link,
+    pdf_link,
     subject_names,
   };
 }
