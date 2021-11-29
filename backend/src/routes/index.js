@@ -44,6 +44,8 @@ export default () => {
   router.use('/users', UserRouter);
 
   router.get('/cookie', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Credentials', true);
     res.cookie('visitors', '1', {
       expires: new Date(Date.now() + 900000),
       sameSite: 'none',
