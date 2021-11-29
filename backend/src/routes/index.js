@@ -43,5 +43,19 @@ export default () => {
   router.use('/subjects', SubjectRouter);
   router.use('/users', UserRouter);
 
+  router.use('/cookie', function (req, res, next) {
+    res.cookie('visitors', '1', {
+      expires: new Date(Date.now() + 900000),
+    });
+    // console.log(Date.now() + 1000 * 60);
+
+    return res.send('Visitors created!');
+  });
+
+  router.use('/cookiedelete', function (req, res) {
+    res.clearCookie('visitors');
+    res.send('Visitors deleted.');
+  });
+
   return router;
 };

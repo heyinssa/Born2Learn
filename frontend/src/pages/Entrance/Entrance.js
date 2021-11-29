@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Entrance.scss';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 
 const Entrance = () => {
   const [userId, setUserId] = useState('');
@@ -34,6 +35,17 @@ const Entrance = () => {
     }
   };
 
+  const handleCookie = () => {
+    axios
+      .get('https://betti.kr/api/cookie')
+      .then((response) => {
+        console.log('성공!');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const onKeyPress = (e) => {
     if (e.key == 'Enter') handleClickLogin();
   };
@@ -55,6 +67,9 @@ const Entrance = () => {
       />
       <button type="button" onClick={handleClickLogin} className="loginbutton">
         로그인
+      </button>
+      <button type="button" onClick={handleCookie} className="loginbutton">
+        cookie
       </button>
       <button
         type="button"
