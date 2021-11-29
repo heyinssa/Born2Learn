@@ -21,6 +21,7 @@ app.use(...errorLoader);
 
 Sequelize.sync();
 
+<<<<<<< Updated upstream
 // var sslOptions = {
 //   //   1. PEM을 사용하여 인증하는 경우(cert, ca, key파일을 사용하여 인증하는 경우)
 //   //  확장자명이 .pem인 경우도 있습니다.
@@ -38,3 +39,24 @@ Sequelize.sync();
 //   });
 
 app.listen(config.host.port);
+=======
+var sslOptions = {
+  //   1. PEM을 사용하여 인증하는 경우(cert, ca, key파일을 사용하여 인증하는 경우)
+  //  확장자명이 .pem인 경우도 있습니다.
+  ca: fs.readFileSync('src/certificate.crt'),
+  key: fs.readFileSync('src/private.key'),
+  cert: fs.readFileSync('src/certificate.crt'),
+};
+
+https
+  .createServer(sslOptions, app, (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Credentials', true);
+    console.log('필요한 코드 넣기');
+  })
+  .listen(config.host.port, () => {
+    console.log(`서버 포트: ${config.host.port} ...`);
+  });
+
+//app.listen(config.host.port);
+>>>>>>> Stashed changes
