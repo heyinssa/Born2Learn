@@ -47,6 +47,7 @@ export default () => {
     res.cookie('visitors', '1', {
       expires: new Date(Date.now() + 900000),
       sameSite: 'none',
+      secure: true,
     });
     // console.log(Date.now() + 1000 * 60);
 
