@@ -43,7 +43,7 @@ export default () => {
   router.use('/subjects', SubjectRouter);
   router.use('/users', UserRouter);
 
-  router.use('/cookie', function (req, res, next) {
+  router.get('/cookie', function (req, res, next) {
     res.cookie('visitors', '1', {
       expires: new Date(Date.now() + 900000),
     });
