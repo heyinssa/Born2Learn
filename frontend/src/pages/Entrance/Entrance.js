@@ -37,7 +37,7 @@ const Entrance = () => {
 
   const handleCookie = () => {
     axios
-      .get('https://betti.kr:9000/api/cookie', {
+      .get('https://skyrich3.synology.me:9905/api/v1/create', {
         withCredentials: true,
       })
       .then((response) => {
@@ -47,7 +47,6 @@ const Entrance = () => {
         console.log(error);
       });
   };
-
   const onKeyPress = (e) => {
     if (e.key == 'Enter') handleClickLogin();
   };
