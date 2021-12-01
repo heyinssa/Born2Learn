@@ -69,9 +69,9 @@ const Entrance = () => {
       <button type="button" onClick={handleClickLogin} className="loginbutton">
         로그인
       </button>
-      <button type="button" onClick={handleCookie} className="loginbutton">
+      {/* <button type="button" onClick={handleCookie} className="loginbutton">
         cookie
-      </button>
+      </button> */}
       <button
         type="button"
         onClick={handleClickRegister}
