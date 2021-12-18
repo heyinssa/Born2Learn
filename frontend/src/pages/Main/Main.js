@@ -46,15 +46,13 @@ const Main = ({ location }) => {
   };
 
   const getPiscines = async () => {
-    const result = await axios
-      .get(getPiscinesAPI)
-      .then((response) => {
-        setPiscineList(response.data);
-      })
-      .catch((error) => {
-        console.log(`getPiscinesAPI 호출 실패!`);
-      });
-    return result;
+    try {
+      const response = await axios.get(getPiscinesAPI);
+      const result = setPiscineList(response.data);
+      return result;
+    } catch (error) {
+      console.log(`getPiscinesAPI 호출 실패!`);
+    }
   };
 
   const closeModal = () => setIsAddButtonClicked(false);

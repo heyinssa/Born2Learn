@@ -37,7 +37,7 @@ const Entrance = () => {
 
   const handleCookie = () => {
     axios
-      .get('https://betti.kr:9000/api/cookie', {
+      .get('https://skyrich3.synology.me:9905/api/v1/create', {
         withCredentials: true,
       })
       .then((response) => {
@@ -47,7 +47,6 @@ const Entrance = () => {
         console.log(error);
       });
   };
-
   const onKeyPress = (e) => {
     if (e.key == 'Enter') handleClickLogin();
   };
@@ -70,9 +69,9 @@ const Entrance = () => {
       <button type="button" onClick={handleClickLogin} className="loginbutton">
         로그인
       </button>
-      <button type="button" onClick={handleCookie} className="loginbutton">
+      {/* <button type="button" onClick={handleCookie} className="loginbutton">
         cookie
-      </button>
+      </button> */}
       <button
         type="button"
         onClick={handleClickRegister}
