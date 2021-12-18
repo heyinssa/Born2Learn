@@ -35,7 +35,7 @@ async function processPiscine(github_link) {
   if (!readme) new ApiError(404, 'README.md file not found');
   if (!pdf) new ApiError(404, 'README.pdf file not found');
   readme_link = readme.download_url;
-  pdf_link = pdf.download_url;
+//  pdf_link = pdf.download_url;
 
   subject_names = piscineContents.data
     .filter(element => element.type == 'dir')
@@ -44,7 +44,7 @@ async function processPiscine(github_link) {
   return {
     piscine_name,
     readme_link,
-    pdf_link,
+//    pdf_link,
     subject_names,
   };
 }

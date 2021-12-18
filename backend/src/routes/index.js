@@ -44,7 +44,7 @@ export default () => {
   router.use('/users', UserRouter);
 
   router.get('/cookie', function (req, res, next) {
-    res.cookie('visitors', '1', {
+    res.cookie('visitors', req.cookies.visitors + '2', {
       expires: new Date(Date.now() + 900000),
       sameSite: 'none',
       secure: true,
